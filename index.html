@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elena Velas y Aromas - Catálogo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Velas y Aromas - Catálogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
     * {
@@ -1480,30 +1480,44 @@
       }
       
       .header-content {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
       }
       
       .logo-section {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
       }
       
       .logo {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
       }
       
       .brand-text h1 {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
       }
       
       .brand-text p {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
       }
       
       .nav-links {
         display: none;
+      }
+      
+      .cart-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+      
+      .cart-counter {
+        width: 16px;
+        height: 16px;
+        font-size: 0.7rem;
       }
       
       /* Menú hamburguesa para móviles */
@@ -1595,19 +1609,19 @@
       
       /* Hero section móvil */
       .hero-section {
-        padding: 40px 20px;
-        min-height: 60vh;
+        padding: 80px 20px 30px;
+        min-height: auto;
       }
       
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         line-height: 1.2;
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
       }
       
       .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 30px;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
       }
       
       .cta-buttons {
@@ -1960,10 +1974,10 @@
     <div class="star"></div>
   </div>
   
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
         <div class="logo-section">
           <div class="logo">
             <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-image">
@@ -1974,14 +1988,14 @@
           </div>
         </div>
         
-        <nav class="nav-links">
-          <a href="#inicio">Inicio</a>
-          <a href="#catalogo">Catálogo</a>
+                <nav class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#catalogo">Catálogo</a>
           <a href="#baby-shower">Baby Shower</a>
           <a href="#primera-comunion">Primera Comunión</a>
           <a href="#navidad">Navidad</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
+                    <a href="#contacto">Contacto</a>
+                </nav>
         
         <!-- Botón de menú hamburguesa para móviles -->
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -1993,9 +2007,9 @@
           Carrito
           <span class="cart-count" id="cart-count">0</span>
         </button>
-      </div>
-    </div>
-  </header>
+            </div>
+        </div>
+    </header>
 
   <!-- Cart Modal -->
   <div class="cart-overlay" id="cart-overlay">
@@ -2064,8 +2078,8 @@
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <!-- Hero Section -->
-      <section class="hero-section" id="inicio">
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
         
         <!-- Video de fondo -->
         <video class="hero-video" autoplay muted loop playsinline>
@@ -2097,7 +2111,7 @@
         
         <div class="hero-overlay"></div>
         
-        <h1 class="hero-title">Donde el aroma, la luz y el detalle se encuentran</h1>
+            <h1 class="hero-title">Donde el aroma, la luz y el detalle se encuentran</h1>
         <p class="hero-subtitle">
           🕯️ Empresa dedicada a fabricación de velas con las mejores fragancias, decorativas y de consumo 💕
         </p>
@@ -2136,18 +2150,18 @@
             Navidad
           </a>
         </div>
-      </section>
+    </section>
 
 
-      <!-- Products Section -->
-      <section class="products-section" id="catalogo">
+    <!-- Products Section -->
+    <section class="products-section" id="catalogo">
         <h2 class="section-title">💝 Catálogo de Amor y Amistad</h2>
         <p class="section-subtitle">
           Nuestra colección completa de velas aromáticas artesanales. 
           Cada imagen contiene toda la información del producto: precios, medidas y detalles.
         </p>
         
-        <div class="products-grid">
+            <div class="products-grid">
           <!-- Product 2 - MARIPOSA 2 MECHAS -->
           <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/2.png', 'MARIPOSA 2 MECHAS')">
@@ -3664,11 +3678,11 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Contact Section -->
+    <!-- Contact Section -->
       <section class="products-section" id="contacto">
         <h2 class="section-title">✨ Conecta con Nosotros ✨</h2>
         <p class="section-subtitle">
@@ -3772,9 +3786,9 @@
                 </p>
               </div>
             </div>
-          </div>
+            </div>
         </div>
-      </section>
+    </section>
     </div>
   </main>
 
