@@ -1,0 +1,84 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente dorado metálico -->
+    <radialGradient id="goldGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B6914;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Sombra interna -->
+    <filter id="innerShadow">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="3" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="#000000" flood-opacity="0.3" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+    
+    <!-- Brillo metálico -->
+    <filter id="metallic">
+      <feGaussianBlur stdDeviation="1"/>
+      <feSpecularLighting result="specOut" in="blur" specularConstant="1.5" specularExponent="20" lighting-color="#FFFFFF">
+        <fePointLight x="-50%" y="-75%" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+  </defs>
+  
+  <!-- Círculo de fondo dorado -->
+  <circle cx="100" cy="100" r="95" fill="url(#goldGradient)" filter="url(#innerShadow) url(#metallic)" stroke="#8B6914" stroke-width="2"/>
+  
+  <!-- Brillo superior -->
+  <ellipse cx="100" cy="30" rx="40" ry="15" fill="rgba(255,255,255,0.3)" opacity="0.6"/>
+  
+  <!-- Nombre "Elena" en caligrafía -->
+  <text x="100" y="75" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="white" filter="url(#innerShadow)">
+    <tspan x="100" dy="0">E</tspan>
+    <tspan x="100" dy="0" font-size="20">lena</tspan>
+  </text>
+  
+  <!-- Llama de vela sobre la 'e' -->
+  <g transform="translate(85, 55)">
+    <!-- Llama principal -->
+    <path d="M5 15 Q5 5 10 0 Q15 5 15 15 Q10 25 5 15 Z" fill="#FF6B35"/>
+    <!-- Centro de la llama -->
+    <ellipse cx="10" cy="8" rx="3" ry="6" fill="#FFD700"/>
+    <!-- Brillo de la llama -->
+    <ellipse cx="10" cy="6" rx="1.5" ry="3" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Eslogan "VELAS Y AROMAS" -->
+  <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2F2F2F">
+    VELAS Y AROMAS
+  </text>
+  
+  <!-- Información de contacto -->
+  <g transform="translate(100, 110)">
+    <!-- Instagram -->
+    <g transform="translate(-60, 0)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#E4405F" opacity="0.8"/>
+      <circle cx="6" cy="6" r="3" fill="white"/>
+      <circle cx="6" cy="6" r="1" fill="#E4405F"/>
+      <text x="15" y="8" font-family="Arial, sans-serif" font-size="8" fill="#2F2F2F">velasyaromaselena</text>
+    </g>
+    
+    <!-- Facebook -->
+    <g transform="translate(-60, 15)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#1877F2" opacity="0.8"/>
+      <text x="3" y="9" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">f</text>
+      <text x="15" y="8" font-family="Arial, sans-serif" font-size="8" fill="#2F2F2F">Velasyaromaselena</text>
+    </g>
+    
+    <!-- Teléfono -->
+    <g transform="translate(-60, 30)">
+      <path d="M2 2 L10 2 L12 4 L10 6 L8 4 L4 4 L2 6 Z" fill="#25D366" opacity="0.8"/>
+      <text x="15" y="8" font-family="Arial, sans-serif" font-size="8" fill="#2F2F2F">3246445897</text>
+    </g>
+  </g>
+  
+  <!-- Brillo adicional -->
+  <circle cx="70" cy="70" r="20" fill="rgba(255,255,255,0.1)" opacity="0.4"/>
+</svg> 
