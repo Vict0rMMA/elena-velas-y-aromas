@@ -80,35 +80,54 @@ function showCart() {
         <div class="cart-modal-content">
             <h3>Carrito de Compras</h3>
             <div class="cart-items">
-                ${cart.map(item => `
+                ${cart.length === 0 ? '<p style="text-align: center; color: #e0e0e0;">Tu carrito está vacío</p>' : cart.map(item => `
                     <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" width="50">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.src='assets/logo.png'">
                         <div>
                             <h4>${item.name}</h4>
-                            <p>$${item.price} x ${item.quantity}</p>
+                            <p>$${item.price.toLocaleString('es-CO')} x ${item.quantity}</p>
                         </div>
                         <button onclick="removeFromCart('${item.id}')">Eliminar</button>
                     </div>
                 `).join('')}
       </div>
+            ${cart.length > 0 ? `
             <div class="cart-total">
-                Total: $${cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)}
+                    Total: $${cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString('es-CO')}
       </div>
-            <button onclick="checkout()" class="btn">Comprar</button>
+                <button onclick="checkout()" class="btn">Comprar por WhatsApp</button>
+            ` : ''}
+            <button onclick="closeCartModal()" class="btn" style="background: #666; margin-top: 1rem;">Cerrar</button>
     </div>
   `;
   
     document.body.appendChild(cartModal);
 }
 
+function closeCartModal() {
+    const cartModal = document.querySelector('.cart-modal');
+    if (cartModal) {
+        cartModal.remove();
+    }
+}
+
 function checkout() {
-    // Redirigir a WhatsApp con los productos
-    const message = cart.map(item => 
-        `${item.name} - $${item.price} x ${item.quantity}`
-    ).join('\n');
+    if (cart.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+    }
+    
+    // Crear mensaje para WhatsApp
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const message = `¡Hola! Me interesa comprar estos productos de Elena Velas y Aromas:\n\n${cart.map(item => 
+        `• ${item.name} - $${item.price.toLocaleString('es-CO')} x ${item.quantity}`
+    ).join('\n')}\n\nTotal: $${total.toLocaleString('es-CO')}\n\n¿Podrías ayudarme con la compra?`;
     
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+    
+    // Cerrar modal del carrito
+    closeCartModal();
 }
 
 // Productos
@@ -116,9 +135,166 @@ function initializeProducts() {
     // Cargar productos dinámicamente
     const productsContainer = document.querySelector('.products-grid');
     if (productsContainer) {
-        // Aquí se cargarían los productos desde una API o archivo
-        console.log('Productos inicializados');
+        loadAllProducts();
     }
+}
+
+function loadAllProducts() {
+    const productsContainer = document.querySelector('.products-grid');
+    if (!productsContainer) return;
+
+    // Obtener todos los productos de todas las categorías
+    const allProducts = [
+        ...productConfig.amorYAmistad,
+        ...productConfig.babyShower,
+        ...productConfig.primeraComunion,
+        ...productConfig.navidad
+    ];
+
+    // Limpiar contenedor
+    productsContainer.innerHTML = '';
+
+    // Crear tarjetas de productos
+    allProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        productsContainer.appendChild(productCard);
+    });
+}
+
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='assets/logo.png'">
+        <div class="product-info">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="price">Desde $${product.price.toLocaleString('es-CO')}</div>
+            <div class="product-options">
+                <select class="size-select" data-product-id="${product.id}">
+                    <option value="">Seleccionar tamaño</option>
+                    ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                </select>
+                <select class="fragrance-select" data-product-id="${product.id}">
+                    <option value="">Seleccionar fragancia</option>
+                    ${product.fragrances.map(fragrance => `<option value="${fragrance}">${fragrance}</option>`).join('')}
+                </select>
+            </div>
+            <button class="btn add-to-cart-btn" data-product-id="${product.id}" onclick="showProductModal('${product.id}')">
+                <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+            </button>
+        </div>
+    `;
+    return card;
+}
+
+function showProductModal(productId) {
+    const product = findProductById(productId);
+    if (!product) return;
+
+    const modal = document.createElement('div');
+    modal.className = 'product-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img src="${product.image}" alt="${product.name}" class="modal-image" onerror="this.src='assets/logo.png'">
+                <div class="modal-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="option-group">
+                    <label>Tamaño:</label>
+                    <select id="modal-size-select">
+                        <option value="">Seleccionar tamaño</option>
+                        ${product.sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label>Fragancia:</label>
+                    <select id="modal-fragrance-select">
+                        <option value="">Seleccionar fragancia</option>
+                        ${product.fragrances.map(fragrance => `<option value="${fragrance}">${fragrance}</option>`).join('')}
+                    </select>
+                </div>
+                <div class="price-display">
+                    <span id="modal-price">Selecciona opciones para ver el precio</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="addProductToCart('${productId}')" id="add-to-cart-modal">
+                    <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Event listeners para el modal
+    const closeBtn = modal.querySelector('.close-modal');
+    const sizeSelect = modal.querySelector('#modal-size-select');
+    const fragranceSelect = modal.querySelector('#modal-fragrance-select');
+    const priceDisplay = modal.querySelector('#modal-price');
+    const addBtn = modal.querySelector('#add-to-cart-modal');
+
+    closeBtn.onclick = () => modal.remove();
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.remove();
+    };
+
+    function updatePrice() {
+        const size = sizeSelect.value;
+        const fragrance = fragranceSelect.value;
+        
+        if (size && fragrance) {
+            const totalPrice = calculateTotalPrice(product, size, fragrance);
+            priceDisplay.textContent = `Precio: $${totalPrice.toLocaleString('es-CO')}`;
+            addBtn.disabled = false;
+        } else {
+            priceDisplay.textContent = 'Selecciona opciones para ver el precio';
+            addBtn.disabled = true;
+        }
+    }
+
+    sizeSelect.onchange = updatePrice;
+    fragranceSelect.onchange = updatePrice;
+}
+
+function findProductById(productId) {
+    const allProducts = [
+        ...productConfig.amorYAmistad,
+        ...productConfig.babyShower,
+        ...productConfig.primeraComunion,
+        ...productConfig.navidad
+    ];
+    return allProducts.find(p => p.id === productId);
+}
+
+function addProductToCart(productId) {
+    const product = findProductById(productId);
+    if (!product) return;
+
+    const sizeSelect = document.querySelector('#modal-size-select');
+    const fragranceSelect = document.querySelector('#modal-fragrance-select');
+    
+    const size = sizeSelect.value;
+    const fragrance = fragranceSelect.value;
+    
+    if (!size || !fragrance) {
+        alert('Por favor selecciona tamaño y fragancia');
+        return;
+    }
+
+    const totalPrice = calculateTotalPrice(product, size, fragrance);
+    const productName = `${product.name} (${size}, ${fragrance})`;
+    
+    addToCart(productId, productName, totalPrice, product.image);
+    
+    // Cerrar modal
+    document.querySelector('.product-modal').remove();
 }
 
 // Contacto
