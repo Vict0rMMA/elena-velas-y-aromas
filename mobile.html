@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Elena Velas y Aromas - Móvil</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elena Velas y Aromas - Móvil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
-      color: #f5f5dc;
-      line-height: 1.6;
-      min-height: 100vh;
-      position: relative;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
-      touch-action: manipulation;
-    }
+            color: #f5f5dc;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            touch-action: manipulation;
+        }
     
     /* Animación del gradiente de fondo */
     @keyframes gradientShift {
@@ -100,10 +100,10 @@
         opacity: 0.6;
       }
     }
-    
-    .container {
+        
+        .container {
       max-width: 1200px;
-      margin: 0 auto;
+            margin: 0 auto;
       padding: 0 20px;
       position: relative;
       z-index: 1;
@@ -183,14 +183,14 @@
     }
     
     /* Header */
-    .header {
+        .header {
       background: #000;
       border-bottom: 2px solid #D4AF37;
       position: fixed;
-      top: 0;
+            top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
+            z-index: 1000;
       padding: 10px 0;
     }
     
@@ -353,29 +353,29 @@
       font-weight: 500;
     }
     
-    
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-    }
-    
-    .logo-section {
-      display: flex;
-      align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
       gap: 15px;
-    }
-    
-    .logo {
+        }
+        
+        .logo {
       width: 60px;
       height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
       transition: transform 0.3s ease;
@@ -393,22 +393,22 @@
     }
     
     .brand-text h1 {
-      font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif;
       font-size: 28px;
       color: #D4AF37;
       margin-bottom: 5px;
-    }
-    
+        }
+        
     .brand-text p {
       font-size: 12px;
-      color: #f5f5dc;
+            color: #f5f5dc;
       opacity: 0.8;
-    }
-    
+        }
+        
     .nav-links {
-      display: flex;
+            display: flex;
       gap: 30px;
-      align-items: center;
+            align-items: center;
     }
     
     .nav-links a {
@@ -423,39 +423,39 @@
     .nav-links a:hover {
       color: #D4AF37;
       background: rgba(212, 175, 55, 0.1);
-    }
-    
-    .cart-btn {
+        }
+        
+        .cart-btn {
       background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-      color: #000;
-      border: none;
+            color: #000;
+            border: none;
       padding: 12px 20px;
       border-radius: 12px;
       font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s ease;
       position: relative;
     }
     
     .cart-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-    }
-    
-    .cart-count {
+        }
+        
+        .cart-count {
       position: absolute;
       top: -8px;
       right: -8px;
-      background: #ff4444;
-      color: white;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
       font-size: 12px;
-      font-weight: bold;
+            font-weight: bold;
     }
     
     /* Main Content */
@@ -482,10 +482,10 @@
     /* Video de fondo */
     .hero-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
       object-fit: cover;
       z-index: -2;
       opacity: 0.2;
@@ -507,10 +507,10 @@
     /* Animación de partículas dinámica */
     .particles-container {
       position: absolute;
-      top: 0;
+            top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+            height: 100%;
       z-index: -1;
       border-radius: 20px;
       overflow: hidden;
@@ -620,7 +620,7 @@
     }
     
     .cta-buttons {
-      display: flex;
+            display: flex;
       gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
@@ -628,11 +628,11 @@
     
     .btn {
       padding: 15px 30px;
-      border: none;
+            border: none;
       border-radius: 12px;
       font-weight: bold;
       font-size: 16px;
-      cursor: pointer;
+            cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-flex;
@@ -671,15 +671,15 @@
     }
     
     /* Product Grid */
-    .products-section {
+        .products-section {
       margin: 60px 0;
-    }
-    
-    .section-title {
-      font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
       font-weight: 800;
-      text-align: center;
+            text-align: center;
       margin-bottom: 1.5rem;
       position: relative;
       display: inline-block;
@@ -850,25 +850,25 @@
     
     #contacto .section-title:hover {
       filter: drop-shadow(0 0 15px rgba(75, 0, 130, 0.6));
-    }
-    
-    .products-grid {
-      display: grid;
+        }
+        
+        .products-grid {
+            display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
       margin-top: 40px;
       max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
-    }
-    
-    .product-card {
+        }
+        
+        .product-card {
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(20px);
       border: 2px solid rgba(212, 175, 55, 0.3);
       border-radius: 20px;
       padding: 25px;
-      transition: all 0.3s ease;
+            transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
@@ -893,10 +893,10 @@
     
     .product-card:hover::before {
       transform: scaleX(1);
-    }
-    
-    .product-image {
-      width: 100%;
+        }
+        
+        .product-image {
+            width: 100%;
       height: 250px;
       object-fit: contain;
       border-radius: 12px;
@@ -906,19 +906,19 @@
     
     .product-card:hover .product-image {
       transform: scale(1.05);
-    }
-    
-    .product-title {
+        }
+        
+        .product-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: #D4AF37;
-      margin-bottom: 10px;
+            font-size: 1.3rem;
+            color: #D4AF37;
+            margin-bottom: 10px;
       text-align: center;
-    }
-    
-    .product-description {
-      color: #f5f5dc;
-      opacity: 0.8;
+        }
+        
+        .product-description {
+            color: #f5f5dc;
+            opacity: 0.8;
       margin-bottom: 20px;
       text-align: center;
       font-size: 14px;
@@ -939,25 +939,25 @@
       outline: none;
       border-color: #D4AF37;
       box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-    }
-    
-    .product-price {
+        }
+        
+        .product-price {
       font-size: 1.5rem;
-      font-weight: bold;
+            font-weight: bold;
       color: #D4AF37;
       text-align: center;
       margin-bottom: 20px;
-    }
-    
-    .add-to-cart {
+        }
+        
+        .add-to-cart {
       width: 100%;
       background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-      color: #000;
-      border: none;
+            color: #000;
+            border: none;
       padding: 15px;
       border-radius: 12px;
       font-weight: bold;
-      cursor: pointer;
+            cursor: pointer;
       transition: all 0.3s ease;
     }
     
@@ -1086,7 +1086,7 @@
     
     /* Mejorar visibilidad de las imágenes */
     .product-image {
-      width: 100%;
+            width: 100%;
       height: 320px;
       object-fit: contain;
       border-radius: 15px;
@@ -1119,9 +1119,9 @@
     /* Estilos para imágenes que no cargan */
     .product-image:not([src]) {
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
       color: #D4AF37;
       font-size: 14px;
       text-align: center;
@@ -1204,53 +1204,53 @@
     }
     
     /* Estilos para el carrito mejorado */
-    .cart-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
       background: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
+            display: none;
+            justify-content: center;
       align-items: center;
       z-index: 10000;
-    }
-    
-    .cart-modal {
+        }
+        
+        .cart-modal {
       background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-      border-radius: 20px;
+            border-radius: 20px;
       padding: 30px;
       max-width: 600px;
       width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
+            max-height: 80vh;
+            overflow-y: auto;
       border: 2px solid rgba(212, 175, 55, 0.3);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-    
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
       margin-bottom: 25px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    
-    .cart-title {
-      color: #D4AF37;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .cart-title {
+            color: #D4AF37;
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       margin: 0;
-    }
-    
-    .close-cart {
-      background: none;
-      border: none;
-      color: #D4AF37;
-      font-size: 1.5rem;
-      cursor: pointer;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
       padding: 5px;
       border-radius: 50%;
       transition: all 0.3s ease;
@@ -1259,16 +1259,16 @@
     .close-cart:hover {
       background: rgba(212, 175, 55, 0.2);
       transform: scale(1.1);
-    }
-    
-    .cart-items {
+        }
+        
+        .cart-items {
       margin-bottom: 25px;
-    }
-    
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
       padding: 15px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
@@ -1277,25 +1277,25 @@
     }
     
     .item-info {
-      flex: 1;
-    }
-    
+            flex: 1;
+        }
+        
     .item-name {
-      color: #f5f5dc;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    
+            color: #f5f5dc;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
     .item-option {
-      color: #D4AF37;
-      font-size: 0.9rem;
-    }
-    
+            color: #D4AF37;
+            font-size: 0.9rem;
+        }
+        
     .item-price {
-      color: #D4AF37;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
     
     .remove-item {
       background: rgba(255, 0, 0, 0.2);
@@ -1312,9 +1312,9 @@
       background: rgba(255, 0, 0, 0.3);
       transform: scale(1.05);
     }
-    
-    .cart-total {
-      background: rgba(212, 175, 55, 0.1);
+        
+        .cart-total {
+            background: rgba(212, 175, 55, 0.1);
       border: 2px solid rgba(212, 175, 55, 0.3);
       border-radius: 15px;
       padding: 20px;
@@ -1326,18 +1326,18 @@
       color: #f5f5dc;
       font-size: 1.2rem;
       margin-bottom: 10px;
-    }
-    
-    .total-amount {
-      color: #D4AF37;
+        }
+        
+        .total-amount {
+            color: #D4AF37;
       font-size: 2rem;
-      font-weight: bold;
+            font-weight: bold;
       font-family: 'Playfair Display', serif;
-    }
-    
-    .cart-actions {
-      display: flex;
-      gap: 15px;
+        }
+        
+        .cart-actions {
+            display: flex;
+            gap: 15px;
       justify-content: center;
     }
     
@@ -1347,20 +1347,20 @@
       color: #ff6b6b;
       padding: 12px 25px;
       border-radius: 10px;
-      cursor: pointer;
+            cursor: pointer;
       font-weight: 600;
-      transition: all 0.3s ease;
+            transition: all 0.3s ease;
     }
     
     .btn-clear:hover {
       background: rgba(255, 0, 0, 0.3);
       transform: translateY(-2px);
-    }
-    
-    .btn-whatsapp {
+        }
+        
+        .btn-whatsapp {
       background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
       border: none;
-      color: white;
+            color: white;
       padding: 12px 25px;
       border-radius: 10px;
       cursor: pointer;
@@ -1504,9 +1504,9 @@
       }
       
       .add-to-cart:active {
-        transform: scale(0.95);
-      }
-      
+            transform: scale(0.95);
+        }
+        
       .cart-btn:active {
         transform: scale(0.95);
       }
@@ -1550,8 +1550,8 @@
       }
       
       .logo {
-        width: 60px;
-        height: 60px;
+            width: 60px;
+            height: 60px;
       }
       
       .brand-text h1 {
@@ -1563,9 +1563,9 @@
       }
       
       .nav-links {
-        display: flex;
+            display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+            justify-content: center;
         gap: 8px;
         margin-top: 10px;
         background: rgba(0, 0, 0, 0.9);
@@ -1596,8 +1596,8 @@
         background: none;
         border: none;
         color: #D4AF37;
-        font-size: 1.5rem;
-        cursor: pointer;
+            font-size: 1.5rem;
+            cursor: pointer;
         padding: 10px;
       }
       
@@ -1609,7 +1609,7 @@
         height: 100vh;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(20px);
-        z-index: 1000;
+            z-index: 1000;
         transition: left 0.3s ease;
         padding: 20px;
       }
@@ -1655,7 +1655,7 @@
       }
       
       .mobile-menu-overlay {
-        position: fixed;
+            position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -1931,10 +1931,10 @@
     
     /* Optimizaciones para tablets */
     @media (min-width: 769px) and (max-width: 1024px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-      }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
       
       .hero-title {
         font-size: 3rem;
@@ -1943,12 +1943,12 @@
       .section-title {
         font-size: 2.8rem;
       }
-      
-      .container {
-        padding: 0 30px;
-      }
-    }
-    
+            
+            .container {
+                padding: 0 30px;
+            }
+        }
+        
     /* Optimizaciones para pantallas grandes */
     @media (min-width: 1200px) {
       .container {
@@ -1956,7 +1956,7 @@
         padding: 0 40px;
       }
       
-      .products-grid {
+            .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
       }
@@ -2032,6 +2032,7 @@
       .header-content {
         flex-direction: row !important;
         gap: 10px !important;
+        justify-content: space-between !important;
       }
       
       .logo-section {
@@ -2067,12 +2068,23 @@
       /* Menú hamburguesa funcional */
       .mobile-menu-btn {
         display: block !important;
-        background: none !important;
-        border: none !important;
-        color: #D4AF37 !important;
-        font-size: 1.5rem !important;
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
+        border: 2px solid #FFD700 !important;
+        color: #000 !important;
+        font-size: 1.2rem !important;
         cursor: pointer !important;
-        padding: 8px !important;
+        padding: 10px 12px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        z-index: 1001 !important;
+      }
+      
+      .mobile-menu-btn:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5) !important;
+        background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%) !important;
       }
       
       .mobile-menu {
@@ -2188,41 +2200,129 @@
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px !important;
         padding: 0 15px !important;
+        background: #000 !important;
       }
       
       .product-card {
-        background: #000 !important;
-        border: 1px solid #D4AF37 !important;
-        border-radius: 10px !important;
+        background: linear-gradient(135deg, #1a1a1a 0%, #000 100%) !important;
+        border: 2px solid #D4AF37 !important;
+        border-radius: 15px !important;
         padding: 15px !important;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2) !important;
+        transition: all 0.3s ease !important;
+      }
+      
+      .product-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4) !important;
+        border-color: #FFD700 !important;
       }
       
       .product-title {
-        font-size: 0.9rem !important;
-        color: #f5f5dc !important;
+        font-size: 1rem !important;
+        color: #FFD700 !important;
         margin-bottom: 8px !important;
+        font-weight: bold !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
       }
       
       .product-description {
-        font-size: 0.8rem !important;
-        color: #ccc !important;
+        font-size: 0.85rem !important;
+        color: #f5f5dc !important;
         margin-bottom: 10px !important;
+        line-height: 1.4 !important;
       }
       
       .product-price {
-        font-size: 1rem !important;
-        color: #D4AF37 !important;
+        font-size: 1.1rem !important;
+        color: #FFD700 !important;
         font-weight: bold !important;
         margin-bottom: 10px !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
       }
       
       .add-to-cart {
-        background: #D4AF37 !important;
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
         color: #000 !important;
-        padding: 8px 12px !important;
-        border-radius: 6px !important;
-        font-size: 0.8rem !important;
+        padding: 10px 12px !important;
+        border-radius: 8px !important;
+        font-size: 0.9rem !important;
         width: 100% !important;
+        font-weight: bold !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+        transition: all 0.3s ease !important;
+      }
+      
+      .add-to-cart:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5) !important;
+      }
+      
+      /* Mejorar secciones de catálogo */
+      .section-title {
+        color: #FFD700 !important;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7) !important;
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .section-subtitle {
+        color: #f5f5dc !important;
+        font-size: 1rem !important;
+        margin-bottom: 20px !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      /* Mejorar botones de catálogo */
+      .catalog-btn {
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
+        color: #000 !important;
+        border: 2px solid #FFD700 !important;
+        border-radius: 12px !important;
+        padding: 15px 20px !important;
+        font-weight: bold !important;
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3) !important;
+        transition: all 0.3s ease !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .catalog-btn:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5) !important;
+        background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%) !important;
+      }
+      
+      /* Mejorar hero section */
+      .hero-section {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%) !important;
+        border-radius: 20px !important;
+        padding: 30px 20px !important;
+        margin: 20px 15px !important;
+        border: 2px solid rgba(212, 175, 55, 0.3) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      /* Mejorar contadores si se muestran */
+      .counter-item {
+        background: linear-gradient(135deg, #1a1a1a 0%, #000 100%) !important;
+        border: 2px solid #D4AF37 !important;
+        border-radius: 15px !important;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2) !important;
+        padding: 20px !important;
+      }
+      
+      .counter-number {
+        color: #FFD700 !important;
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      .counter-label {
+        color: #f5f5dc !important;
+        font-size: 0.9rem !important;
+        margin-top: 5px !important;
       }
       
       .particles-container {
@@ -2262,7 +2362,7 @@
     .product-card:nth-child(2) { animation-delay: 0.2s; }
     .product-card:nth-child(3) { animation-delay: 0.3s; }
     .product-card:nth-child(4) { animation-delay: 0.4s; }
-  </style>
+    </style>
 </head>
 <body>
   <!-- Efectos de estrellas -->
@@ -2277,20 +2377,20 @@
     <div class="star"></div>
   </div>
   
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <div class="logo-section">
-          <div class="logo">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
             <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-image">
-          </div>
+                    </div>
           <div class="brand-text">
             <h1>Elena</h1>
             <p>VELAS Y AROMAS</p>
-          </div>
-        </div>
-        
+                    </div>
+                </div>
+                
         <nav class="nav-links">
           <a href="#inicio">Inicio</a>
           <a href="#catalogo">Catálogo</a>
@@ -2305,11 +2405,11 @@
           <i class="fas fa-bars"></i>
         </button>
         
-        <button class="cart-btn" onclick="showCart()">
-          <i class="fas fa-shopping-cart"></i>
-          Carrito
-          <span class="cart-count" id="cart-count">0</span>
-        </button>
+                    <button class="cart-btn" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Carrito
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
       </div>
     </div>
   </header>
@@ -2321,8 +2421,8 @@
       <h3 style="color: #D4AF37; margin: 0;">Elena Velas y Aromas</h3>
       <button class="mobile-menu-close" onclick="closeMobileMenu()">
         <i class="fas fa-times"></i>
-      </button>
-    </div>
+                    </button>
+                </div>
     <ul class="mobile-menu-links">
       <li><a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a></li>
       <li><a href="#catalogo" onclick="closeMobileMenu()">📋 Catálogo General</a></li>
@@ -2333,7 +2433,7 @@
       <li><a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a></li>
       <li><a href="#nosotros" onclick="closeMobileMenu()">👥 Nosotros</a></li>
     </ul>
-  </div>
+            </div>
 
   <!-- Cart Modal -->
   <div class="cart-overlay" id="cart-overlay">
@@ -2343,7 +2443,7 @@
         <button class="close-cart" onclick="closeCart()">
           <i class="fas fa-times"></i>
         </button>
-      </div>
+        </div>
       
       <div class="cart-items" id="cart-items">
         <!-- Los items del carrito se agregarán aquí dinámicamente -->
@@ -2373,24 +2473,24 @@
     </div>
   </div>
 
-  <!-- Menú móvil -->
-  <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-header">
-      <h3 style="color: #D4AF37; margin: 0;">Menú</h3>
-      <button class="mobile-menu-close" onclick="closeMobileMenu()">
-        <i class="fas fa-times"></i>
-      </button>
+    <!-- Menú móvil -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3 style="color: #D4AF37; margin: 0;">Menú</h3>
+            <button class="mobile-menu-close" onclick="closeMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
+            <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
+            <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
+            <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
+            <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
+            <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
+        </div>
     </div>
-    <div class="mobile-menu-links">
-      <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
-      <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
-      <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
-      <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
-      <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
-      <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
-    </div>
-  </div>
 
   <!-- Botón flotante de WhatsApp -->
   <div class="whatsapp-float" onclick="openWhatsApp()">
@@ -2401,7 +2501,7 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+            <div class="container">
       <!-- Hero Section -->
       <section class="hero-section" id="inicio">
         
@@ -2473,21 +2573,21 @@
             <i class="fas fa-snowflake"></i>
             Navidad
           </a>
-        </div>
-      </section>
+            </div>
+        </section>
 
 
       <!-- Products Section -->
-      <section class="products-section" id="catalogo">
+        <section class="products-section" id="catalogo">
         <h2 class="section-title">💝 Catálogo de Amor y Amistad</h2>
         <p class="section-subtitle">
           Nuestra colección completa de velas aromáticas artesanales. 
           Cada imagen contiene toda la información del producto: precios, medidas y detalles.
         </p>
         
-        <div class="products-grid">
+                <div class="products-grid">
           <!-- Product 2 - MARIPOSA 2 MECHAS -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/2.png', 'MARIPOSA 2 MECHAS')">
               <img src="assets/productos/2.png" alt="MARIPOSA 2 MECHAS" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2508,13 +2608,13 @@
             <div class="product-price" id="product-2-price">$5,900</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('MARIPOSA 2 MECHAS', 'product-2')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 3 - POLI MEDIANO MANO CORAZON -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/3.png', 'POLI MEDIANO MANO CORAZÓN')">
               <img src="assets/productos/3.png" alt="POLI MEDIANO MANO CORAZON" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2707,8 +2807,8 @@
                 <i class="fas fa-expand-alt mr-1"></i>Doble clic
               </div>
             </div>
-            <h3 class="product-title">MARIPOSA 2 MECHAS</h3>
-            <p class="product-description">Vela con forma de mariposa de 2 mechas</p>
+                        <h3 class="product-title">MARIPOSA 2 MECHAS</h3>
+                        <p class="product-description">Vela con forma de mariposa de 2 mechas</p>
             
             <select class="product-select" onchange="updatePrice('product-10', this.value)">
               <option value="detal-bolsa">Detal Bolsa - $6,400</option>
@@ -2720,13 +2820,13 @@
             <div class="product-price" id="product-10-price">$6,400</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('MARIPOSA 2 MECHAS', 'product-10')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 11 - POLI MEDIANO MANO CORAZÓN -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/11.png', 'POLI MEDIANO MANO CORAZÓN')">
               <img src="assets/productos/11.png" alt="POLI MEDIANO MANO CORAZÓN" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2734,7 +2834,7 @@
                 <i class="fas fa-expand-alt mr-1"></i>Doble clic
               </div>
             </div>
-            <h3 class="product-title">POLI MEDIANO MANO CORAZÓN</h3>
+                        <h3 class="product-title">POLI MEDIANO MANO CORAZÓN</h3>
             <p class="product-description">Vela con forma de mano haciendo corazón</p>
             
             <select class="product-select" onchange="updatePrice('product-11', this.value)">
@@ -2747,13 +2847,13 @@
             <div class="product-price" id="product-11-price">$7,000</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('POLI MEDIANO MANO CORAZÓN', 'product-11')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 12 - CORAZÓN ROSAS -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/12.png', 'CORAZÓN ROSAS')">
               <img src="assets/productos/12.png" alt="CORAZÓN ROSAS" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2774,13 +2874,13 @@
             <div class="product-price" id="product-12-price">$3,400</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('CORAZÓN ROSAS', 'product-12')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 13 - OSO MOÑO -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/13.png', 'OSO MOÑO')">
               <img src="assets/productos/13.png" alt="OSO MOÑO" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2801,13 +2901,13 @@
             <div class="product-price" id="product-13-price">$4,000</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('OSO MOÑO', 'product-13')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 14 - COPA -->
-          <div class="product-card">
+                    <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/14.png', 'COPA')">
               <img src="assets/productos/14.png" alt="COPA" class="product-image">
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -2826,10 +2926,10 @@
             <div class="product-price" id="product-14-price">$18,500</div>
             
             <button class="add-to-cart" onclick="addToCartWithOption('COPA', 'product-14')">
-              <i class="fas fa-shopping-cart"></i>
-              Añadir al carrito
-            </button>
-          </div>
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
 
           <!-- Product 15 - VELA CORAZÓN GRANDE -->
           <div class="product-card">
@@ -3093,9 +3193,9 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
-        </div>
-      </section>
+                </div>
+            </div>
+        </section>
 
       <!-- Baby Shower Section -->
       <section class="products-section" id="baby-shower">
@@ -3119,9 +3219,9 @@
             <button class="add-to-cart" onclick="addToCart('Set Baby Shower 1')">
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
-            </button>
-          </div>
-
+                </button>
+            </div>
+            
           <!-- Baby Shower Product 2 -->
           <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/catalogo de baby shower/2.png', 'Set Baby Shower 2')">
@@ -3137,8 +3237,8 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
-
+            </div>
+            
           <!-- Baby Shower Product 3 -->
           <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/catalogo de baby shower/3.png', 'Set Baby Shower 3')">
@@ -3154,8 +3254,8 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
-
+            </div>
+            
           <!-- Baby Shower Product 4 -->
           <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/catalogo de baby shower/4.png', 'Set Baby Shower 4')">
@@ -3170,7 +3270,7 @@
             <button class="add-to-cart" onclick="addToCart('Set Baby Shower 4')">
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
-            </button>
+                </button>
           </div>
         </div>
       </section>
@@ -3197,8 +3297,8 @@
             <button class="add-to-cart" onclick="addToCart('Set Primera Comunión 1')">
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
-            </button>
-          </div>
+                </button>
+            </div>
 
           <!-- Primera Comunión Product 2 -->
           <div class="product-card">
@@ -3207,7 +3307,7 @@
               <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div class="absolute top-2 right-2 bg-black/50 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <i class="fas fa-expand-alt mr-1"></i>Doble clic
-              </div>
+        </div>
             </div>
             <h3 class="product-title">Set Primera Comunión 2</h3>
             <p class="product-description">Diseños religiosos elegantes</p>
@@ -3215,7 +3315,7 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
+    </div>
 
           <!-- Primera Comunión Product 3 -->
           <div class="product-card">
@@ -3232,7 +3332,7 @@
               <i class="fas fa-shopping-cart"></i>
               Añadir al carrito
             </button>
-          </div>
+    </div>
 
           <!-- Primera Comunión Product 4 -->
           <div class="product-card">
@@ -4116,9 +4216,9 @@
     </div>
   </main>
 
-  <script>
+    <script>
     // Carrito mejorado
-    let cart = [];
+        let cart = [];
 
     function updatePrice(productId, option) {
       const priceElement = document.getElementById(productId + '-price');
@@ -4151,23 +4251,23 @@
       const existingItem = cart.find(item => 
         item.name === productName && item.option === selectedOption
       );
-      
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
           id: Date.now(), // ID único para cada item
-          name: productName,
+                    name: productName,
           option: selectedOption,
-          price: price,
-          quantity: 1
-        });
-      }
-      
-      updateCartCounter();
-      updateCartDisplay();
-      showCartNotification(productName);
-    }
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCounter();
+            updateCartDisplay();
+            showCartNotification(productName);
+        }
 
     function addToCart(productName) {
       // Verificar si el producto ya existe en el carrito
@@ -4194,15 +4294,15 @@
 
     function removeFromCart(itemId) {
       cart = cart.filter(item => item.id !== itemId);
-      updateCartCounter();
-      updateCartDisplay();
-    }
+            updateCartCounter();
+            updateCartDisplay();
+        }
 
-    function clearCart() {
-      cart = [];
-      updateCartCounter();
-      updateCartDisplay();
-    }
+        function clearCart() {
+            cart = [];
+            updateCartCounter();
+            updateCartDisplay();
+        }
 
     function showCartNotification(productName) {
       // Crear notificación temporal
@@ -4323,24 +4423,24 @@
       });
     });
 
-    function updateCartCounter() {
+        function updateCartCounter() {
       const counter = document.getElementById('cart-count');
       if (counter) {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         counter.textContent = totalItems;
       }
-    }
+        }
 
-    function updateCartDisplay() {
-      const cartItems = document.getElementById('cart-items');
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
       const cartTotal = document.getElementById('cart-total');
-      const cartActions = document.getElementById('cart-actions');
+            const cartActions = document.getElementById('cart-actions');
       const emptyCart = document.getElementById('empty-cart');
-      
-      if (cart.length === 0) {
+            
+            if (cart.length === 0) {
         cartItems.innerHTML = '';
         cartTotal.style.display = 'none';
-        cartActions.style.display = 'none';
+                cartActions.style.display = 'none';
         emptyCart.style.display = 'block';
         return;
       }
@@ -4351,18 +4451,18 @@
       
       // Mostrar items del carrito
       cartItems.innerHTML = cart.map(item => `
-        <div class="cart-item">
+                    <div class="cart-item">
           <div class="item-info">
             <div class="item-name">${item.name}</div>
             ${item.option ? `<div class="item-option">${item.option}</div>` : ''}
-          </div>
+                        </div>
           <div class="item-price">${item.price}</div>
           <button class="remove-item" onclick="removeFromCart(${item.id})">
             <i class="fas fa-trash"></i>
-          </button>
-        </div>
-      `).join('');
-      
+                        </button>
+                    </div>
+                `).join('');
+                
       // Calcular total
       let total = 0;
       cart.forEach(item => {
@@ -4376,26 +4476,26 @@
       
       document.getElementById('total-amount').textContent = 
         total > 0 ? `$${total.toLocaleString()}` : 'Consultar precio';
-    }
+        }
 
-    function showCart() {
-      updateCartDisplay();
-      document.getElementById('cart-overlay').style.display = 'flex';
-    }
+        function showCart() {
+            updateCartDisplay();
+            document.getElementById('cart-overlay').style.display = 'flex';
+        }
 
-    function closeCart() {
-      document.getElementById('cart-overlay').style.display = 'none';
-    }
+        function closeCart() {
+            document.getElementById('cart-overlay').style.display = 'none';
+        }
 
-    function sendToWhatsApp() {
-      if (cart.length === 0) {
-        alert('Tu carrito está vacío');
-        return;
-      }
-      
+        function sendToWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            
       let message = '🛒 *PEDIDO DE ELENA VELAS Y AROMAS*\n\n';
-      let total = 0;
-      
+            let total = 0;
+            
       cart.forEach((item, index) => {
         message += `${index + 1}. *${item.name}*\n`;
         if (item.option) {
@@ -4422,8 +4522,8 @@
       const encodedMessage = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       
-      window.open(whatsappUrl, '_blank');
-    }
+            window.open(whatsappUrl, '_blank');
+        }
 
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -4441,21 +4541,21 @@
 
 
     // Funciones para el menú móvil
-    function toggleMobileMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      const overlay = document.getElementById('mobile-menu-overlay');
-      
-      mobileMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
 
-    function closeMobileMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      const overlay = document.getElementById('mobile-menu-overlay');
-      
-      mobileMenu.classList.remove('active');
-      overlay.classList.remove('active');
-    }
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
 
     // Función para abrir WhatsApp
     function openWhatsApp() {
@@ -4480,7 +4580,7 @@
     setInterval(updateVisitorCount, 30000);
 
     // Inicializar contador al cargar la página
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
       updateVisitorCount();
       
       // Mejorar funcionalidad táctil
@@ -4502,6 +4602,6 @@
       });
     });
 
-  </script>
+    </script>
 </body>
 </html>
