@@ -106,11 +106,12 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
             touch-action: manipulation;
+            margin-bottom: 25px;
         }
         
         .product-card:active {
@@ -120,25 +121,18 @@
         
         .product-image {
             width: 100%;
-            max-width: 200px;
-            height: 200px;
+            max-width: 180px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
             border: 2px solid rgba(212, 175, 55, 0.3);
         }
         
         .product-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #f5f5dc;
-            margin-bottom: 10px;
-        }
-        
-        .product-description {
-            font-size: 0.9rem;
-            color: #f5f5dc;
-            opacity: 0.8;
             margin-bottom: 15px;
         }
         
@@ -156,10 +150,10 @@
         }
         
         .product-price {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #D4AF37;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .add-to-cart {
@@ -413,103 +407,45 @@
     <main class="main-content">
         <!-- Sección Catálogo Principal -->
         <section class="section" id="catalogo">
-            <h2 class="section-title">💝 Catálogo de Amor y Amistad</h2>
+            <h2 class="section-title">💝 Catálogo Principal</h2>
             <div class="products-grid">
                 <!-- Producto 1 -->
                 <div class="product-card">
                     <img src="assets/productos/2.png" alt="MARIPOSA 2 MECHAS" class="product-image">
                     <h3 class="product-title">MARIPOSA 2 MECHAS</h3>
-                    <p class="product-description">Vela con forma de mariposa de 2 mechas</p>
-                    <select class="product-select" onchange="updatePrice('product-2', this.value)">
-                        <option value="detal-bolsa">Detal Bolsa - $5,900</option>
-                        <option value="detal-caja">Detal Caja - $7,000</option>
-                        <option value="mayorista-bolsa">Mayorista Bolsa - $5,200</option>
-                        <option value="mayorista-caja">Mayorista Caja - $6,500</option>
-                    </select>
                     <div class="product-price" id="product-2-price">$5,900</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('MARIPOSA 2 MECHAS', 'product-2')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('MARIPOSA 2 MECHAS', 'product-2')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <!-- Producto 2 -->
                 <div class="product-card">
                     <img src="assets/productos/3.png" alt="POLI MEDIANO MANO CORAZÓN" class="product-image">
-                    <h3 class="product-title">POLI MEDIANO MANO CORAZÓN</h3>
-                    <p class="product-description">Vela con forma de mano haciendo corazón</p>
-                    <select class="product-select" onchange="updatePrice('product-3', this.value)">
-                        <option value="detal-bolsa">Detal Bolsa - $2,900</option>
-                        <option value="detal-caja">Detal Caja - $3,700</option>
-                        <option value="mayorista-bolsa">Mayorista Bolsa - $2,600</option>
-                        <option value="mayorista-caja">Mayorista Caja - $3,400</option>
-                    </select>
+                    <h3 class="product-title">MANO CORAZÓN</h3>
                     <div class="product-price" id="product-3-price">$2,900</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('POLI MEDIANO MANO CORAZÓN', 'product-3')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('MANO CORAZÓN', 'product-3')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <!-- Producto 3 -->
                 <div class="product-card">
                     <img src="assets/productos/4.png" alt="MARGARITA COLOMBINA" class="product-image">
-                    <h3 class="product-title">MARGARITA COLOMBINA</h3>
-                    <p class="product-description">Vela con aroma de margarita colombiana</p>
-                    <select class="product-select" onchange="updatePrice('product-4', this.value)">
-                        <option value="detal">Detal - $3,700</option>
-                        <option value="mayorista">Mayorista - $3,000</option>
-                    </select>
+                    <h3 class="product-title">MARGARITA</h3>
                     <div class="product-price" id="product-4-price">$3,700</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('MARGARITA COLOMBINA', 'product-4')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('MARGARITA', 'product-4')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <!-- Producto 4 -->
                 <div class="product-card">
                     <img src="assets/productos/5.png" alt="PEONIA MEDIANA" class="product-image">
-                    <h3 class="product-title">PEONIA MEDIANA</h3>
-                    <p class="product-description">Vela con forma de peonía mediana</p>
-                    <select class="product-select" onchange="updatePrice('product-5', this.value)">
-                        <option value="detal-bolsa">Detal Bolsa - $3,300</option>
-                        <option value="detal-caja">Detal Caja - $4,000</option>
-                        <option value="mayorista-bolsa">Mayorista Bolsa - $2,900</option>
-                        <option value="mayorista-caja">Mayorista Caja - $3,500</option>
-                    </select>
+                    <h3 class="product-title">PEONIA</h3>
                     <div class="product-price" id="product-5-price">$3,300</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('PEONIA MEDIANA', 'product-5')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
-                    </button>
-                </div>
-
-                <!-- Producto 5 -->
-                <div class="product-card">
-                    <img src="assets/productos/6.png" alt="FLORES CON AROMA EMPAQUE ESPECIAL" class="product-image">
-                    <h3 class="product-title">FLORES CON AROMA EMPAQUE ESPECIAL</h3>
-                    <p class="product-description">Velas con aroma y empaque especial</p>
-                    <select class="product-select" onchange="updatePrice('product-6', this.value)">
-                        <option value="detal">Detal - $4,700</option>
-                        <option value="mayorista">Mayorista - $4,000</option>
-                    </select>
-                    <div class="product-price" id="product-6-price">$4,700</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('FLORES CON AROMA EMPAQUE ESPECIAL', 'product-6')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
-                    </button>
-                </div>
-
-                <!-- Producto 6 -->
-                <div class="product-card">
-                    <img src="assets/productos/7.png" alt="MATERA VELA CORAZÓN ROSAS" class="product-image">
-                    <h3 class="product-title">MATERA VELA CORAZÓN ROSAS</h3>
-                    <p class="product-description">Matera con velas en forma de corazón y rosas</p>
-                    <select class="product-select" onchange="updatePrice('product-7', this.value)">
-                        <option value="detal-bolsa">Detal Bolsa - $8,900</option>
-                        <option value="detal-caja">Detal Caja - $10,500</option>
-                        <option value="mayorista-bolsa">Mayorista Bolsa - $8,000</option>
-                        <option value="mayorista-caja">Mayorista Caja - $9,300</option>
-                    </select>
-                    <div class="product-price" id="product-7-price">$8,900</div>
-                    <button class="add-to-cart" onclick="addToCartWithOption('MATERA VELA CORAZÓN ROSAS', 'product-7')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('PEONIA', 'product-5')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
             </div>
@@ -517,33 +453,23 @@
 
         <!-- Sección Baby Shower -->
         <section class="section" id="baby-shower">
-            <h2 class="section-title">👶 Catálogo de Baby Shower</h2>
+            <h2 class="section-title">👶 Baby Shower</h2>
             <div class="products-grid">
                 <div class="product-card">
                     <img src="assets/productos/catalogo de baby shower/1.png" alt="Baby Shower 1" class="product-image">
-                    <h3 class="product-title">VELA BABY SHOWER 1</h3>
-                    <p class="product-description">Vela especial para baby shower</p>
-                    <select class="product-select" onchange="updatePriceSimple('baby-shower-1', this.value)">
-                        <option value="detal">Detal - $4,500</option>
-                        <option value="mayorista">Mayorista - $3,800</option>
-                    </select>
+                    <h3 class="product-title">BABY SHOWER 1</h3>
                     <div class="product-price" id="baby-shower-1-price">$4,500</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA BABY SHOWER 1', 'baby-shower-1')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('BABY SHOWER 1', 'baby-shower-1')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <div class="product-card">
                     <img src="assets/productos/catalogo de baby shower/2.png" alt="Baby Shower 2" class="product-image">
-                    <h3 class="product-title">VELA BABY SHOWER 2</h3>
-                    <p class="product-description">Vela especial para baby shower</p>
-                    <select class="product-select" onchange="updatePriceSimple('baby-shower-2', this.value)">
-                        <option value="detal">Detal - $4,500</option>
-                        <option value="mayorista">Mayorista - $3,800</option>
-                    </select>
+                    <h3 class="product-title">BABY SHOWER 2</h3>
                     <div class="product-price" id="baby-shower-2-price">$4,500</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA BABY SHOWER 2', 'baby-shower-2')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('BABY SHOWER 2', 'baby-shower-2')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
             </div>
@@ -551,33 +477,23 @@
 
         <!-- Sección Primera Comunión -->
         <section class="section" id="primera-comunion">
-            <h2 class="section-title">⛪ Catálogo de Primera Comunión</h2>
+            <h2 class="section-title">⛪ Primera Comunión</h2>
             <div class="products-grid">
                 <div class="product-card">
                     <img src="assets/productos/catalogo de primera comunion/1.png" alt="Primera Comunión 1" class="product-image">
-                    <h3 class="product-title">VELA PRIMERA COMUNIÓN 1</h3>
-                    <p class="product-description">Vela especial para primera comunión</p>
-                    <select class="product-select" onchange="updatePriceSimple('primera-comunion-1', this.value)">
-                        <option value="detal">Detal - $5,200</option>
-                        <option value="mayorista">Mayorista - $4,500</option>
-                    </select>
+                    <h3 class="product-title">PRIMERA COMUNIÓN 1</h3>
                     <div class="product-price" id="primera-comunion-1-price">$5,200</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA PRIMERA COMUNIÓN 1', 'primera-comunion-1')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('PRIMERA COMUNIÓN 1', 'primera-comunion-1')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <div class="product-card">
                     <img src="assets/productos/catalogo de primera comunion/2.png" alt="Primera Comunión 2" class="product-image">
-                    <h3 class="product-title">VELA PRIMERA COMUNIÓN 2</h3>
-                    <p class="product-description">Vela especial para primera comunión</p>
-                    <select class="product-select" onchange="updatePriceSimple('primera-comunion-2', this.value)">
-                        <option value="detal">Detal - $5,200</option>
-                        <option value="mayorista">Mayorista - $4,500</option>
-                    </select>
+                    <h3 class="product-title">PRIMERA COMUNIÓN 2</h3>
                     <div class="product-price" id="primera-comunion-2-price">$5,200</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA PRIMERA COMUNIÓN 2', 'primera-comunion-2')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('PRIMERA COMUNIÓN 2', 'primera-comunion-2')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
             </div>
@@ -585,33 +501,23 @@
 
         <!-- Sección Navidad -->
         <section class="section" id="navidad">
-            <h2 class="section-title">🎄 Catálogo de Navidad</h2>
+            <h2 class="section-title">🎄 Navidad</h2>
             <div class="products-grid">
                 <div class="product-card">
                     <img src="assets/productos/catalogo de navidad/2.jpg" alt="Navidad 1" class="product-image">
-                    <h3 class="product-title">VELA NAVIDEÑA 1</h3>
-                    <p class="product-description">Vela especial para navidad</p>
-                    <select class="product-select" onchange="updatePriceSimple('navidad-1', this.value)">
-                        <option value="detal">Detal - $6,000</option>
-                        <option value="mayorista">Mayorista - $5,200</option>
-                    </select>
+                    <h3 class="product-title">NAVIDEÑA 1</h3>
                     <div class="product-price" id="navidad-1-price">$6,000</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA NAVIDEÑA 1', 'navidad-1')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('NAVIDEÑA 1', 'navidad-1')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
 
                 <div class="product-card">
                     <img src="assets/productos/catalogo de navidad/3.jpg" alt="Navidad 2" class="product-image">
-                    <h3 class="product-title">VELA NAVIDEÑA 2</h3>
-                    <p class="product-description">Vela especial para navidad</p>
-                    <select class="product-select" onchange="updatePriceSimple('navidad-2', this.value)">
-                        <option value="detal">Detal - $6,000</option>
-                        <option value="mayorista">Mayorista - $5,200</option>
-                    </select>
+                    <h3 class="product-title">NAVIDEÑA 2</h3>
                     <div class="product-price" id="navidad-2-price">$6,000</div>
-                    <button class="add-to-cart" onclick="addToCartSimple('VELA NAVIDEÑA 2', 'navidad-2')">
-                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    <button class="add-to-cart" onclick="addToCartSimple('NAVIDEÑA 2', 'navidad-2')">
+                        <i class="fas fa-shopping-cart"></i> Añadir
                     </button>
                 </div>
             </div>
@@ -628,7 +534,7 @@
                 <div style="margin: 20px 0; text-align: center;">
                     <div style="margin: 15px 0; padding: 15px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.3);">
                         <strong style="color: #D4AF37; font-size: 1.1rem;">📱 WhatsApp</strong><br>
-                        <span style="color: #f5f5dc;">+57 300 123 4567</span>
+                        <span style="color: #f5f5dc;">+57 300 822 0389</span>
                     </div>
                     <div style="margin: 15px 0; padding: 15px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.3);">
                         <strong style="color: #D4AF37; font-size: 1.1rem;">📧 Email</strong><br>
@@ -643,7 +549,7 @@
                         <span style="color: #f5f5dc;">Lunes a Viernes 8:00 AM - 6:00 PM</span>
                     </div>
                 </div>
-                <button class="add-to-cart" onclick="window.open('https://wa.me/573001234567', '_blank')" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white;">
+                <button class="add-to-cart" onclick="window.open('https://wa.me/573008220389', '_blank')" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white;">
                     <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
                 </button>
             </div>
@@ -656,7 +562,7 @@
         <span class="cart-count" id="cart-count">0</span>
     </a>
 
-    <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573008220389" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -871,7 +777,7 @@
             message += `💰 *Total: $${cartTotal.toLocaleString()}*\n\n`;
             message += '¡Hola! Me interesa realizar este pedido.';
             
-            const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/573008220389?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
