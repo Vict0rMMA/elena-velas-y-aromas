@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Elena Velas y Aromas - Móvil</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -27,6 +27,8 @@
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
             touch-action: manipulation;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
     
     /* Animación del gradiente de fondo */
@@ -191,7 +193,7 @@
       left: 0;
       right: 0;
             z-index: 1000;
-      padding: 10px 0;
+      padding: calc(10px + env(safe-area-inset-top)) 0 10px 0;
     }
     
     /* Navbar responsive - botones saltan a dos filas automáticamente */
@@ -241,7 +243,7 @@
     /* Botón flotante de WhatsApp */
     .whatsapp-float {
       position: fixed;
-      bottom: 30px;
+      bottom: calc(30px + env(safe-area-inset-bottom));
       right: 30px;
       width: 70px;
       height: 70px;
@@ -460,7 +462,7 @@
     
     /* Main Content */
     .main-content {
-      margin-top: 80px;
+      margin-top: calc(80px + env(safe-area-inset-top));
       padding: 20px 0;
       background: #000;
       min-height: 100vh;
