@@ -2486,6 +2486,65 @@
       }
     }
     
+    /* --- Plan móvil: overrides específicos --- */
+    /* Breakpoints base */
+    @media (max-width: 480px) {
+      /* Márgenes laterales globales */
+      .container, .main-content, section, .products-section { padding-left: 16px !important; padding-right: 16px !important; }
+
+      /* Navbar compacta */
+      .header { height: 60px !important; padding: 8px 0 !important; }
+      .header .header-content { height: 44px !important; align-items: center !important; }
+      .logo-section { margin-right: auto !important; }
+      .mobile-menu-btn { margin-left: 12px !important; }
+      .cart-btn { margin-left: 12px !important; }
+      .header .header-content > * { min-height: 44px !important; }
+
+      /* Hero más corto y legible */
+      .hero-section { padding-top: 24px !important; padding-bottom: 28px !important; margin-left: 0 !important; margin-right: 0 !important; }
+      .hero-title { font-size: 1.6rem !important; line-height: 1.25 !important; max-width: 100% !important; }
+      .hero-subtitle { font-size: 0.95rem !important; line-height: 1.5 !important; max-height: none !important; }
+      .catalog-buttons, .catalogo-botones { gap: 14px !important; }
+
+      /* Grid productos: 1 columna */
+      .products-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+      /* Card premium y clara */
+      .product-card { padding: 18px !important; border-width: 1px !important; box-shadow: 0 8px 18px rgba(0,0,0,0.35) !important; }
+      .product-image, .product-card img { width: 100% !important; aspect-ratio: 1 / 1 !important; object-fit: cover !important; height: auto !important; }
+      .product-title { font-size: 1.05rem !important; line-height: 1.25 !important; display: -webkit-box !important; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-description { color: #d7d3bf !important; line-height: 1.5 !important; display: -webkit-box !important; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .product-variants, .variant-select, select { min-height: 44px !important; }
+      .product-price { font-size: 1.1rem !important; font-weight: 700 !important; }
+      .add-to-cart, .btn, button { min-height: 44px !important; width: 100% !important; }
+
+      /* WhatsApp flotante: no tapar CTA */
+      .whatsapp-float { bottom: 22px !important; right: 22px !important; }
+
+      /* Tipografía y colores */
+      p, li { line-height: 1.5 !important; }
+      .section-subtitle { color: #d7d3bf !important; }
+    }
+
+    /* Tablet: 2 columnas, respiración mayor */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container, .main-content, section, .products-section { padding-left: 20px !important; padding-right: 20px !important; }
+      .header { height: 64px !important; }
+      .products-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 18px !important; }
+      .product-card { padding: 20px !important; border-width: 1px !important; }
+      .product-image, .product-card img { aspect-ratio: 1 / 1 !important; object-fit: cover !important; }
+    }
+
+    /* Desktop (referencia) */
+    @media (min-width: 769px) {
+      .products-grid { gap: 22px !important; }
+    }
+
+    /* Accesibilidad: áreas táctiles */
+    .touch-44, .btn, .cart-btn, .add-to-cart, .mobile-menu-btn, .variant-select, select { min-height: 44px; }
+
+    /* Borde y sombra premium más ligera en móvil */
+    .product-card { border-color: rgba(212, 175, 55, 0.7) !important; box-shadow: 0 6px 16px rgba(0,0,0,0.28); }
     </style>
 </head>
 <body>
