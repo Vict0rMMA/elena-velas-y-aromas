@@ -184,15 +184,14 @@
     
     /* Header */
     .header {
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      background: #000;
+      border-bottom: 2px solid #D4AF37;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 15px 0;
+      padding: 10px 0;
     }
     
     /* Navbar responsive - botones saltan a dos filas automáticamente */
@@ -359,6 +358,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     
     .logo-section {
@@ -458,16 +460,17 @@
     
     /* Main Content */
     .main-content {
-      margin-top: 100px;
-      padding: 40px 0;
+      margin-top: 80px;
+      padding: 20px 0;
+      background: #000;
+      min-height: 100vh;
     }
     
     .hero-section {
       text-align: center;
-      padding: 60px 0;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
-      border-radius: 20px;
-      margin-bottom: 60px;
+      padding: 30px 0;
+      background: transparent;
+      margin-bottom: 30px;
       position: relative;
       overflow: hidden;
       min-height: 80vh;
@@ -2017,6 +2020,112 @@
       .counter-item {
         background: rgba(0, 0, 0, 0.8) !important;
         border: 1px solid rgba(212, 175, 55, 0.3) !important;
+      }
+      
+      /* Diseño limpio como referencia */
+      .header {
+        background: #000 !important;
+        border-bottom: 2px solid #D4AF37 !important;
+        padding: 8px 0 !important;
+      }
+      
+      .header-content {
+        flex-direction: row !important;
+        gap: 10px !important;
+      }
+      
+      .logo-section {
+        flex-direction: row !important;
+        text-align: left !important;
+      }
+      
+      .logo {
+        width: 40px !important;
+        height: 40px !important;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.2rem !important;
+        color: #D4AF37 !important;
+      }
+      
+      .brand-text p {
+        font-size: 0.7rem !important;
+        color: #f5f5dc !important;
+      }
+      
+      /* Navegación simplificada */
+      .nav-links {
+        display: none !important;
+      }
+      
+      /* Botón de carrito más simple */
+      .cart-btn {
+        background: #D4AF37 !important;
+        color: #000 !important;
+        padding: 8px 12px !important;
+        border-radius: 8px !important;
+        font-size: 0.8rem !important;
+      }
+      
+      /* Hero section más simple */
+      .hero-section {
+        padding: 20px 0 !important;
+        min-height: auto !important;
+      }
+      
+      .hero-title {
+        font-size: 1.5rem !important;
+        color: #D4AF37 !important;
+        margin-bottom: 10px !important;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem !important;
+        color: #f5f5dc !important;
+        margin-bottom: 20px !important;
+      }
+      
+      /* Productos en grid simple */
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 0 15px !important;
+      }
+      
+      .product-card {
+        background: #000 !important;
+        border: 1px solid #D4AF37 !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+      }
+      
+      .product-title {
+        font-size: 0.9rem !important;
+        color: #f5f5dc !important;
+        margin-bottom: 8px !important;
+      }
+      
+      .product-description {
+        font-size: 0.8rem !important;
+        color: #ccc !important;
+        margin-bottom: 10px !important;
+      }
+      
+      .product-price {
+        font-size: 1rem !important;
+        color: #D4AF37 !important;
+        font-weight: bold !important;
+        margin-bottom: 10px !important;
+      }
+      
+      .add-to-cart {
+        background: #D4AF37 !important;
+        color: #000 !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        font-size: 0.8rem !important;
+        width: 100% !important;
       }
       
       .particles-container {
