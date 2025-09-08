@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Elena Velas y Aromas - Móvil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
+            color: #f5f5dc;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            touch-action: manipulation;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header optimizado para móvil */
+        .header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .brand-name {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .brand-subtitle {
+            color: #f5f5dc;
+            font-size: 0.7rem;
+            font-weight: 400;
+            margin-top: -5px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cart-btn {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            min-height: 45px;
+            touch-action: manipulation;
+        }
+        
+        .cart-btn:active {
+            transform: scale(0.95);
+            background: linear-gradient(135deg, #B8941F 0%, #E6C200 100%);
+        }
+        
+        .cart-count {
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            touch-action: manipulation;
+        }
+        
+        .mobile-menu-btn:active {
+            transform: scale(0.9);
+        }
+        
+        /* Menú móvil */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .mobile-menu.active {
+            left: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+        
+        .mobile-menu-links a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
+        
+        .mobile-menu-links a:active {
+            background: rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
+        }
+        
+        /* Sección principal */
+        .hero {
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #D4AF37;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #f5f5dc;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Productos */
+        .products-section {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 100%;
+        }
+        
+        .product-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .product-card:active {
+            transform: scale(0.98);
+            border-color: #D4AF37;
+        }
+        
+        .product-image {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            color: #D4AF37;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .product-description {
+            color: #f5f5dc;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            color: #D4AF37;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #000;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            min-height: 50px;
+        }
+        
+        .add-to-cart:active {
+            transform: scale(0.95);
+            background: linear-gradient(135deg, #B8941F 0%, #E6C200 100%);
+        }
+        
+        /* Carrito */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .cart-modal {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 90%;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .cart-title {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.5rem;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            color: #f5f5dc;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-option {
+            color: #D4AF37;
+            font-size: 0.9rem;
+        }
+        
+        .cart-item-price {
+            color: #D4AF37;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .cart-total {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+        }
+        
+        .total-amount {
+            font-size: 1.8rem;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .btn-clear, .btn-whatsapp {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            min-height: 50px;
+        }
+        
+        .btn-clear {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-clear:active, .btn-whatsapp:active {
+            transform: scale(0.95);
+        }
+        
+        /* WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
+        
+        .whatsapp-float:active {
+            transform: scale(0.9);
+        }
+        
+        /* Notificaciones */
+        .notification {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            z-index: 3000;
+            animation: slideInOut 3s ease-in-out;
+        }
+        
+        @keyframes slideInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        }
+        
+        /* Responsive */
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .container {
+                padding: 0 30px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+        
+        /* Mejoras de accesibilidad táctil */
+        @media (hover: none) and (pointer: coarse) {
+            .product-card:hover {
+                transform: none;
+            }
+            
+            .add-to-cart:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        Elena<br>VELAS Y<br>AROMAS
+                    </div>
+                    <div>
+                        <div class="brand-name">Elena</div>
+                        <div class="brand-subtitle">VELAS Y AROMAS</div>
+                    </div>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="cart-btn" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Carrito
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menú móvil -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3 style="color: #D4AF37; margin: 0;">Menú</h3>
+            <button class="mobile-menu-close" onclick="closeMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
+            <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
+            <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
+            <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
+            <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
+            <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <div class="container">
+                <h1>Elena Velas y Aromas</h1>
+                <p>Velas aromáticas artesanales para momentos especiales</p>
+            </div>
+        </section>
+
+        <!-- Catálogo de productos -->
+        <section class="products-section" id="catalogo">
+            <div class="container">
+                <h2 class="section-title">Nuestros Productos</h2>
+                <div class="products-grid">
+                    <!-- Producto 1: Vela Dorada -->
+                    <div class="product-card">
+                        <img src="assets/productos/amoryamistad.png" alt="Vela Dorada" class="product-image">
+                        <h3 class="product-title">VELA DORADA</h3>
+                        <p class="product-description">Vela Dorada - Altura: 14cm, Diámetro: 1.5cm</p>
+                        <div class="product-price">$16,900</div>
+                        <button class="add-to-cart" onclick="addToCart('VELA DORADA', 16900)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+
+                    <!-- Producto 2: Mariposa 2 Mechas -->
+                    <div class="product-card">
+                        <img src="assets/productos/2.png" alt="Mariposa 2 Mechas" class="product-image">
+                        <h3 class="product-title">MARIPOSA 2 MECHAS</h3>
+                        <p class="product-description">Vela con forma de mariposa de 2 mechas</p>
+                        <div class="product-price">$5,900</div>
+                        <button class="add-to-cart" onclick="addToCart('MARIPOSA 2 MECHAS', 5900)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+
+                    <!-- Producto 3: Poli Mediano Mano Corazón -->
+                    <div class="product-card">
+                        <img src="assets/productos/3.png" alt="Poli Mediano Mano Corazón" class="product-image">
+                        <h3 class="product-title">POLI MEDIANO MANO CORAZÓN</h3>
+                        <p class="product-description">Vela en forma de corazón con decoración especial</p>
+                        <div class="product-price">$2,900</div>
+                        <button class="add-to-cart" onclick="addToCart('POLI MEDIANO MANO CORAZÓN', 2900)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+
+                    <!-- Producto 4: Margarita Colombina -->
+                    <div class="product-card">
+                        <img src="assets/productos/4.png" alt="Margarita Colombina" class="product-image">
+                        <h3 class="product-title">MARGARITA COLOMBINA</h3>
+                        <p class="product-description">Vela con forma de margarita colombina</p>
+                        <div class="product-price">$3,700</div>
+                        <button class="add-to-cart" onclick="addToCart('MARGARITA COLOMBINA', 3700)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+
+                    <!-- Producto 5: Peonia Mediana -->
+                    <div class="product-card">
+                        <img src="assets/productos/5.png" alt="Peonia Mediana" class="product-image">
+                        <h3 class="product-title">PEONIA MEDIANA</h3>
+                        <p class="product-description">Vela con forma de peonia mediana</p>
+                        <div class="product-price">$3,300</div>
+                        <button class="add-to-cart" onclick="addToCart('PEONIA MEDIANA', 3300)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+
+                    <!-- Producto 6: Flores con Aroma -->
+                    <div class="product-card">
+                        <img src="assets/productos/6.png" alt="Flores con Aroma" class="product-image">
+                        <h3 class="product-title">FLORES CON AROMA EMPAQUE ESPECIAL</h3>
+                        <p class="product-description">Flores aromáticas en empaque especial</p>
+                        <div class="product-price">$4,700</div>
+                        <button class="add-to-cart" onclick="addToCart('FLORES CON AROMA EMPAQUE ESPECIAL', 4700)">
+                            <i class="fas fa-shopping-cart"></i>
+                            Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2 class="cart-title">🛒 Tu Carrito</h2>
+                <button class="close-cart" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Los items del carrito se mostrarán aquí -->
+            </div>
+            
+            <div class="cart-total">
+                <div>Total: <span class="total-amount" id="total-amount">$0</span></div>
+            </div>
+            
+            <div class="cart-actions" id="cart-actions" style="display: none;">
+                <button class="btn-clear" onclick="clearCart()">
+                    <i class="fas fa-trash"></i>
+                    Limpiar Carrito
+                </button>
+                <button class="btn-whatsapp" onclick="sendToWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    Comprar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp flotante -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script>
+        // Carrito de compras
+        let cart = [];
+
+        // Funciones del carrito
+        function addToCart(productName, price) {
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCounter();
+            updateCartDisplay();
+            showCartNotification(productName);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCounter();
+            updateCartDisplay();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartCounter();
+            updateCartDisplay();
+        }
+
+        function updateCartCounter() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartActions = document.getElementById('cart-actions');
+            const totalAmount = document.getElementById('total-amount');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #f5f5dc; padding: 20px;">Tu carrito está vacío</p>';
+                cartActions.style.display = 'none';
+                totalAmount.textContent = '$0';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-option">Cantidad: ${item.quantity}</div>
+                        </div>
+                        <div class="cart-item-price">$${(item.price * item.quantity).toLocaleString()}</div>
+                        <button onclick="removeFromCart(${index})" style="background: #ff4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `).join('');
+                
+                cartActions.style.display = 'flex';
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                totalAmount.textContent = `$${total.toLocaleString()}`;
+            }
+        }
+
+        function showCart() {
+            updateCartDisplay();
+            document.getElementById('cart-overlay').style.display = 'flex';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-overlay').style.display = 'none';
+        }
+
+        function sendToWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            
+            let message = '¡Hola! Me interesa comprar los siguientes productos:\n\n';
+            let total = 0;
+            
+            cart.forEach(item => {
+                message += `• ${item.name} x${item.quantity} - $${(item.price * item.quantity).toLocaleString()}\n`;
+                total += item.price * item.quantity;
+            });
+            
+            message += `\nTotal: $${total.toLocaleString()}\n\n¿Podrían ayudarme con la compra?`;
+            
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openWhatsApp() {
+            const message = encodeURIComponent("¡Hola! Me interesa conocer más sobre sus velas aromáticas. ¿Podrían ayudarme?");
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function showCartNotification(productName) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="fas fa-check"></i> ${productName} añadido al carrito`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
+        }
+
+        // Funciones del menú móvil
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+            
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Cerrar carrito al hacer clic fuera
+        document.getElementById('cart-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCart();
+            }
+        });
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCounter();
+            updateCartDisplay();
+        });
+    </script>
+</body>
+</html>
