@@ -2459,6 +2459,33 @@
     .product-card:nth-child(2) { animation-delay: 0.2s; }
     .product-card:nth-child(3) { animation-delay: 0.3s; }
     .product-card:nth-child(4) { animation-delay: 0.4s; }
+    
+    /* --- Overrides limpias para títulos en móvil (quitan brillo excesivo) --- */
+    @media (max-width: 768px) {
+      .hero-title,
+      .section-title {
+        background: none !important;
+        -webkit-background-clip: initial !important;
+        -webkit-text-fill-color: initial !important;
+        background-clip: initial !important;
+        color: #D4AF37 !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        filter: none !important;
+      }
+
+      .section-title::before,
+      .section-title::after {
+        display: none !important;
+      }
+
+      .section-subtitle {
+        color: #e8e4c9 !important;
+        text-shadow: none !important;
+        filter: none !important;
+        opacity: 0.95 !important;
+      }
+    }
+    
     </style>
 </head>
 <body>
