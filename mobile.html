@@ -195,6 +195,25 @@
       padding: 15px 0;
     }
     
+    /* Navbar responsive - botones saltan a dos filas automáticamente */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .nav-links a {
+        flex: 1;
+        min-width: calc(50% - 5px);
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 0.9rem;
+      }
+    }
+    
     /* Ocultar menú hamburguesa en desktop */
     .mobile-menu-btn {
       display: none;
@@ -1529,12 +1548,24 @@
       }
       
       .nav-links {
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
       }
       
-      /* Menú hamburguesa para móviles */
+      .nav-links a {
+        flex: 1;
+        min-width: calc(50% - 5px);
+        text-align: center;
+        padding: 10px 5px;
+        font-size: 0.9rem;
+      }
+      
+      /* Menú hamburguesa para móviles - oculto */
       .mobile-menu-btn {
-        display: block;
+        display: none;
         background: none;
         border: none;
         color: #D4AF37;
