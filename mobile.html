@@ -848,9 +848,9 @@
     }
     
     .product-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(212, 175, 55, 0.3);
       border-radius: 20px;
       padding: 25px;
       transition: all 0.3s ease;
@@ -1963,6 +1963,36 @@
       /* Optimizar efectos de fondo para móviles */
       .hero-video {
         display: none; /* Desactivar video en móviles para mejor performance */
+      }
+      
+      /* Asegurar fondo negro en todas las secciones */
+      .main-content,
+      .products-section,
+      .about-section,
+      .contact-section,
+      .footer {
+        background: transparent !important;
+      }
+      
+      /* Mejorar contraste de texto */
+      .product-title,
+      .product-description,
+      .section-title,
+      .section-subtitle {
+        color: #f5f5dc !important;
+      }
+      
+      /* Mejorar tarjetas de productos */
+      .product-card {
+        background: rgba(0, 0, 0, 0.9) !important;
+        border: 2px solid rgba(212, 175, 55, 0.4) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+      }
+      
+      /* Mejorar contadores */
+      .counter-item {
+        background: rgba(0, 0, 0, 0.8) !important;
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
       }
       
       .particles-container {
