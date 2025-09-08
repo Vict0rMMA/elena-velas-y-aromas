@@ -2184,15 +2184,47 @@
       }
       
       .hero-title {
+        font-family: 'Playfair Display', serif !important;
+        font-size: 2rem !important;
+        color: #FFD700 !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+        text-shadow: 
+          0 0 15px rgba(255, 215, 0, 0.9),
+          0 0 25px rgba(255, 215, 0, 0.7),
+          0 0 35px rgba(255, 215, 0, 0.5),
+          0 4px 8px rgba(0, 0, 0, 0.8) !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+      }
+      
+      .hero-title::before {
+        content: '✨' !important;
         font-size: 1.5rem !important;
-        color: #D4AF37 !important;
-        margin-bottom: 10px !important;
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9)) !important;
+      }
+      
+      .hero-title::after {
+        content: '✨' !important;
+        font-size: 1.5rem !important;
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9)) !important;
       }
       
       .hero-subtitle {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
         color: #f5f5dc !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        line-height: 1.6 !important;
+        text-shadow: 
+          0 0 8px rgba(245, 245, 220, 0.7),
+          0 2px 4px rgba(0, 0, 0, 0.8) !important;
+        font-weight: 300 !important;
+        letter-spacing: 0.5px !important;
       }
       
       /* Productos en grid simple */
@@ -2219,11 +2251,18 @@
       }
       
       .product-title {
-        font-size: 1rem !important;
+        font-family: 'Playfair Display', serif !important;
+        font-size: 1.1rem !important;
         color: #FFD700 !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 10px !important;
         font-weight: bold !important;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        text-align: center !important;
+        text-shadow: 
+          0 0 8px rgba(255, 215, 0, 0.8),
+          0 0 15px rgba(255, 215, 0, 0.6),
+          0 2px 4px rgba(0, 0, 0, 0.7) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.3px !important;
       }
       
       .product-description {
@@ -2259,19 +2298,77 @@
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5) !important;
       }
       
-      /* Mejorar secciones de catálogo */
+      /* Mejorar secciones de catálogo - Estilo elegante como referencia */
       .section-title {
         color: #FFD700 !important;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7) !important;
+        font-family: 'Playfair Display', serif !important;
+        font-size: 2.2rem !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        text-shadow: 
+          0 0 10px rgba(255, 215, 0, 0.8),
+          0 0 20px rgba(255, 215, 0, 0.6),
+          0 0 30px rgba(255, 215, 0, 0.4),
+          0 4px 8px rgba(0, 0, 0, 0.8) !important;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+      }
+      
+      .section-title::before {
+        content: '💕' !important;
         font-size: 1.8rem !important;
-        margin-bottom: 15px !important;
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)) !important;
+      }
+      
+      /* Iconos temáticos para diferentes secciones */
+      .section-title[data-section="baby-shower"]::before {
+        content: '👶' !important;
+      }
+      
+      .section-title[data-section="navidad"]::before {
+        content: '🎄' !important;
+      }
+      
+      .section-title[data-section="primera-comunion"]::before {
+        content: '⛪' !important;
+      }
+      
+      .section-title[data-section="amor-amistad"]::before {
+        content: '💕' !important;
+      }
+      
+      .section-title[data-section="productos"]::before {
+        content: '🕯️' !important;
+      }
+      
+      .section-title::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -8px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 60px !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, transparent, #FFD700, transparent) !important;
+        border-radius: 2px !important;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6) !important;
       }
       
       .section-subtitle {
         color: #f5f5dc !important;
-        font-size: 1rem !important;
-        margin-bottom: 20px !important;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+        line-height: 1.6 !important;
+        text-shadow: 
+          0 0 5px rgba(245, 245, 220, 0.6),
+          0 2px 4px rgba(0, 0, 0, 0.7) !important;
+        font-weight: 300 !important;
+        letter-spacing: 0.5px !important;
       }
       
       /* Mejorar botones de catálogo */
