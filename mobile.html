@@ -253,7 +253,7 @@
       }
     }
     
-    /* HEADER NUEVO Y FUNCIONAL */
+    /* HEADER SIMPLE Y FUNCIONAL */
     .header {
       position: fixed;
       top: 0;
@@ -306,49 +306,33 @@
       letter-spacing: 1px;
     }
     
-    /* BOTÓN HAMBURGUESA NUEVO */
-    .hamburger-btn {
-      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-      border: none;
-      border-radius: 12px;
-      width: 50px;
-      height: 50px;
+    /* NAVEGACIÓN SIMPLE */
+    .simple-nav {
       display: flex;
-      flex-direction: column;
+      gap: 8px;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
+    }
+    
+    .nav-link {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #D4AF37;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-      gap: 4px;
+      white-space: nowrap;
     }
     
-    .hamburger-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    .nav-link:hover {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #D4AF37;
+      transform: translateY(-2px);
     }
     
-    .hamburger-line {
-      width: 20px;
-      height: 2px;
-      background: #000;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    
-    .hamburger-btn.active .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger-btn.active .hamburger-line:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .hamburger-btn.active .hamburger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    /* CARRITO */
+    /* CARRITO SIMPLE */
     .cart-btn {
       background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
       border: none;
@@ -388,110 +372,13 @@
       border: 2px solid #000;
     }
     
-    /* MENÚ MÓVIL NUEVO */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 300px;
-      height: 100vh;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
-      backdrop-filter: blur(20px);
-      border-left: 1px solid rgba(212, 175, 55, 0.3);
-      transition: right 0.3s ease;
-      z-index: 999;
-      overflow-y: auto;
-    }
-    
-    .mobile-menu.active {
-      right: 0;
-    }
-    
-    .mobile-menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    
-    .mobile-menu-header h3 {
-      color: #D4AF37;
-      margin: 0;
-      font-size: 1.2rem;
-    }
-    
-    .close-btn {
-      background: none;
-      border: none;
-      color: #D4AF37;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 5px;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-    
-    .close-btn:hover {
-      background: rgba(255, 68, 68, 0.2);
-      color: #ff4444;
-    }
-    
-    .mobile-nav {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .mobile-nav a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 20px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      color: #f5f5dc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      min-height: 50px;
-    }
-    
-    .mobile-nav a:hover {
-      background: rgba(212, 175, 55, 0.1);
-      border-color: #D4AF37;
-      color: #D4AF37;
-      transform: translateX(5px);
-    }
-    
-    .mobile-nav a i {
-      font-size: 1.1rem;
-      width: 20px;
-      text-align: center;
-    }
-    
-    /* OVERLAY */
-    .menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 998;
-    }
-    
-    .menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
     /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .simple-nav {
+        display: none;
+      }
+    }
+    
     @media (max-width: 480px) {
       .header {
         height: 60px;
@@ -514,15 +401,10 @@
         font-size: 0.65rem;
       }
       
-      .hamburger-btn,
       .cart-btn {
         width: 45px;
         height: 45px;
         font-size: 1.1rem;
-      }
-      
-      .mobile-menu {
-        width: 100%;
       }
     }
     
@@ -3674,10 +3556,12 @@
                 </div>
             </div>
 
-            <!-- Botón hamburguesa -->
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Navegación simple -->
+            <nav class="simple-nav">
+                <a href="#catalogo" class="nav-link">💖 Amor</a>
+                <a href="#baby-shower" class="nav-link">👶 Baby</a>
+                <a href="#navidad" class="nav-link">🎄 Navidad</a>
+            </nav>
 
             <!-- Carrito -->
             <button class="cart-btn" onclick="showCart()">
@@ -3685,45 +3569,6 @@
                 <span class="cart-count" id="cart-count">0</span>
             </button>
         </div>
-
-        <!-- Menú móvil -->
-        <div class="mobile-menu" id="mobile-menu">
-            <div class="mobile-menu-header">
-                <h3>Elena Velas y Aromas</h3>
-                <button class="close-btn" onclick="closeMobileMenu()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <nav class="mobile-nav">
-                <a href="#inicio" onclick="closeMobileMenu()">
-                    <i class="fas fa-home"></i>
-                    <span>Inicio</span>
-                </a>
-                <a href="#catalogo" onclick="closeMobileMenu()">
-                    <i class="fas fa-heart"></i>
-                    <span>Amor y Amistad</span>
-                </a>
-                <a href="#baby-shower" onclick="closeMobileMenu()">
-                    <i class="fas fa-baby"></i>
-                    <span>Baby Shower</span>
-                </a>
-                <a href="#primera-comunion" onclick="closeMobileMenu()">
-                    <i class="fas fa-church"></i>
-                    <span>Primera Comunión</span>
-                </a>
-                <a href="#navidad" onclick="closeMobileMenu()">
-                    <i class="fas fa-tree"></i>
-                    <span>Navidad</span>
-                </a>
-                <a href="#contacto" onclick="closeMobileMenu()">
-                    <i class="fas fa-phone"></i>
-                    <span>Contacto</span>
-                </a>
-            </nav>
-        </div>
-
-        <!-- Overlay -->
-        <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
     </header>
 
 
@@ -5868,26 +5713,6 @@
     });
 
 
-    // FUNCIONES DEL MENÚ MÓVIL - CORREGIDAS
-    function toggleMobileMenu() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        
-        if (mobileMenu && overlay) {
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-    }
-
-    function closeMobileMenu() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        
-        if (mobileMenu && overlay) {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-        }
-    }
 
     // Función para abrir WhatsApp
     function openWhatsApp() {
