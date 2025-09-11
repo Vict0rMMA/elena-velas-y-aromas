@@ -253,9 +253,15 @@
       }
     }
     
-    /* Ocultar menú hamburguesa en desktop */
+    /* Mostrar menú hamburguesa solo en móvil */
     .mobile-menu-btn {
       display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: flex !important;
+      }
     }
     
     .mobile-menu {
@@ -264,6 +270,16 @@
     
     .mobile-menu-overlay {
       display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block !important;
+      }
+      
+      .mobile-menu-overlay {
+        display: block !important;
+      }
     }
     
     /* Botón flotante de WhatsApp */
