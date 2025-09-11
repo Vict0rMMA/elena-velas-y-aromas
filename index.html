@@ -1,77 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Elena Velas y Aromas - Mobile</title>
-  
-  <!-- PWA Meta Tags -->
-  <meta name="theme-color" content="#D4AF37">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Elena Velas">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <!-- Styles -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    
-    #app {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-    }
-    
-    /* Loading Spinner */
-    .loading {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid rgba(212, 175, 55, 0.3);
-      border-top: 3px solid #D4AF37;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Velas y Aromas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="app">
-    <div class="loading">
-      <div class="spinner"></div>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo">
+                    <div class="brand-text">
+                        <h1>Elena Velas y Aromas</h1>
+                        <p>Donde el aroma y la luz se encuentran</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#catalogo" class="nav-link">Catálogo</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section id="inicio" class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">✨ Donde el aroma y la luz se encuentran ✨</h1>
+                    <p class="hero-subtitle">Velas artesanales que iluminan tus momentos especiales</p>
+                    <a href="#catalogo" class="btn btn-primary">Ver Catálogo</a>
+                </div>
+            </section>
+
+            <section id="catalogo" class="products-section">
+                <h2 class="section-title">Nuestro Catálogo</h2>
+                <div class="products-grid">
+                    <!-- Los productos se cargarán aquí -->
+                </div>
+            </section>
+
+            <section id="contacto" class="contact-section">
+                <h2 class="section-title">Contacto</h2>
+                <div class="contact-content">
+                    <p>¡Estamos aquí para crear la experiencia perfecta para ti!</p>
+                    <a href="https://wa.me/573008220389" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </section>
+        </main>
     </div>
-  </div>
-  <script type="module" src="/src/main.js"></script>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
