@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Velas y Aromas - Móvil v2.0</title>
+    <title>Elena Velas y Aromas - Móvil v2.1 - ACTUALIZADO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -23,41 +23,41 @@
 
         /* HEADER SIMPLE */
         .header {
-            position: fixed;
+      position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
+      left: 0;
+      right: 0;
             height: 60px;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
             border-bottom: 1px solid #D4AF37;
             z-index: 1000;
-            display: flex;
+      display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
+      padding: 0 20px;
         }
-
+        
         .logo-section {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
+        
         .logo {
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .brand-text h1 {
+      object-fit: cover;
+    }
+    
+    .brand-text h1 {
             font-size: 1.1rem;
-            color: #D4AF37;
+      color: #D4AF37;
             margin: 0;
         }
-
-        .brand-text p {
+        
+    .brand-text p {
             font-size: 0.7rem;
             color: #ccc;
             margin: 0;
@@ -75,16 +75,16 @@
             color: #000;
             font-size: 1.1rem;
             cursor: pointer;
-            position: relative;
+      position: relative;
             transition: transform 0.3s ease;
-        }
-
-        .cart-btn:hover {
+    }
+    
+    .cart-btn:hover {
             transform: scale(1.1);
         }
-
+        
         .cart-count {
-            position: absolute;
+      position: absolute;
             top: -5px;
             right: -5px;
             background: #ff4444;
@@ -97,13 +97,13 @@
             justify-content: center;
             font-size: 0.7rem;
             font-weight: bold;
-        }
-
+    }
+    
         /* HERO SECTION */
         .hero {
             margin-top: 60px;
             padding: 40px 20px;
-            text-align: center;
+      text-align: center;
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
         }
 
@@ -156,13 +156,13 @@
         .category-card {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
+      border-radius: 15px;
             padding: 20px;
-            text-align: center;
+      text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
+      transition: all 0.3s ease;
+    }
+    
         .category-card:hover {
             background: rgba(212, 175, 55, 0.2);
             transform: translateY(-5px);
@@ -193,23 +193,23 @@
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
-
+        
         .product-card {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 15px;
-            overflow: hidden;
+      overflow: hidden;
             transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
+    }
+    
+    .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
+        
         .product-image {
             width: 100%;
             height: 120px;
@@ -225,14 +225,14 @@
             font-size: 0.9rem;
             margin-bottom: 5px;
         }
-
+        
         .product-price {
-            color: #D4AF37;
+      color: #D4AF37;
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
-
+        
         .add-to-cart {
             background: linear-gradient(135deg, #D4AF37, #FFD700);
             color: #000;
@@ -247,7 +247,7 @@
         }
 
         .add-to-cart:hover {
-            transform: scale(1.05);
+      transform: scale(1.05);
         }
 
         /* FLOATING CART */
@@ -276,7 +276,7 @@
         }
 
         .floating-cart .cart-count {
-            position: absolute;
+      position: absolute;
             top: -5px;
             right: -5px;
             background: #ff4444;
@@ -323,10 +323,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             display: none;
-            align-items: center;
+      align-items: center;
             justify-content: center;
             padding: 20px;
         }
@@ -341,7 +341,7 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-
+        
         .cart-header {
             display: flex;
             justify-content: space-between;
@@ -349,7 +349,7 @@
             margin-bottom: 20px;
             color: #D4AF37;
         }
-
+        
         .close-cart {
             background: none;
             border: none;
@@ -357,7 +357,7 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-
+        
         .cart-item {
             display: flex;
             align-items: center;
@@ -382,24 +382,24 @@
             font-size: 0.9rem;
             margin-bottom: 5px;
         }
-
+        
         .cart-item-price {
             color: #D4AF37;
             font-weight: 600;
         }
-
-        .remove-item {
+    
+    .remove-item {
             background: #ff4444;
             border: none;
             color: #fff;
-            padding: 5px 10px;
+      padding: 5px 10px;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+        
         .cart-total {
-            text-align: center;
+      text-align: center;
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
@@ -408,42 +408,42 @@
         .cart-total h4 {
             color: #D4AF37;
             font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
+      margin-bottom: 15px;
+    }
+    
         .checkout-btn {
             background: linear-gradient(135deg, #D4AF37, #FFD700);
             color: #000;
-            border: none;
+        border: none;
             padding: 15px 30px;
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
+        width: 100%;
         }
 
         /* RESPONSIVE */
-        @media (max-width: 480px) {
-            .header {
+    @media (max-width: 480px) {
+      .header {
                 height: 55px;
                 padding: 0 15px;
-            }
-
-            .logo {
+      }
+      
+      .logo {
                 width: 30px;
                 height: 30px;
-            }
-
-            .brand-text h1 {
+      }
+      
+      .brand-text h1 {
                 font-size: 1rem;
-            }
-
-            .brand-text p {
+      }
+      
+      .brand-text p {
                 font-size: 0.6rem;
             }
 
-            .cart-btn {
+      .cart-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
@@ -454,9 +454,9 @@
             }
 
             .hero h2 {
-                font-size: 1.5rem;
-            }
-
+        font-size: 1.5rem;
+      }
+      
             .categories, .products {
                 padding: 20px 15px;
             }
@@ -478,21 +478,24 @@
 <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="logo-section">
+                <div class="logo-section">
             <img src="assets/logo.png" alt="Elena Velas" class="logo">
-            <div class="brand-text">
-                <h1>Elena</h1>
-                <p>VELAS Y AROMAS</p>
-            </div>
-        </div>
-        <button class="cart-btn" onclick="showCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </button>
-    </header>
+          <div class="brand-text">
+            <h1>Elena</h1>
+            <p>VELAS Y AROMAS</p>
+                    </div>
+                </div>
+                    <button class="cart-btn" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+  </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
+        <div style="background: #D4AF37; color: #000; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-weight: bold;">
+            🚀 PÁGINA ACTUALIZADA v2.1 - NUEVA EXPERIENCIA MÓVIL
+        </div>
         <h2>✨ Donde el aroma y la luz se encuentran ✨</h2>
         <p>Velas artesanales que iluminan tus momentos especiales</p>
         <button class="cta-btn" onclick="scrollToProducts()">Ver Catálogo</button>
@@ -503,23 +506,23 @@
         <h3>Nuestras Categorías</h3>
         <div class="category-grid">
             <div class="category-card" onclick="filterProducts('amor')">
-                <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
                 <h4>💖 Amor y Amistad</h4>
             </div>
             <div class="category-card" onclick="filterProducts('baby')">
-                <i class="fas fa-baby"></i>
+            <i class="fas fa-baby"></i>
                 <h4>👶 Baby Shower</h4>
             </div>
             <div class="category-card" onclick="filterProducts('comunion')">
                 <i class="fas fa-church"></i>
                 <h4>✝️ Primera Comunión</h4>
-            </div>
+              </div>
             <div class="category-card" onclick="filterProducts('navidad')">
                 <i class="fas fa-tree"></i>
                 <h4>🎄 Navidad</h4>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- PRODUCTS -->
     <section class="products" id="products">
@@ -527,18 +530,18 @@
         <div class="product-grid" id="product-grid">
             <!-- Productos se cargarán dinámicamente -->
         </div>
-    </section>
+      </section>
 
     <!-- FLOATING CART -->
     <button class="floating-cart" onclick="showCart()">
-        <i class="fas fa-shopping-cart"></i>
+              <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="floating-cart-count">0</span>
-    </button>
+                </button>
 
     <!-- WHATSAPP BUTTON -->
     <button class="whatsapp-btn" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i>
-    </button>
+            </button>
 
     <!-- CART MODAL -->
     <div class="cart-modal" id="cart-modal">
@@ -547,17 +550,17 @@
                 <h3>Carrito de Compras</h3>
                 <button class="close-cart" onclick="hideCart()">
                     <i class="fas fa-times"></i>
-                </button>
-            </div>
+            </button>
+    </div>
             <div id="cart-items">
                 <!-- Items del carrito se cargarán dinámicamente -->
-            </div>
+              </div>
             <div class="cart-total">
                 <h4>Total: $<span id="cart-total">0</span></h4>
                 <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
             </div>
-        </div>
-    </div>
+          </div>
+          </div>
 
     <script>
         // Datos de productos
@@ -590,8 +593,8 @@
                         <p class="product-price">$${product.price.toLocaleString()}</p>
                         <button class="add-to-cart" onclick="addToCart(${product.id})">
                             <i class="fas fa-cart-plus"></i> Añadir
-                        </button>
-                    </div>
+            </button>
+          </div>
                 `;
                 productGrid.appendChild(productCard);
             });
@@ -601,14 +604,14 @@
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
                 cart.push({ ...product, quantity: 1 });
             }
 
-            updateCartDisplay();
+      updateCartDisplay();
             showCartNotification();
         }
 
@@ -620,12 +623,12 @@
 
             const cartItems = document.getElementById('cart-items');
             cartItems.innerHTML = '';
-
+            
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p style="text-align: center; color: #ccc;">Tu carrito está vacío</p>';
-                return;
-            }
-
+        return;
+      }
+      
             cart.forEach(item => {
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
@@ -634,10 +637,10 @@
                     <div class="cart-item-info">
                         <h4 class="cart-item-name">${item.name}</h4>
                         <p class="cart-item-price">$${item.price.toLocaleString()} x ${item.quantity}</p>
-                    </div>
-                    <button class="remove-item" onclick="removeFromCart(${item.id})">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                        </div>
+          <button class="remove-item" onclick="removeFromCart(${item.id})">
+            <i class="fas fa-trash"></i>
+                        </button>
                 `;
                 cartItems.appendChild(cartItem);
             });
