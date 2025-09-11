@@ -446,18 +446,20 @@
         
         .cart-count {
       position: absolute;
-      top: -8px;
-      right: -8px;
+      top: -6px;
+      right: -6px;
             background: #ff4444;
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-      font-size: 12px;
+      font-size: 0.7rem;
             font-weight: bold;
+            border: 2px solid #000;
+            min-width: 18px;
     }
     
     /* Main Content */
@@ -2099,6 +2101,34 @@
         flex-direction: row !important;
         gap: 10px !important;
         justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 15px !important;
+      }
+      
+      /* Logo más compacto para móviles */
+      .logo-section {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      
+      .logo {
+        width: 40px !important;
+        height: 40px !important;
+        flex-shrink: 0 !important;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+      }
+      
+      .brand-text p {
+        font-size: 0.7rem !important;
+        margin: 0 !important;
+        line-height: 1 !important;
       }
       
       .logo-section {
@@ -2133,23 +2163,23 @@
       
       /* Menú hamburguesa funcional */
       .mobile-menu-btn {
-        display: block !important;
+        display: flex !important;
         background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%) !important;
         border: 2px solid #FFD700 !important;
         color: #000 !important;
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
         cursor: pointer !important;
-        padding: 14px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+        padding: 10px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3) !important;
         transition: all 0.3s ease !important;
         position: relative !important;
         z-index: 1001 !important;
-        min-width: 50px !important;
-        min-height: 50px !important;
-        display: flex !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
         align-items: center !important;
         justify-content: center !important;
+        order: 1 !important;
       }
       
       .mobile-menu-btn:hover {
@@ -2246,11 +2276,22 @@
       
       /* Botón de carrito más simple */
       .cart-btn {
-        background: #D4AF37 !important;
+        background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%) !important;
         color: #000 !important;
-        padding: 8px 12px !important;
-        border-radius: 8px !important;
-        font-size: 0.8rem !important;
+        padding: 10px 12px !important;
+        border-radius: 10px !important;
+        font-size: 0.9rem !important;
+        border: 2px solid #FFD700 !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        order: 2 !important;
+        box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3) !important;
       }
       
       /* Hero section más simple */
@@ -2666,6 +2707,56 @@
 
     /* Borde y sombra premium más ligera en móvil */
     .product-card { border-color: rgba(212, 175, 55, 0.7) !important; box-shadow: 0 6px 16px rgba(0,0,0,0.28); }
+    
+    /* Optimizaciones específicas para iPhone */
+    @media (max-width: 480px) {
+      .header {
+        height: 56px !important;
+        padding: 6px 0 !important;
+      }
+      
+      .header-content {
+        padding: 0 12px !important;
+        height: 44px !important;
+      }
+      
+      .logo {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.1rem !important;
+      }
+      
+      .brand-text p {
+        font-size: 0.65rem !important;
+      }
+      
+      .mobile-menu-btn {
+        min-width: 40px !important;
+        min-height: 40px !important;
+        padding: 8px !important;
+        font-size: 1.1rem !important;
+      }
+      
+      .cart-btn {
+        min-width: 40px !important;
+        min-height: 40px !important;
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+      }
+      
+      .btn {
+        min-height: 48px !important;
+        padding: 14px 20px !important;
+        font-size: 1rem !important;
+      }
+      
+      .contact-buttons a {
+        min-height: 48px !important;
+      }
+    }
     </style>
 </head>
 <body>
