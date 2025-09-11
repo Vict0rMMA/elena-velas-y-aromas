@@ -1,251 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elena Velas y Aromas - Selecciona tu dispositivo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Elena Velas y Aromas - Mobile</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#D4AF37">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Elena Velas">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-            color: #f5f5dc;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior: contain;
-            touch-action: manipulation;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .container {
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-        }
-        
-        .logo {
-            margin-bottom: 40px;
-        }
-        
-        .logo img {
-            max-width: 200px;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
-        }
-        
-        .title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #FFA500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #f5f5dc;
-            margin-bottom: 50px;
-            opacity: 0.9;
-        }
-        
-        .device-options {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .device-option {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .device-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .device-option:hover::before {
-            left: 100%;
-        }
-        
-        .device-option:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.5);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-        }
-        
-        .device-option:active {
-            transform: scale(0.98);
-        }
-        
-        .device-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #D4AF37;
-        }
-        
-        .device-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #f5f5dc;
-        }
-        
-        .device-description {
-            font-size: 1rem;
-            color: #f5f5dc;
-            opacity: 0.8;
-        }
-        
-        .footer-text {
-            font-size: 0.9rem;
-            color: #f5f5dc;
-            opacity: 0.6;
-            margin-top: 30px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .device-option {
-                padding: 25px;
-                min-height: 100px;
-            }
-            
-            .device-icon {
-                font-size: 2.5rem;
-            }
-            
-            .device-title {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
-            
-            .device-option {
-                padding: 20px;
-                min-height: 90px;
-            }
-            
-            .device-icon {
-                font-size: 2rem;
-            }
-            
-            .device-title {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    #app {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    }
+    
+    /* Loading Spinner */
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(212, 175, 55, 0.3);
+      border-top: 3px solid #D4AF37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="assets/logo.png" alt="Elena Velas y Aromas" onerror="this.style.display='none'">
-        </div>
-        
-        <h1 class="title">Elena Velas y Aromas</h1>
-        <p class="subtitle">Selecciona tu dispositivo para la mejor experiencia</p>
-        
-        <div class="device-options">
-            <a href="mobile.html" class="device-option">
-                <div class="device-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="device-title">Dispositivo Móvil</div>
-                <div class="device-description">Celular o Tablet - Optimizado para pantallas táctiles</div>
-            </a>
-            
-            <a href="desktop.html" class="device-option">
-                <div class="device-icon">
-                    <i class="fas fa-desktop"></i>
-                </div>
-                <div class="device-title">Computador</div>
-                <div class="device-description">PC o Laptop - Experiencia completa con mouse</div>
-            </a>
-        </div>
-        
-        <p class="footer-text">
-            Puedes cambiar de versión en cualquier momento desde el menú
-        </p>
+  <div id="app">
+    <div class="loading">
+      <div class="spinner"></div>
     </div>
-    
-    <script>
-        // Mejorar funcionalidad táctil
-        document.addEventListener('DOMContentLoaded', function() {
-            const options = document.querySelectorAll('.device-option');
-            
-            options.forEach(option => {
-                option.addEventListener('touchstart', function(e) {
-                    this.style.transform = 'scale(0.98)';
-                    this.style.transition = 'transform 0.1s ease';
-                }, { passive: true });
-                
-                option.addEventListener('touchend', function(e) {
-                    this.style.transform = '';
-                }, { passive: true });
-                
-                option.addEventListener('touchcancel', function(e) {
-                    this.style.transform = '';
-                }, { passive: true });
-            });
-        });
-    </script>
+  </div>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

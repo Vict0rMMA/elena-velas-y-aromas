@@ -5541,44 +5541,6 @@
         function closeCart() {
             document.getElementById('cart-overlay').style.display = 'none';
         }
-        
-        // Funciones para lista de deseos
-        function toggleWishlist(productName) {
-            const index = wishlist.indexOf(productName);
-            if (index > -1) {
-                wishlist.splice(index, 1);
-            } else {
-                wishlist.push(productName);
-            }
-            updateWishlistDisplay();
-            saveWishlist();
-        }
-        
-        function updateWishlistDisplay() {
-            const wishlistButtons = document.querySelectorAll('.wishlist-btn');
-            wishlistButtons.forEach(button => {
-                const productName = button.getAttribute('data-product');
-                if (wishlist.includes(productName)) {
-                    button.classList.add('active');
-                    button.innerHTML = '<i class="fas fa-heart"></i>';
-                } else {
-                    button.classList.remove('active');
-                    button.innerHTML = '<i class="far fa-heart"></i>';
-                }
-            });
-        }
-        
-        function saveWishlist() {
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        }
-        
-        function loadWishlist() {
-            const saved = localStorage.getItem('wishlist');
-            if (saved) {
-                wishlist = JSON.parse(saved);
-                updateWishlistDisplay();
-            }
-        }
 
         function sendToWhatsApp() {
             if (cart.length === 0) {
@@ -5695,9 +5657,6 @@
           }
         });
       }
-      
-      // Cargar lista de deseos
-      loadWishlist();
       
       // Mejorar funcionalidad táctil
       const buttons = document.querySelectorAll('button, .btn, .cart-btn, .whatsapp-float, .add-to-cart');
