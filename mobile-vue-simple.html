@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Elena Velas y Aromas - Mobile Vue</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Elena Velas">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Vue.js 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Variables CSS */
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #FFD700;
+            --dark-bg: #000;
+            --darker-bg: #1a1a1a;
+            --card-bg: rgba(0, 0, 0, 0.8);
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --text-light: #f5f5dc;
+            --success: #4CAF50;
+            --danger: #ff4444;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 0 20px;
+            max-width: 100%;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .brand-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            margin: 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .brand-text p {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .mobile-menu-btn {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            border: none;
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 70px;
+            min-height: 100vh;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%),
+                        url('/assets/productos/2.png') center/cover;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            min-width: 44px;
+            touch-action: manipulation;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Promotions */
+        .promotions-section {
+            background: linear-gradient(135deg, #ff4444 0%, #ff6666 100%);
+            margin: 20px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(255, 68, 68, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .promotion-banner {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: #000;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .promotion-banner:last-child {
+            margin-bottom: 0;
+        }
+        
+        .promotion-emoji {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+        
+        /* Categories */
+        .categories-section {
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .catalog-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.8) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+        }
+        
+        .category-card .emoji {
+            font-size: 2.5rem;
+            display: block;
+        }
+        
+        .category-card .text {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        /* Floating Cart */
+        .floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .cart-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            border: none;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4444;
+            color: #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 2px solid #000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.5);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .catalog-buttons {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                height: 60px;
+            }
+            
+            .header-content {
+                padding: 0 16px;
+            }
+            
+            .main-content {
+                padding-top: 60px;
+            }
+            
+            .hero-section {
+                min-height: 50vh;
+                padding: 30px 16px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .promotions-section {
+                margin: 16px;
+                padding: 16px;
+            }
+            
+            .categories-section {
+                padding: 30px 16px;
+            }
+            
+            .floating-cart {
+                bottom: 16px;
+                right: 16px;
+            }
+            
+            .whatsapp-float {
+                bottom: 16px;
+                left: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="/assets/logo.png" alt="Elena Velas" class="logo">
+                    <div class="brand-text">
+                        <h1>Elena</h1>
+                        <p>VELAS Y AROMAS</p>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" @click="toggleMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        ✨ Donde el aroma y la luz se encuentran ✨
+                    </h1>
+                    <p class="hero-subtitle">
+                        Velas artesanales que iluminan tus momentos especiales
+                    </p>
+                    <button class="btn btn-primary" @click="scrollToCategories">
+                        Ver Catálogo
+                    </button>
+                </div>
+            </section>
+
+            <!-- Promotions Section -->
+            <section class="promotions-section">
+                <div class="promotion-banner">
+                    <span class="promotion-emoji">🔥</span>
+                    <strong>2x1 en velas decorativas</strong>
+                </div>
+                <div class="promotion-banner">
+                    <span class="promotion-emoji">🚚</span>
+                    <strong>Envío gratis por compras mayores a $50.000</strong>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section" id="categories">
+                <h2 class="section-title">Nuestras Categorías</h2>
+                <div class="catalog-buttons">
+                    <a href="#amor" class="category-card" @click="showCategory('amor')">
+                        <span class="emoji">💝</span>
+                        <span class="text">Amor y Amistad</span>
+                    </a>
+                    <a href="#baby" class="category-card" @click="showCategory('baby')">
+                        <span class="emoji">👶</span>
+                        <span class="text">Baby Shower</span>
+                    </a>
+                    <a href="#comunion" class="category-card" @click="showCategory('comunion')">
+                        <span class="emoji">✝️</span>
+                        <span class="text">Primera Comunión</span>
+                    </a>
+                    <a href="#navidad" class="category-card" @click="showCategory('navidad')">
+                        <span class="emoji">🎄</span>
+                        <span class="text">Navidad</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Cart -->
+        <div class="floating-cart">
+            <button 
+                class="cart-btn"
+                :class="{ 'animate-pulse': cartCount > 0 }"
+                @click="showCart"
+            >
+                <i class="fas fa-shopping-cart"></i>
+                <span v-if="cartCount > 0" class="cart-count">
+                    {{ cartCount }}
+                </span>
+            </button>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <div class="whatsapp-float">
+            <button class="whatsapp-btn" @click="openWhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    cartCount: 0,
+                    isMenuOpen: false
+                }
+            },
+            methods: {
+                toggleMenu() {
+                    this.isMenuOpen = !this.isMenuOpen;
+                    // Aquí puedes agregar lógica para mostrar/ocultar menú
+                },
+                scrollToCategories() {
+                    document.getElementById('categories').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                },
+                showCategory(category) {
+                    // Aquí puedes agregar lógica para mostrar productos de la categoría
+                    console.log('Mostrar categoría:', category);
+                },
+                showCart() {
+                    // Aquí puedes agregar lógica para mostrar el carrito
+                    console.log('Mostrar carrito');
+                },
+                openWhatsApp() {
+                    const message = encodeURIComponent("Hola 👋, estoy interesado en las velas. ¿Me das más información?");
+                    const phoneNumber = "573008220389";
+                    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+                    window.open(url, '_blank');
+                }
+            },
+            mounted() {
+                // Cargar carrito desde localStorage
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    this.cartCount = JSON.parse(savedCart).length;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
