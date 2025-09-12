@@ -1,0 +1,293 @@
+{2B5EFFA4-C54E-42F0-95B7-0D1D5076BB6F}.png<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#D4AF37">
+    <title>Test Móvil - Elena Velas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .test-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .test-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .test-title {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .test-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status.ok {
+            background: #4ade80;
+            color: #000;
+        }
+        
+        .status.warning {
+            background: #fbbf24;
+            color: #000;
+        }
+        
+        .status.error {
+            background: #ef4444;
+            color: #fff;
+        }
+        
+        .device-info {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn {
+            background: #D4AF37;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <a href="mobile.html" class="back-btn">← Volver a la página principal</a>
+        
+        <div class="device-info">
+            <h2>📱 Información del Dispositivo</h2>
+            <div id="device-info"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3 class="test-title">🔍 Tests de Visualización</h3>
+            
+            <div class="test-item">
+                <strong>Viewport:</strong> 
+                <span id="viewport-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>Ancho de pantalla:</strong> 
+                <span id="width-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>Alto de pantalla:</strong> 
+                <span id="height-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>Orientación:</strong> 
+                <span id="orientation-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>Touch support:</strong> 
+                <span id="touch-test" class="status">Verificando...</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3 class="test-title">🎨 Tests de CSS</h3>
+            
+            <div class="test-item">
+                <strong>Flexbox support:</strong> 
+                <span id="flexbox-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>Grid support:</strong> 
+                <span id="grid-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>CSS Variables:</strong> 
+                <span id="css-vars-test" class="status">Verificando...</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3 class="test-title">⚡ Tests de Performance</h3>
+            
+            <div class="test-item">
+                <strong>Carga de imágenes:</strong> 
+                <span id="images-test" class="status">Verificando...</span>
+            </div>
+            
+            <div class="test-item">
+                <strong>JavaScript:</strong> 
+                <span id="js-test" class="status">Verificando...</span>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3 class="test-title">📋 Recomendaciones</h3>
+            <div id="recommendations"></div>
+        </div>
+    </div>
+
+    <script>
+        function runTests() {
+            // Device info
+            const deviceInfo = document.getElementById('device-info');
+            deviceInfo.innerHTML = `
+                <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                <p><strong>Platform:</strong> ${navigator.platform}</p>
+                <p><strong>Language:</strong> ${navigator.language}</p>
+                <p><strong>Online:</strong> ${navigator.onLine ? 'Sí' : 'No'}</p>
+            `;
+            
+            // Viewport test
+            const viewport = document.querySelector('meta[name="viewport"]');
+            const viewportTest = document.getElementById('viewport-test');
+            if (viewport && viewport.content.includes('width=device-width')) {
+                viewportTest.textContent = 'OK';
+                viewportTest.className = 'status ok';
+            } else {
+                viewportTest.textContent = 'ERROR';
+                viewportTest.className = 'status error';
+            }
+            
+            // Screen dimensions
+            const widthTest = document.getElementById('width-test');
+            const heightTest = document.getElementById('height-test');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            widthTest.textContent = `${width}px`;
+            widthTest.className = width < 480 ? 'status warning' : 'status ok';
+            
+            heightTest.textContent = `${height}px`;
+            heightTest.className = height < 600 ? 'status warning' : 'status ok';
+            
+            // Orientation
+            const orientationTest = document.getElementById('orientation-test');
+            const orientation = width > height ? 'Landscape' : 'Portrait';
+            orientationTest.textContent = orientation;
+            orientationTest.className = 'status ok';
+            
+            // Touch support
+            const touchTest = document.getElementById('touch-test');
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            touchTest.textContent = hasTouch ? 'Sí' : 'No';
+            touchTest.className = hasTouch ? 'status ok' : 'status warning';
+            
+            // CSS support tests
+            const flexboxTest = document.getElementById('flexbox-test');
+            const gridTest = document.getElementById('grid-test');
+            const cssVarsTest = document.getElementById('css-vars-test');
+            
+            // Test flexbox
+            const flexboxSupported = CSS.supports('display', 'flex');
+            flexboxTest.textContent = flexboxSupported ? 'Sí' : 'No';
+            flexboxTest.className = flexboxSupported ? 'status ok' : 'status error';
+            
+            // Test grid
+            const gridSupported = CSS.supports('display', 'grid');
+            gridTest.textContent = gridSupported ? 'Sí' : 'No';
+            gridTest.className = gridSupported ? 'status ok' : 'status warning';
+            
+            // Test CSS variables
+            const cssVarsSupported = CSS.supports('color', 'var(--test)');
+            cssVarsTest.textContent = cssVarsSupported ? 'Sí' : 'No';
+            cssVarsTest.className = cssVarsSupported ? 'status ok' : 'status warning';
+            
+            // Performance tests
+            const imagesTest = document.getElementById('images-test');
+            const jsTest = document.getElementById('js-test');
+            
+            // Test images
+            const testImg = new Image();
+            testImg.onload = () => {
+                imagesTest.textContent = 'OK';
+                imagesTest.className = 'status ok';
+            };
+            testImg.onerror = () => {
+                imagesTest.textContent = 'ERROR';
+                imagesTest.className = 'status error';
+            };
+            testImg.src = 'assets/logo.png';
+            
+            // Test JavaScript
+            jsTest.textContent = 'OK';
+            jsTest.className = 'status ok';
+            
+            // Generate recommendations
+            generateRecommendations();
+        }
+        
+        function generateRecommendations() {
+            const recommendations = document.getElementById('recommendations');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            let recs = [];
+            
+            if (width < 320) {
+                recs.push('⚠️ Pantalla muy pequeña. Considera usar una sola columna para productos.');
+            }
+            
+            if (height < 500) {
+                recs.push('⚠️ Altura limitada. Reduce el padding vertical en secciones.');
+            }
+            
+            if (!hasTouch) {
+                recs.push('ℹ️ Dispositivo sin touch. Los botones flotantes pueden no ser necesarios.');
+            }
+            
+            if (width > 768) {
+                recs.push('ℹ️ Pantalla grande detectada. Considera mostrar más columnas de productos.');
+            }
+            
+            if (recs.length === 0) {
+                recs.push('✅ Todo se ve bien para este dispositivo!');
+            }
+            
+            recommendations.innerHTML = recs.map(rec => `<div class="test-item">${rec}</div>`).join('');
+        }
+        
+        // Run tests on load
+        document.addEventListener('DOMContentLoaded', runTests);
+        
+        // Re-run tests on resize
+        window.addEventListener('resize', runTests);
+        window.addEventListener('orientationchange', () => {
+            setTimeout(runTests, 100);
+        });
+    </script>
+</body>
+</html>
