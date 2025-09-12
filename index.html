@@ -1830,7 +1830,6 @@
         font-size: 0.9rem;
       }
       
-      
       .logo {
         width: 50px;
         height: 50px;
@@ -1842,6 +1841,141 @@
       
       .brand-text p {
         font-size: 0.8rem;
+      }
+      
+      /* Optimizaciones adicionales para móviles pequeños */
+      .hero-section {
+        padding: 30px 15px;
+        min-height: 50vh;
+      }
+      
+      .products-grid {
+        gap: 15px;
+        margin: 15px 0;
+      }
+      
+      .product-card {
+        margin-bottom: 15px;
+        border-radius: 10px;
+      }
+      
+      .product-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .product-info p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .mobile-menu {
+        width: 90%;
+      }
+      
+      .modal {
+        padding: 15px;
+        margin: 5px;
+      }
+      
+      /* Mejorar botones para pantallas muy pequeñas */
+      .btn, .product-btn {
+        padding: 14px 18px;
+        font-size: 0.9rem;
+        min-height: 48px;
+      }
+    }
+    
+    /* Optimizaciones para móviles extra pequeños (320px) */
+    @media (max-width: 360px) {
+      .container {
+        padding: 0 8px;
+      }
+      
+      .hero-title {
+        font-size: 1.6rem;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.85rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .product-image {
+        height: 180px;
+        padding: 8px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 200px;
+        padding: 8px;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.3rem;
+      }
+      
+      .brand-text p {
+        font-size: 0.75rem;
+      }
+      
+      .btn {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Optimizaciones para orientación landscape en móviles */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .hero-section {
+        min-height: 40vh;
+        padding: 20px;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      
+      .cta-buttons {
+        flex-direction: row;
+        gap: 10px;
+      }
+      
+      .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        min-width: 120px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .product-image {
+        height: 150px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 170px;
+      }
+    }
+    
+    /* Optimizaciones para pantallas de alta densidad (Retina) */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .product-image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
       }
     }
     
@@ -1922,6 +2056,52 @@
       
       .catalog-banner .absolute.bottom-6.left-6 p {
         font-size: 1rem;
+      }
+      
+      /* Mejoras adicionales para móviles */
+      .product-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+      }
+      
+      /* Optimizar botones para touch */
+      .btn, .product-btn, .contact-buttons a {
+        min-height: 44px; /* Tamaño mínimo recomendado para touch */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* Mejorar legibilidad en móviles */
+      .product-info p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      
+      /* Optimizar modal para móviles */
+      .modal {
+        padding: 20px;
+        margin: 10px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      
+      .modal-content {
+        max-width: 100%;
+        margin: 0;
+      }
+      
+      /* Mejorar navegación táctil */
+      .nav-links a, .mobile-menu-links a {
+        padding: 12px 16px;
+        display: block;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
       }
     }
     
