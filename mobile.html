@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#D4AF37">
-    <title>Elena Velas y Aromas - Móvil</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Elena Velas y Aromas</title>
     <style>
         * {
             margin: 0;
@@ -14,73 +12,153 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #fff;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* HEADER */
         .header {
+            background: #D4AF37;
+            color: #000;
+            padding: 15px;
+            text-align: center;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #D4AF37;
             z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
         }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
 
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
+        .header p {
+            font-size: 0.9rem;
         }
 
-        .brand-text h1 {
-            font-size: 1.2rem;
+        .main {
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
             color: #D4AF37;
-            margin: 0;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
-        .brand-text p {
-            font-size: 0.7rem;
+        .hero p {
             color: #ccc;
-            margin: 0;
+            margin-bottom: 20px;
         }
 
-        .cart-btn {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
+        .btn {
+            background: #D4AF37;
+            color: #000;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h3 {
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card h4 {
+            color: #D4AF37;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .card p {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            background: #D4AF37;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #D4AF37;
+            color: #000;
             border: none;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-size: 1.2rem;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
             cursor: pointer;
-            position: relative;
-            transition: transform 0.3s ease;
+            z-index: 1000;
         }
 
-        .cart-btn:hover {
-            transform: scale(1.1);
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
         }
 
         .cart-count {
@@ -88,235 +166,17 @@
             top: -5px;
             right: -5px;
             background: #ff4444;
-            color: #fff;
+            color: white;
             border-radius: 50%;
             width: 20px;
             height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        /* MAIN CONTENT */
-        .main-content {
-            margin-top: 60px;
-            padding: 20px 15px;
-        }
-
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 30px 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(255, 215, 0, 0.1));
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            color: #D4AF37;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            color: #000;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* CATEGORIES */
-        .categories {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #D4AF37;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .category-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .category-card:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .category-card i {
-            font-size: 2rem;
-            color: #D4AF37;
-            margin-bottom: 10px;
-        }
-
-        .category-card h4 {
-            color: #fff;
-            font-size: 0.9rem;
-        }
-
-        /* PRODUCTS */
-        .products {
-            margin-bottom: 30px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-name {
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-
-        .product-price {
-            color: #D4AF37;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .add-to-cart {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            color: #000;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-
-        .add-to-cart:hover {
-            transform: scale(1.05);
-        }
-
-        /* FLOATING BUTTONS */
-        .floating-cart {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #000;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
         }
 
-        .floating-cart:hover {
-            transform: scale(1.1);
-        }
-
-        .floating-cart .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff4444;
-            color: #fff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #25D366;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* CART MODAL */
-        .cart-modal {
+        .modal {
             position: fixed;
             top: 0;
             left: 0;
@@ -330,9 +190,9 @@
             padding: 20px;
         }
 
-        .cart-content {
+        .modal-content {
             background: #1a1a1a;
-            border: 1px solid #D4AF37;
+            border: 2px solid #D4AF37;
             border-radius: 15px;
             padding: 20px;
             max-width: 400px;
@@ -341,7 +201,7 @@
             overflow-y: auto;
         }
 
-        .cart-header {
+        .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -349,7 +209,7 @@
             color: #D4AF37;
         }
 
-        .close-cart {
+        .close {
             background: none;
             border: none;
             color: #D4AF37;
@@ -361,283 +221,203 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 10px 0;
+            border-bottom: 1px solid #D4AF37;
         }
 
         .cart-item img {
             width: 50px;
             height: 50px;
-            border-radius: 8px;
-            object-fit: cover;
+            border-radius: 5px;
         }
 
         .cart-item-info {
             flex: 1;
         }
 
-        .cart-item-name {
+        .cart-item h4 {
             color: #fff;
             font-size: 0.9rem;
             margin-bottom: 5px;
         }
 
-        .cart-item-price {
+        .cart-item p {
             color: #D4AF37;
-            font-weight: 600;
+            font-weight: bold;
         }
 
-        .remove-item {
+        .remove {
             background: #ff4444;
+            color: white;
             border: none;
-            color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.8rem;
         }
 
-        .cart-total {
+        .total {
             text-align: center;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-top: 1px solid #D4AF37;
         }
 
-        .cart-total h4 {
+        .total h4 {
             color: #D4AF37;
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
 
-        .checkout-btn {
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
+        .checkout {
+            background: #D4AF37;
             color: #000;
             border: none;
             padding: 15px 30px;
             border-radius: 25px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
             width: 100%;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 480px) {
-            .header {
-                height: 55px;
-                padding: 0 10px;
+            .header h1 {
+                font-size: 1.2rem;
             }
-
-            .logo {
-                width: 35px;
-                height: 35px;
+            
+            .header p {
+                font-size: 0.8rem;
             }
-
-            .brand-text h1 {
-                font-size: 1rem;
+            
+            .main {
+                padding: 15px;
             }
-
-            .brand-text p {
-                font-size: 0.6rem;
-            }
-
-            .cart-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .main-content {
-                padding: 15px 10px;
-            }
-
-            .hero {
-                padding: 20px 0;
-            }
-
+            
             .hero h2 {
                 font-size: 1.5rem;
             }
-
-            .category-grid, .product-grid {
+            
+            .grid {
                 gap: 10px;
             }
-
-            .category-card, .product-card {
-                padding: 15px;
+            
+            .card {
+                padding: 12px;
             }
-
-            .product-image {
-                height: 100px;
-            }
-
-            .floating-cart, .whatsapp-btn {
-                width: 50px;
-                height: 50px;
-                bottom: 15px;
-            }
-
-            .floating-cart {
-                right: 15px;
-            }
-
-            .whatsapp-btn {
-                left: 15px;
+            
+            .card img {
+                height: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header class="header">
-        <div class="logo-section">
-            <img src="assets/logo.png" alt="Elena Velas" class="logo">
-            <div class="brand-text">
-                <h1>Elena</h1>
-                <p>VELAS Y AROMAS</p>
-            </div>
-        </div>
-        <button class="cart-btn" onclick="showCart()">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cart-count">0</span>
-        </button>
+        <h1>Elena Velas y Aromas</h1>
+        <p>Donde el aroma y la luz se encuentran</p>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-        <!-- HERO SECTION -->
+    <main class="main">
         <section class="hero">
-            <h2>✨ Donde el aroma y la luz se encuentran ✨</h2>
-            <p>Velas artesanales que iluminan tus momentos especiales</p>
-            <button class="cta-btn" onclick="scrollToProducts()">Ver Catálogo</button>
+            <h2>✨ Velas Artesanales ✨</h2>
+            <p>Ilumina tus momentos especiales</p>
+            <button class="btn" onclick="scrollToProducts()">Ver Productos</button>
         </section>
 
-        <!-- CATEGORIES -->
-        <section class="categories">
-            <h3 class="section-title">Nuestras Categorías</h3>
-            <div class="category-grid">
-                <div class="category-card" onclick="filterProducts('amor')">
-                    <i class="fas fa-heart"></i>
-                    <h4>💖 Amor y Amistad</h4>
-                </div>
-                <div class="category-card" onclick="filterProducts('baby')">
-                    <i class="fas fa-baby"></i>
-                    <h4>👶 Baby Shower</h4>
-                </div>
-                <div class="category-card" onclick="filterProducts('comunion')">
-                    <i class="fas fa-church"></i>
-                    <h4>✝️ Primera Comunión</h4>
-                </div>
-                <div class="category-card" onclick="filterProducts('navidad')">
-                    <i class="fas fa-tree"></i>
-                    <h4>🎄 Navidad</h4>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCTS -->
-        <section class="products" id="products">
-            <h3 class="section-title">Nuestros Productos</h3>
-            <div class="product-grid" id="product-grid">
-                <!-- Productos se cargarán dinámicamente -->
+        <section class="section">
+            <h3>Nuestros Productos</h3>
+            <div class="grid" id="products">
+                <!-- Productos se cargarán aquí -->
             </div>
         </section>
     </main>
 
-    <!-- FLOATING BUTTONS -->
-    <button class="floating-cart" onclick="showCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count" id="floating-cart-count">0</span>
+    <button class="floating" onclick="showCart()">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
     </button>
 
-    <button class="whatsapp-btn" onclick="openWhatsApp()">
-        <i class="fab fa-whatsapp"></i>
+    <button class="whatsapp" onclick="openWhatsApp()">
+        📱
     </button>
 
-    <!-- CART MODAL -->
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-content">
-            <div class="cart-header">
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
                 <h3>Carrito de Compras</h3>
-                <button class="close-cart" onclick="hideCart()">
-                    <i class="fas fa-times"></i>
-                </button>
+                <button class="close" onclick="hideCart()">×</button>
             </div>
             <div id="cart-items">
-                <!-- Items del carrito se cargarán dinámicamente -->
+                <!-- Items del carrito -->
             </div>
-            <div class="cart-total">
-                <h4>Total: $<span id="cart-total">0</span></h4>
-                <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+            <div class="total">
+                <h4>Total: $<span id="total">0</span></h4>
+                <button class="checkout" onclick="checkout()">Comprar por WhatsApp</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Datos de productos
+        // Productos
         const products = [
-            { id: 1, name: "Vela de Amor", price: 25000, image: "assets/productos/amoryamistad.png", category: "amor" },
-            { id: 2, name: "Vela Baby Shower", price: 30000, image: "assets/productos/catalogo de baby shower/babyshowers.png", category: "baby" },
-            { id: 3, name: "Vela Primera Comunión", price: 35000, image: "assets/productos/catalogo de primera comunion/primera comunion.png", category: "comunion" },
-            { id: 4, name: "Vela Navideña", price: 28000, image: "assets/productos/catalogo de navidad/navidad.jpeg", category: "navidad" },
-            { id: 5, name: "Vela Decorativa 1", price: 22000, image: "assets/productos/2.png", category: "amor" },
-            { id: 6, name: "Vela Decorativa 2", price: 26000, image: "assets/productos/3.png", category: "baby" },
-            { id: 7, name: "Vela Decorativa 3", price: 24000, image: "assets/productos/4.png", category: "comunion" },
-            { id: 8, name: "Vela Decorativa 4", price: 32000, image: "assets/productos/5.png", category: "navidad" }
+            { id: 1, name: "Vela de Amor", price: 25000, image: "assets/productos/amoryamistad.png" },
+            { id: 2, name: "Vela Baby Shower", price: 30000, image: "assets/productos/catalogo de baby shower/babyshowers.png" },
+            { id: 3, name: "Vela Primera Comunión", price: 35000, image: "assets/productos/catalogo de primera comunion/primera comunion.png" },
+            { id: 4, name: "Vela Navideña", price: 28000, image: "assets/productos/catalogo de navidad/navidad.jpeg" },
+            { id: 5, name: "Vela Decorativa 1", price: 22000, image: "assets/productos/2.png" },
+            { id: 6, name: "Vela Decorativa 2", price: 26000, image: "assets/productos/3.png" },
+            { id: 7, name: "Vela Decorativa 3", price: 24000, image: "assets/productos/4.png" },
+            { id: 8, name: "Vela Decorativa 4", price: 32000, image: "assets/productos/5.png" }
         ];
 
-        // Carrito
         let cart = [];
 
-        // Cargar productos
         function loadProducts() {
-            const productGrid = document.getElementById('product-grid');
-            productGrid.innerHTML = '';
+            const container = document.getElementById('products');
+            container.innerHTML = '';
 
             products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='assets/logo.png'">
-                    <div class="product-info">
-                        <h4 class="product-name">${product.name}</h4>
-                        <p class="product-price">$${product.price.toLocaleString()}</p>
-                        <button class="add-to-cart" onclick="addToCart(${product.id})">
-                            <i class="fas fa-cart-plus"></i> Añadir
-                        </button>
-                    </div>
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='assets/logo.png'">
+                    <h4>${product.name}</h4>
+                    <p>$${product.price.toLocaleString()}</p>
+                    <button onclick="addToCart(${product.id})">Agregar</button>
                 `;
-                productGrid.appendChild(productCard);
+                container.appendChild(card);
             });
         }
 
-        // Añadir al carrito
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
+            const existing = cart.find(item => item.id === productId);
 
-            if (existingItem) {
-                existingItem.quantity += 1;
+            if (existing) {
+                existing.quantity += 1;
             } else {
                 cart.push({ ...product, quantity: 1 });
             }
 
-            updateCartDisplay();
-            showCartNotification();
+            updateCart();
+            showNotification('Producto agregado al carrito');
         }
 
-        // Actualizar display del carrito
-        function updateCartDisplay() {
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        function updateCart() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             document.getElementById('cart-count').textContent = totalItems;
-            document.getElementById('floating-cart-count').textContent = totalItems;
 
             const cartItems = document.getElementById('cart-items');
             cartItems.innerHTML = '';
 
             if (cart.length === 0) {
-                cartItems.innerHTML = '<p style="text-align: center; color: #ccc;">Tu carrito está vacío</p>';
+                cartItems.innerHTML = '<p style="text-align: center; color: #ccc;">Carrito vacío</p>';
                 return;
             }
 
@@ -647,102 +427,63 @@
                 cartItem.innerHTML = `
                     <img src="${item.image}" alt="${item.name}" onerror="this.src='assets/logo.png'">
                     <div class="cart-item-info">
-                        <h4 class="cart-item-name">${item.name}</h4>
-                        <p class="cart-item-price">$${item.price.toLocaleString()} x ${item.quantity}</p>
+                        <h4>${item.name}</h4>
+                        <p>$${item.price.toLocaleString()} x ${item.quantity}</p>
                     </div>
-                    <button class="remove-item" onclick="removeFromCart(${item.id})">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                    <button class="remove" onclick="removeFromCart(${item.id})">Eliminar</button>
                 `;
                 cartItems.appendChild(cartItem);
             });
 
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('cart-total').textContent = total.toLocaleString();
+            document.getElementById('total').textContent = total.toLocaleString();
         }
 
-        // Remover del carrito
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCartDisplay();
-        }
-
-        // Mostrar carrito
         function showCart() {
             document.getElementById('cart-modal').style.display = 'flex';
-            updateCartDisplay();
+            updateCart();
         }
 
-        // Ocultar carrito
         function hideCart() {
             document.getElementById('cart-modal').style.display = 'none';
         }
 
-        // Filtrar productos
-        function filterProducts(category) {
-            const productGrid = document.getElementById('product-grid');
-            productGrid.innerHTML = '';
-
-            const filteredProducts = products.filter(product => product.category === category);
-
-            filteredProducts.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='assets/logo.png'">
-                    <div class="product-info">
-                        <h4 class="product-name">${product.name}</h4>
-                        <p class="product-price">$${product.price.toLocaleString()}</p>
-                        <button class="add-to-cart" onclick="addToCart(${product.id})">
-                            <i class="fas fa-cart-plus"></i> Añadir
-                        </button>
-                    </div>
-                `;
-                productGrid.appendChild(productCard);
-            });
-        }
-
-        // Scroll a productos
-        function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Abrir WhatsApp
-        function openWhatsApp() {
-            const message = encodeURIComponent("Hola 👋, estoy interesado en las velas. ¿Me das más información?");
-            const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${message}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Finalizar compra
         function checkout() {
             if (cart.length === 0) {
-                alert('Tu carrito está vacío');
+                alert('Carrito vacío');
                 return;
             }
 
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const message = encodeURIComponent(`Hola! Quiero comprar estos productos por un total de $${total.toLocaleString()}. ¿Podrías ayudarme con el proceso?`);
-            const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${message}`;
-            window.open(whatsappUrl, '_blank');
+            const message = `Hola! Quiero comprar estos productos por $${total.toLocaleString()}. ¿Podrías ayudarme?`;
+            const url = `https://api.whatsapp.com/send/?phone=573008220389&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
         }
 
-        // Notificación de carrito
-        function showCartNotification() {
+        function openWhatsApp() {
+            const message = 'Hola! Estoy interesado en las velas. ¿Me das más información?';
+            const url = `https://api.whatsapp.com/send/?phone=573008220389&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        function scrollToProducts() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showNotification(message) {
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
-                top: 80px;
+                top: 120px;
                 right: 20px;
                 background: #D4AF37;
                 color: #000;
                 padding: 10px 20px;
                 border-radius: 25px;
-                font-weight: 600;
+                font-weight: bold;
                 z-index: 3000;
-                animation: slideIn 0.3s ease;
             `;
-            notification.textContent = '¡Producto añadido al carrito!';
+            notification.textContent = message;
             document.body.appendChild(notification);
 
             setTimeout(() => {
@@ -750,7 +491,7 @@
             }, 2000);
         }
 
-        // Cerrar carrito al hacer clic fuera
+        // Cerrar modal al hacer clic fuera
         document.getElementById('cart-modal').addEventListener('click', function(e) {
             if (e.target === this) {
                 hideCart();
@@ -760,7 +501,7 @@
         // Cargar productos al iniciar
         document.addEventListener('DOMContentLoaded', function() {
             loadProducts();
-            updateCartDisplay();
+            updateCart();
         });
     </script>
 </body>
