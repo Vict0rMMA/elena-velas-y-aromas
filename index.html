@@ -1456,78 +1456,94 @@
       }
     }
     
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-      }
-    }
+    /* RESPONSIVE DESIGN - MOBILE FIRST */
     
-    @media (max-width: 768px) {
-      /* Optimizaciones generales para móviles */
+    /* Móviles pequeños (hasta 480px) */
+    @media (max-width: 480px) {
       body {
         font-size: 14px;
+        overflow-x: hidden;
       }
       
       .container {
-        padding: 0 15px;
+        padding: 0 10px;
+        max-width: 100%;
       }
       
-      /* Header móvil */
+      /* Header ultra-simplificado */
       .header {
-        padding: 10px 0;
+        padding: 8px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.98);
+        border-bottom: 1px solid #D4AF37;
       }
       
       .header-content {
-        flex-direction: column;
-        gap: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
       }
       
       .logo-section {
-        flex-direction: column;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
       
       .logo {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
       }
       
       .brand-text h1 {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
+        margin: 0;
       }
       
       .brand-text p {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
+        margin: 0;
+        display: none; /* Ocultar en móviles pequeños */
       }
       
       .nav-links {
         display: none;
       }
       
-      /* Menú hamburguesa para móviles */
+      .cart-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: auto;
+      }
+      
+      /* Menú hamburguesa simple */
       .mobile-menu-btn {
         display: block;
         background: none;
         border: none;
         color: #D4AF37;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 10px;
+        font-size: 1.2rem;
+        padding: 5px;
       }
       
+      /* Menú móvil funcional */
       .mobile-menu {
         position: fixed;
         top: 0;
         left: -100%;
         width: 80%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.98);
         backdrop-filter: blur(20px);
-        z-index: 1000;
+        z-index: 1001;
         transition: left 0.3s ease;
         padding: 20px;
+        border-right: 1px solid #D4AF37;
       }
       
       .mobile-menu.active {
@@ -1549,21 +1565,23 @@
         color: #D4AF37;
         font-size: 1.5rem;
         cursor: pointer;
+        padding: 5px;
       }
       
       .mobile-menu-links {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
       }
       
       .mobile-menu-links a {
         color: #f5f5dc;
         text-decoration: none;
-        font-size: 1.2rem;
-        padding: 15px 0;
+        font-size: 1.1rem;
+        padding: 12px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         transition: color 0.3s ease;
+        display: block;
       }
       
       .mobile-menu-links a:hover {
@@ -1577,7 +1595,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
+        z-index: 1000;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
@@ -1588,65 +1606,188 @@
         visibility: visible;
       }
       
-      .cart-btn {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-      }
-      
-      /* Hero section móvil */
+      /* Hero section simplificado */
       .hero-section {
-        padding: 40px 20px;
-        min-height: 60vh;
+        padding: 80px 15px 30px;
+        text-align: center;
+        min-height: 50vh;
       }
       
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         line-height: 1.2;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
       
       .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 30px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
       }
       
       .cta-buttons {
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        gap: 10px;
       }
       
       .btn {
         width: 100%;
-        max-width: 300px;
-        padding: 15px 20px;
-        font-size: 1rem;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-height: 44px;
       }
       
-      /* Productos móvil */
+      /* Productos en una columna */
       .products-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
         margin: 20px 0;
+        padding: 0 5px;
       }
       
       .product-card {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
       }
       
       .product-image {
-        height: 250px;
-        padding: 15px;
+        height: 200px;
+        padding: 10px;
       }
       
       .product-card img[src*="navidad"] {
-        height: 280px;
+        height: 220px;
+        padding: 10px;
+      }
+      
+      .product-info {
         padding: 15px;
       }
       
       .product-info h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 5px;
       }
+      
+      .product-info p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
+      }
+      
+      .product-price {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      
+      .product-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.8rem;
+        min-height: 40px;
+      }
+      
+      /* Secciones simplificadas */
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      
+      .section-subtitle {
+        font-size: 0.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      /* Contacto simplificado */
+      .contact-section {
+        padding: 30px 15px;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .contact-buttons a {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
+        min-height: 44px;
+      }
+    }
+    
+    /* Móviles medianos (481px - 768px) */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .header {
+        padding: 10px 0;
+      }
+      
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.4rem;
+      }
+      
+      .brand-text p {
+        font-size: 0.8rem;
+        display: block;
+      }
+      
+      .hero-section {
+        padding: 90px 20px 40px;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .product-image {
+        height: 250px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 280px;
+      }
+      
+      .btn {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+    
+    /* Tablets (769px - 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.8rem;
+      }
+    }
       
       .product-info p {
         font-size: 0.9rem;
@@ -1787,239 +1928,6 @@
       }
     }
     
-    /* Optimizaciones para móviles muy pequeños */
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 10px;
-      }
-      
-      .hero-title {
-        font-size: 1.8rem;
-        line-height: 1.1;
-      }
-      
-      .hero-subtitle {
-        font-size: 0.9rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .section-subtitle {
-        font-size: 0.8rem;
-      }
-      
-      .product-image {
-        height: 200px;
-        padding: 10px;
-      }
-      
-      .product-card img[src*="navidad"] {
-        height: 220px;
-        padding: 10px;
-      }
-      
-      .btn {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-      }
-      
-      .contact-buttons a {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-      }
-      
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .brand-text h1 {
-        font-size: 1.5rem;
-      }
-      
-      .brand-text p {
-        font-size: 0.8rem;
-      }
-      
-      /* Optimizaciones adicionales para móviles pequeños */
-      .hero-section {
-        padding: 30px 15px;
-        min-height: 50vh;
-      }
-      
-      .products-grid {
-        gap: 15px;
-        margin: 15px 0;
-      }
-      
-      .product-card {
-        margin-bottom: 15px;
-        border-radius: 10px;
-      }
-      
-      .product-info h3 {
-        font-size: 1rem;
-        margin-bottom: 8px;
-      }
-      
-      .product-info p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-      }
-      
-      .mobile-menu {
-        width: 90%;
-      }
-      
-      .modal {
-        padding: 15px;
-        margin: 5px;
-      }
-      
-      /* Mejorar botones para pantallas muy pequeñas */
-      .btn, .product-btn {
-        padding: 14px 18px;
-        font-size: 0.9rem;
-        min-height: 48px;
-      }
-    }
-    
-    /* Optimizaciones para móviles extra pequeños (320px) */
-    @media (max-width: 360px) {
-      .container {
-        padding: 0 8px;
-      }
-      
-      .hero-title {
-        font-size: 1.6rem;
-        line-height: 1.1;
-      }
-      
-      .hero-subtitle {
-        font-size: 0.85rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .product-image {
-        height: 180px;
-        padding: 8px;
-      }
-      
-      .product-card img[src*="navidad"] {
-        height: 200px;
-        padding: 8px;
-      }
-      
-      .brand-text h1 {
-        font-size: 1.3rem;
-      }
-      
-      .brand-text p {
-        font-size: 0.75rem;
-      }
-      
-      .btn {
-        padding: 12px 14px;
-        font-size: 0.85rem;
-      }
-    }
-    
-    /* Optimizaciones para orientación landscape en móviles */
-    @media (max-width: 768px) and (orientation: landscape) {
-      .hero-section {
-        min-height: 40vh;
-        padding: 20px;
-      }
-      
-      .hero-title {
-        font-size: 2rem;
-        margin-bottom: 10px;
-      }
-      
-      .hero-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-      }
-      
-      .cta-buttons {
-        flex-direction: row;
-        gap: 10px;
-      }
-      
-      .btn {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-        min-width: 120px;
-      }
-      
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-      
-      .product-image {
-        height: 150px;
-      }
-      
-      .product-card img[src*="navidad"] {
-        height: 170px;
-      }
-    }
-    
-    /* Optimizaciones para pantallas de alta densidad (Retina) */
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      .product-image img {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-    }
-    
-    /* Optimizaciones para tablets */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-      }
-      
-      .hero-title {
-        font-size: 3rem;
-      }
-      
-      .section-title {
-        font-size: 2.8rem;
-      }
-      
-      .container {
-        padding: 0 30px;
-      }
-    }
-    
-    /* Optimizaciones para pantallas grandes */
-    @media (min-width: 1200px) {
-      .container {
-        max-width: 1400px;
-        padding: 0 40px;
-      }
-      
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-      }
-      
-      .hero-title {
-        font-size: 4rem;
-      }
-      
-      .section-title {
-        font-size: 3.5rem;
-      }
-    }
-    
     /* Optimizaciones de performance para móviles */
     @media (max-width: 768px) {
       /* Reducir animaciones en móviles para mejor performance */
@@ -2046,62 +1954,35 @@
         display: block;
       }
       
-      .banner-container::before {
-        border-radius: 16px;
+      /* Desactivar efectos complejos en móviles */
+      .stars {
+        display: none;
       }
       
-      .catalog-banner .absolute.bottom-6.left-6 h3 {
-        font-size: 1.5rem;
+      body::before,
+      body::after {
+        display: none;
+      }
+    }
+    
+    /* Desktop optimizations */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1400px;
+        padding: 0 40px;
       }
       
-      .catalog-banner .absolute.bottom-6.left-6 p {
-        font-size: 1rem;
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
       }
       
-      /* Mejoras adicionales para móviles */
-      .product-card {
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      .hero-title {
+        font-size: 4rem;
       }
       
-      .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-      }
-      
-      /* Optimizar botones para touch */
-      .btn, .product-btn, .contact-buttons a {
-        min-height: 44px; /* Tamaño mínimo recomendado para touch */
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-      }
-      
-      /* Mejorar legibilidad en móviles */
-      .product-info p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-      }
-      
-      /* Optimizar modal para móviles */
-      .modal {
-        padding: 20px;
-        margin: 10px;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      
-      .modal-content {
-        max-width: 100%;
-        margin: 0;
-      }
-      
-      /* Mejorar navegación táctil */
-      .nav-links a, .mobile-menu-links a {
-        padding: 12px 16px;
-        display: block;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
+      .section-title {
+        font-size: 3.5rem;
       }
     }
     
