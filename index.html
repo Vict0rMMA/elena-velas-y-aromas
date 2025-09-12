@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Personalizados - Elena Velas y Aromas</title>
+  <title>Elena Velas y Aromas - Catálogo</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
@@ -281,63 +281,44 @@
     
     /* Contadores de urgencia */
     .urgency-counters {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      gap: 20px;
-      margin: 30px auto;
-      max-width: 900px;
-      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+      flex-wrap: wrap;
     }
     
     .counter-item {
       text-align: center;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.06) 100%);
-      padding: 22px 24px;
-      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 25px;
+      border-radius: 15px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-width: 180px;
+      transition: all 0.3s ease;
     }
     
     .counter-item:hover {
-      transform: translateY(-4px);
-      border-color: rgba(212, 175, 55, 0.55);
-      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.18);
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
     .counter-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2rem;
+      font-weight: 900;
       color: #D4AF37;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
+      margin-bottom: 8px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     .counter-label {
-      color: #e6e6d0;
-      font-size: 0.95rem;
-      opacity: 0.9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+      font-weight: 500;
     }
     
-    @media (max-width: 900px) {
-      .urgency-counters {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-    }
-    
-    @media (max-width: 680px) {
-      .urgency-counters {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-      }
-    }
     
     .header-content {
       display: flex;
@@ -831,44 +812,6 @@
     
     #contacto .section-title:hover {
       filter: drop-shadow(0 0 15px rgba(75, 0, 130, 0.6));
-    }
-    
-    /* Servicios Personalizados - Título principal especial */
-    #servicios-personalizados .section-title {
-      font-size: 4rem;
-      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 25%, #FFA500 50%, #FFD700 75%, #D4AF37 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: none;
-      margin-bottom: 40px;
-      position: relative;
-      animation: titleGlow 3s ease-in-out infinite alternate;
-    }
-    
-    @keyframes titleGlow {
-      0% {
-        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
-      }
-      100% {
-        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
-      }
-    }
-    
-    #servicios-personalizados .section-title::before {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(255, 215, 0, 0.15));
-    }
-    
-    #servicios-personalizados .section-title::after {
-      background: linear-gradient(90deg, transparent, #D4AF37, #FFD700, #FFA500, #FFD700, #D4AF37, transparent);
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-      width: 120px;
-      height: 5px;
-    }
-    
-    #servicios-personalizados .section-title:hover {
-      filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9));
-      transform: scale(1.05);
     }
     
     .products-grid {
@@ -1513,94 +1456,104 @@
       }
     }
     
-    /* RESPONSIVE DESIGN - MOBILE FIRST */
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+      }
+    }
     
-    /* Móviles pequeños (hasta 480px) */
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
+      /* Optimizaciones generales para móviles */
       body {
         font-size: 14px;
-        overflow-x: hidden;
       }
       
       .container {
-        padding: 0 10px;
-        max-width: 100%;
+        padding: 0 15px;
       }
       
-      /* Header ultra-simplificado */
+      /* Header móvil */
       .header {
-        padding: 8px 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(0, 0, 0, 0.98);
-        border-bottom: 1px solid #D4AF37;
+        padding: 10px 0;
       }
       
       .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
+        flex-direction: column;
+        gap: 15px;
       }
       
       .logo-section {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        flex-direction: column;
+        text-align: center;
       }
       
       .logo {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
       }
       
       .brand-text h1 {
-        font-size: 1.2rem;
-        margin: 0;
+        font-size: 1.8rem;
       }
       
       .brand-text p {
-        font-size: 0.7rem;
-        margin: 0;
-        display: none; /* Ocultar en móviles pequeños */
+        font-size: 0.9rem;
       }
       
       .nav-links {
         display: none;
       }
       
-      .cart-btn {
-        padding: 6px 10px;
-        font-size: 0.8rem;
-        min-width: auto;
-      }
-      
-      /* Menú hamburguesa simple */
+      /* Menú hamburguesa para móviles */
       .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        color: #D4AF37;
-        font-size: 1.2rem;
-        padding: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 64px;
+        min-height: 44px;
+        background: linear-gradient(135deg, #FFD84D 0%, #E0B83A 50%, #C99F2F 100%);
+        border: 3px solid #F3D260;
+        color: #111;
+        border-radius: 22px;
+        padding: 12px 18px;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(212, 175, 55, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+        transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+        outline: none;
       }
       
-      /* Menú móvil funcional */
+      .mobile-menu-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(212, 175, 55, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.7);
+      }
+      
+      .mobile-menu-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 8px 18px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+      
+      .mobile-menu-btn i {
+        color: #111;
+        font-size: 1.4rem;
+      }
+      
+      @media (max-width: 768px) {
+        .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; min-height: 44px; }
+      }
+      
       .mobile-menu {
         position: fixed;
         top: 0;
         left: -100%;
         width: 80%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
+        background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(20px);
-        z-index: 1001;
+        z-index: 1000;
         transition: left 0.3s ease;
         padding: 20px;
-        border-right: 1px solid #D4AF37;
       }
       
       .mobile-menu.active {
@@ -1622,35 +1575,25 @@
         color: #D4AF37;
         font-size: 1.5rem;
         cursor: pointer;
-        padding: 5px;
       }
       
       .mobile-menu-links {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
       }
       
       .mobile-menu-links a {
         color: #f5f5dc;
         text-decoration: none;
-        font-size: 1.1rem;
-        padding: 12px 0;
+        font-size: 1.2rem;
+        padding: 15px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         transition: color 0.3s ease;
-        display: block;
       }
       
       .mobile-menu-links a:hover {
         color: #D4AF37;
-        background: rgba(212, 175, 55, 0.1);
-        border-radius: 8px;
-        padding-left: 10px;
-        transform: translateX(5px);
-      }
-      
-      .mobile-menu-links a {
-        transition: all 0.3s ease;
       }
       
       .mobile-menu-overlay {
@@ -1660,7 +1603,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
+        z-index: 999;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
@@ -1671,187 +1614,64 @@
         visibility: visible;
       }
       
-      /* Hero section simplificado */
+      .cart-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      
+      /* Hero section móvil */
       .hero-section {
-        padding: 80px 15px 30px;
-        text-align: center;
-        min-height: 50vh;
-      }
-      
-      .hero-title {
-        font-size: 1.8rem;
-        line-height: 1.2;
-        margin-bottom: 10px;
-      }
-      
-      .hero-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-      }
-      
-      .cta-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .btn {
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        min-height: 44px;
-      }
-      
-      /* Productos en una columna */
-      .products-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin: 20px 0;
-        padding: 0 5px;
-      }
-      
-      .product-card {
-        margin-bottom: 15px;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      
-      .product-image {
-        height: 200px;
-        padding: 10px;
-      }
-      
-      .product-card img[src*="navidad"] {
-        height: 220px;
-        padding: 10px;
-      }
-      
-      .product-info {
-        padding: 15px;
-      }
-      
-      .product-info h3 {
-        font-size: 1rem;
-        margin-bottom: 5px;
-      }
-      
-      .product-info p {
-        font-size: 0.8rem;
-        line-height: 1.3;
-        margin-bottom: 10px;
-      }
-      
-      .product-price {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-      }
-      
-      .product-btn {
-        width: 100%;
-        padding: 10px;
-        font-size: 0.8rem;
-        min-height: 40px;
-      }
-      
-      /* Secciones simplificadas */
-      .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        text-align: center;
-      }
-      
-      .section-subtitle {
-        font-size: 0.8rem;
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      
-      /* Contacto simplificado */
-      .contact-section {
-        padding: 30px 15px;
-      }
-      
-      .contact-buttons {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .contact-buttons a {
-        width: 100%;
-        padding: 12px;
-        font-size: 0.9rem;
-        min-height: 44px;
-      }
-    }
-    
-    /* Móviles medianos (481px - 768px) */
-    @media (min-width: 481px) and (max-width: 768px) {
-      .container {
-        padding: 0 15px;
-      }
-      
-      .header {
-        padding: 10px 0;
-      }
-      
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .brand-text h1 {
-        font-size: 1.4rem;
-      }
-      
-      .brand-text p {
-        font-size: 0.8rem;
-        display: block;
-      }
-      
-      .hero-section {
-        padding: 90px 20px 40px;
+        padding: 40px 20px;
+        min-height: 60vh;
       }
       
       .hero-title {
         font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
       }
       
       .hero-subtitle {
         font-size: 1rem;
+        margin-bottom: 30px;
       }
       
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 1rem;
+      }
+      
+      /* Productos móvil */
       .products-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .product-card {
+        margin-bottom: 20px;
       }
       
       .product-image {
         height: 250px;
+        padding: 15px;
       }
       
       .product-card img[src*="navidad"] {
         height: 280px;
+        padding: 15px;
       }
       
-      .btn {
-        max-width: 300px;
-        margin: 0 auto;
-      }
-    }
-    
-    /* Tablets (769px - 1024px) */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-      }
-      
-      .hero-title {
-        font-size: 3rem;
-      }
-      
-      .section-title {
-        font-size: 2.8rem;
-      }
+      .product-info h3 {
+        font-size: 1.1rem;
       }
       
       .product-info p {
@@ -1991,7 +1811,240 @@
         padding: 0 10px;
         max-width: 100%;
       }
+    }
     
+    /* Optimizaciones para móviles muy pequeños */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 10px;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .section-subtitle {
+        font-size: 0.8rem;
+      }
+      
+      .product-image {
+        height: 200px;
+        padding: 10px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 220px;
+        padding: 10px;
+      }
+      
+      .btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .contact-buttons a {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.5rem;
+      }
+      
+      .brand-text p {
+        font-size: 0.8rem;
+      }
+      
+      /* Optimizaciones adicionales para móviles pequeños */
+      .hero-section {
+        padding: 30px 15px;
+        min-height: 50vh;
+      }
+      
+      .products-grid {
+        gap: 15px;
+        margin: 15px 0;
+      }
+      
+      .product-card {
+        margin-bottom: 15px;
+        border-radius: 10px;
+      }
+      
+      .product-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .product-info p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .mobile-menu {
+        width: 90%;
+      }
+      
+      .modal {
+        padding: 15px;
+        margin: 5px;
+      }
+      
+      /* Mejorar botones para pantallas muy pequeñas */
+      .btn, .product-btn {
+        padding: 14px 18px;
+        font-size: 0.9rem;
+        min-height: 48px;
+      }
+    }
+    
+    /* Optimizaciones para móviles extra pequeños (320px) */
+    @media (max-width: 360px) {
+      .container {
+        padding: 0 8px;
+      }
+      
+      .hero-title {
+        font-size: 1.6rem;
+        line-height: 1.1;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.85rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .product-image {
+        height: 180px;
+        padding: 8px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 200px;
+        padding: 8px;
+      }
+      
+      .brand-text h1 {
+        font-size: 1.3rem;
+      }
+      
+      .brand-text p {
+        font-size: 0.75rem;
+      }
+      
+      .btn {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+    }
+    
+    /* Optimizaciones para orientación landscape en móviles */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .hero-section {
+        min-height: 40vh;
+        padding: 20px;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      
+      .cta-buttons {
+        flex-direction: row;
+        gap: 10px;
+      }
+      
+      .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        min-width: 120px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .product-image {
+        height: 150px;
+      }
+      
+      .product-card img[src*="navidad"] {
+        height: 170px;
+      }
+    }
+    
+    /* Optimizaciones para pantallas de alta densidad (Retina) */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .product-image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+    
+    /* Optimizaciones para tablets */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.8rem;
+      }
+      
+      .container {
+        padding: 0 30px;
+      }
+    }
+    
+    /* Optimizaciones para pantallas grandes */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1400px;
+        padding: 0 40px;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      
+      .hero-title {
+        font-size: 4rem;
+      }
+      
+      .section-title {
+        font-size: 3.5rem;
+      }
+    }
     
     /* Optimizaciones de performance para móviles */
     @media (max-width: 768px) {
@@ -2019,204 +2072,62 @@
         display: block;
       }
       
-      /* Desactivar efectos complejos en móviles */
-      .stars {
-        display: none;
+      .banner-container::before {
+        border-radius: 16px;
       }
       
-      body::before,
-      body::after {
-        display: none;
-      }
-    }
-    
-    /* Custom Services Section Styles */
-    .custom-services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-      padding: 0 20px;
-    }
-    
-    .custom-service-card {
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .custom-service-card:hover {
-      transform: translateY(-10px);
-      border-color: #D4AF37;
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
-    }
-    
-    .service-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      display: block;
-    }
-    
-    .custom-service-card h3 {
-      color: #D4AF37;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-    
-    .custom-service-card p {
-      color: #f5f5dc;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-    
-    .service-features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .service-features li {
-      color: #f5f5dc;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.95rem;
-    }
-    
-    .service-features li:last-child {
-      border-bottom: none;
-    }
-    
-    .custom-cta {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-      margin: 50px 20px;
-      backdrop-filter: blur(15px);
-    }
-    
-    .custom-cta h3 {
-      color: #D4AF37;
-      font-size: 2rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    
-    .custom-cta p {
-      color: #f5f5dc;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-    
-    .custom-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .btn-secondary {
-      background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-      color: #f5f5dc;
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      transition: all 0.3s ease;
-    }
-    
-    .btn-secondary:hover {
-      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-      color: #000;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-    }
-    
-    /* Mobile optimizations for custom services */
-    @media (max-width: 768px) {
-      .custom-services-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-        margin: 30px 0;
-      }
-      
-      .custom-service-card {
-        padding: 20px;
-        margin-bottom: 15px;
-      }
-      
-      .service-icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-      }
-      
-      .custom-service-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-      }
-      
-      .custom-service-card p {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-      }
-      
-      .service-features li {
-        font-size: 0.85rem;
-        padding: 6px 0;
-      }
-      
-      .custom-cta {
-        padding: 25px 15px;
-        margin: 30px 10px;
-      }
-      
-      .custom-cta h3 {
+      .catalog-banner .absolute.bottom-6.left-6 h3 {
         font-size: 1.5rem;
-        margin-bottom: 10px;
       }
       
-      .custom-cta p {
+      .catalog-banner .absolute.bottom-6.left-6 p {
         font-size: 1rem;
-        margin-bottom: 20px;
       }
       
-      .custom-buttons {
-        flex-direction: column;
-        gap: 15px;
+      /* Mejoras adicionales para móviles */
+      .product-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       }
       
-      .custom-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-      }
-    }
-
-    /* Desktop optimizations */
-    @media (min-width: 1200px) {
-      .container {
-        max-width: 1400px;
-        padding: 0 40px;
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
       }
       
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+      /* Optimizar botones para touch */
+      .btn, .product-btn, .contact-buttons a {
+        min-height: 44px; /* Tamaño mínimo recomendado para touch */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
       
-      .hero-title {
-        font-size: 4rem;
+      /* Mejorar legibilidad en móviles */
+      .product-info p {
+        font-size: 0.9rem;
+        line-height: 1.5;
       }
       
-      .section-title {
-        font-size: 3.5rem;
+      /* Optimizar modal para móviles */
+      .modal {
+        padding: 20px;
+        margin: 10px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      
+      .modal-content {
+        max-width: 100%;
+        margin: 0;
+      }
+      
+      /* Mejorar navegación táctil */
+      .nav-links a, .mobile-menu-links a {
+        padding: 12px 16px;
+        display: block;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
       }
     }
     
@@ -2241,65 +2152,90 @@
     .product-card:nth-child(3) { animation-delay: 0.3s; }
     .product-card:nth-child(4) { animation-delay: 0.4s; }
 
-    /* Ajustes base para imágenes y contenedores */
-    img, video {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .container, .products-section, .products-grid, .product-card {
-      max-width: 100%;
-      overflow: hidden;
-    }
-
-    /* Mejora de productos en móvil: carrusel horizontal */
+    /* Mejora agresiva de UI para móviles: contraste, jerarquía y CTA visibles */
     @media (max-width: 768px) {
-      .products-grid {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 85%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 8px;
+      .header {
+        padding: 10px 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85));
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
       }
 
-      .products-grid::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .products-grid::-webkit-scrollbar-thumb {
-        background: rgba(212, 175, 55, 0.5);
-        border-radius: 4px;
+      .products-section {
+        margin: 28px 0;
       }
 
       .product-card {
-        scroll-snap-align: start;
+        background: linear-gradient(180deg, rgba(20,20,20,0.95) 0%, rgba(10,10,10,0.92) 100%);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        border-radius: 16px;
+        padding: 16px;
+        box-shadow: 0 14px 32px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
       }
 
-      .product-card .product-image {
-        width: 100%;
+      .product-image {
+        border-radius: 12px;
+        background: #0e0e0e;
+        margin-bottom: 14px;
+        height: 220px;
         object-fit: contain;
       }
 
-      .navbar, .header-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+      .product-title, .section-title {
+        text-align: center;
       }
 
-      .product-card {
+      .product-title {
+        font-size: 1.35rem;
+        line-height: 1.25;
+        color: #D4AF37;
+        margin: 4px 0 10px;
+        text-shadow: 0 2px 8px rgba(212,175,55,0.25);
+      }
+
+      .product-description {
+        color: #e6e6d0;
+        opacity: 0.95;
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .product-price {
+        font-size: 1.6rem !important;
+        color: #FFD700 !important;
+        font-weight: 800;
+        text-align: center;
+        margin: 10px 0 8px;
+        text-shadow: 0 2px 10px rgba(255,215,0,0.35);
+      }
+
+      .add-to-cart, .product-btn, .btn.btn-primary {
         width: 100%;
-        margin-bottom: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 16px !important;
+        border-radius: 14px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 60%, #B8860B 100%);
+        color: #111 !important;
+        font-weight: 800;
+        box-shadow: 0 10px 26px rgba(212,175,55,0.35);
       }
 
-      .categories {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+      .add-to-cart i, .product-btn i { margin-right: 6px; }
+
+      /* Separadores laterales del carrusel */
+      .products-grid { padding: 0 6px 10px; }
+
+      /* Hacer más compacto el bloque del carrito en header */
+      .cart-btn {
+        padding: 8px 12px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+        color: #111;
+        box-shadow: 0 8px 18px rgba(212,175,55,0.35);
       }
     }
   </style>
@@ -2402,13 +2338,12 @@
       </button>
     </div>
     <div class="mobile-menu-links">
-      <a href="#inicio" onclick="closeMobileMenuWithScroll('#inicio')">🏠 Inicio</a>
-      <a href="#servicios-personalizados" onclick="closeMobileMenuWithScroll('#servicios-personalizados')">🎨 Servicios Personalizados</a>
-      <a href="#catalogo" onclick="closeMobileMenuWithScroll('#catalogo')">💝 Catálogo de Amor y Amistad</a>
-      <a href="#baby-shower" onclick="closeMobileMenuWithScroll('#baby-shower')">👶 Baby Shower</a>
-      <a href="#primera-comunion" onclick="closeMobileMenuWithScroll('#primera-comunion')">⛪ Primera Comunión</a>
-      <a href="#navidad" onclick="closeMobileMenuWithScroll('#navidad')">🎄 Navidad</a>
-      <a href="#contacto" onclick="closeMobileMenuWithScroll('#contacto')">📞 Contacto</a>
+      <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
+      <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
+      <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
+      <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
+      <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
+      <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
     </div>
   </div>
 
@@ -2464,15 +2399,15 @@
         <div class="urgency-counters">
           <div class="counter-item">
             <div class="counter-number" id="visitors-count">127</div>
-            <div class="counter-label"><span>👥</span><span>Personas viendo ahora</span></div>
+            <div class="counter-label">👥 Personas viendo ahora</div>
           </div>
           <div class="counter-item">
-            <div class="counter-number">500+</div>
-            <div class="counter-label"><span>🔥</span><span>Velas vendidas este mes</span></div>
+            <div class="counter-number">🔥 500+</div>
+            <div class="counter-label">Velas vendidas este mes</div>
           </div>
           <div class="counter-item">
-            <div class="counter-number">4.9</div>
-            <div class="counter-label"><span>⭐</span><span>Calificación promedio</span></div>
+            <div class="counter-number">⭐ 4.9</div>
+            <div class="counter-label">Calificación promedio</div>
           </div>
         </div>
         
@@ -2533,7 +2468,7 @@
             </button>
           </div>
 
-          <!-- Product 3 - POLI MEDIANO MANO CORAZON -->
+          <!-- Product 3 - POLI MEDIANO MANO CORAZÓN -->
           <div class="product-card">
             <div class="relative overflow-hidden rounded-xl mb-6 cursor-pointer" ondblclick="openImageModal('assets/productos/3.png', 'POLI MEDIANO MANO CORAZÓN')">
               <img src="assets/productos/3.png" alt="POLI MEDIANO MANO CORAZON" class="product-image">
@@ -4026,67 +3961,6 @@
         </div>
       </section>
 
-      <!-- Custom Services Section -->
-      <section class="products-section" id="servicios-personalizados">
-        <h1 class="section-title">🎨 Servicios Personalizados</h1>
-        <p class="section-subtitle">
-          Creamos velas únicas y especiales para tus momentos más importantes
-        </p>
-        
-        <div class="custom-services-container">
-          <div class="custom-service-card">
-            <div class="service-icon">💒</div>
-            <h3>Bodas y Eventos Especiales</h3>
-            <p>Velas personalizadas para tu boda, aniversario o celebración única. Diseños elegantes que complementan la decoración de tu evento.</p>
-            <ul class="service-features">
-              <li>✨ Colores personalizados</li>
-              <li>💝 Diseños únicos</li>
-              <li>🏷️ Etiquetas personalizadas</li>
-              <li>📦 Empaque especial</li>
-            </ul>
-          </div>
-          
-          <div class="custom-service-card">
-            <div class="service-icon">🎂</div>
-            <h3>Cumpleaños y Celebraciones</h3>
-            <p>Velas temáticas para cumpleaños, graduaciones, baby showers y cualquier celebración especial. Hacemos realidad tus ideas más creativas.</p>
-            <ul class="service-features">
-              <li>🎈 Temas personalizados</li>
-              <li>🎨 Colores a elección</li>
-              <li>📝 Mensajes personalizados</li>
-              <li>🎁 Presentación especial</li>
-            </ul>
-          </div>
-          
-          <div class="custom-service-card">
-            <div class="service-icon">🏢</div>
-            <h3>Eventos Corporativos</h3>
-            <p>Velas corporativas para inauguraciones, lanzamientos de productos, conferencias y eventos empresariales. Refleja la identidad de tu marca.</p>
-            <ul class="service-features">
-              <li>🏷️ Logo de la empresa</li>
-              <li>🎨 Colores corporativos</li>
-              <li>📊 Cantidades grandes</li>
-              <li>📅 Entrega programada</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="custom-cta">
-          <h3>¿Tienes una idea en mente?</h3>
-          <p>Contáctanos y haremos realidad tu visión. Trabajamos contigo para crear velas únicas que hagan tu evento inolvidable.</p>
-          <div class="custom-buttons">
-            <a href="https://wa.me/573008220389?text=Hola! Me interesa información sobre velas personalizadas para mi evento" class="btn btn-whatsapp">
-              <i class="fab fa-whatsapp"></i>
-              Consultar Personalización
-            </a>
-            <a href="#contacto" class="btn btn-secondary">
-              <i class="fas fa-phone"></i>
-              Más Información
-            </a>
-          </div>
-        </div>
-      </section>
-
       <!-- Contact Section -->
       <section class="products-section" id="contacto">
         <h2 class="section-title">✨ Conecta con Nosotros ✨</h2>
@@ -4529,7 +4403,6 @@
       
       mobileMenu.classList.toggle('active');
       overlay.classList.toggle('active');
-
       if (btn) {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', (!expanded).toString());
@@ -4550,7 +4423,7 @@
       }
     }
 
-    // Soporte de teclado para el botón hamburguesa (Enter/Espacio)
+    // Soporte de teclado para el botón hamburguesa
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.querySelector('.mobile-menu-btn');
       if (btn) {
@@ -4568,25 +4441,6 @@
       const message = encodeURIComponent("¡Hola! Me interesa conocer más sobre sus velas aromáticas. ¿Podrían ayudarme?");
       const whatsappUrl = `https://api.whatsapp.com/send/?phone=573008220389&text=${message}`;
       window.open(whatsappUrl, '_blank');
-    }
-    
-    // Función para scroll suave
-    function smoothScrollTo(targetId) {
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-    
-    // Mejorar la función closeMobileMenu para incluir scroll suave
-    function closeMobileMenuWithScroll(targetId) {
-      closeMobileMenu();
-      setTimeout(() => {
-        smoothScrollTo(targetId);
-      }, 300); // Esperar a que se cierre el menú
     }
 
     // Contador de visitantes dinámico
