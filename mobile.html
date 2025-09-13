@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Elena Velas y Aromas - Móvil</title>
+    <title>Elena Velas y Aromas - Catálogo Móvil</title>
+    <meta name="description" content="Catálogo móvil de Elena Velas y Aromas - Velas artesanales con las mejores fragancias. Envío a todo Colombia.">
+    <meta name="keywords" content="velas, aromas, artesanales, Colombia, Medellín, fragancias, decorativas">
+    <meta name="author" content="Elena Velas y Aromas">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Elena Velas">
     
     <style>
         * {
@@ -23,6 +38,7 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
+            background-attachment: fixed;
             color: #f5f5dc;
             line-height: 1.6;
             min-height: 100vh;
@@ -30,6 +46,9 @@
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
             touch-action: manipulation;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
@@ -41,11 +60,13 @@
         /* Header optimizado para móvil */
         .header {
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            padding: 15px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .header-content {
@@ -100,7 +121,7 @@
             background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
             color: #000;
             border: none;
-            padding: 10px 15px;
+            padding: 12px 18px;
             border-radius: 25px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -108,9 +129,27 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s ease;
-            min-height: 45px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 48px;
             touch-action: manipulation;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cart-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cart-btn:hover::before {
+            left: 100%;
         }
         
         .cart-btn:active {
@@ -451,12 +490,22 @@
         
         .product-image {
             width: 100%;
-            max-width: 200px;
-            height: 200px;
+            max-width: 100%;
+            height: 220px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 12px;
             margin: 0 auto 15px;
             display: block;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+        
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .product-image:active {
+            transform: scale(0.98);
         }
         
         .product-title {
@@ -484,7 +533,7 @@
             background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
             color: #000;
             border: none;
-            padding: 15px 25px;
+            padding: 16px 25px;
             border-radius: 25px;
             font-weight: 600;
             font-size: 1rem;
@@ -494,9 +543,27 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             touch-action: manipulation;
-            min-height: 50px;
+            min-height: 52px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .add-to-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .add-to-cart:hover::before {
+            left: 100%;
         }
         
         .add-to-cart:active {
@@ -728,7 +795,44 @@
             transform: scale(0.9);
         }
         
-        /* Responsive */
+        /* Media Queries para optimización móvil */
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .brand-name {
+                font-size: 1.2rem;
+            }
+            
+            .brand-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .product-card {
+                padding: 15px;
+            }
+            
+            .add-to-cart {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width: 375px) and (max-width: 414px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .product-image {
+                height: 240px;
+            }
+        }
+        
         @media (min-width: 768px) {
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -742,12 +846,39 @@
             .stats {
                 justify-content: space-around;
             }
+            
+            .mobile-menu {
+                width: 70%;
+                max-width: 400px;
+            }
         }
         
         @media (min-width: 1024px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 30px;
+            }
+            
+            .mobile-menu {
+                width: 60%;
+                max-width: 450px;
+            }
+        }
+        
+        /* Optimización para pantallas muy pequeñas */
+        @media (max-height: 600px) {
+            .hero {
+                padding: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 8px;
+            }
+            
+            .stats {
+                margin: 20px 0;
+                padding: 15px;
             }
         }
         
@@ -1388,13 +1519,50 @@
             }
         });
 
-        // Inicialización
+        // Inicialización mejorada
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCounter();
             updateCartDisplay();
             displayProducts(products);
+            
+            // Optimización de rendimiento
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').catch(console.log);
+            }
+            
+            // Preload de imágenes críticas
+            const criticalImages = [
+                'assets/productos/2.png',
+                'assets/productos/3.png',
+                'assets/productos/4.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+            
+            // Mejora de accesibilidad
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMobileMenu();
+                    closeCart();
+                }
+            });
+            
+            // Feedback táctil mejorado
+            document.querySelectorAll('button, .product-card, .category-tab').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
         });
     </script>
 </body>
-</html>< ! - -   U p d a t e d :   0 9 / 1 3 / 2 0 2 5   1 4 : 2 0 : 4 4   - - >  
+</html>< ! - -   U p d a t e d :   0 9 / 1 3 / 2 0 2 5   1 4 : 2 0 : 4 4   - - > 
+ 
  
