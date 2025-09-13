@@ -146,18 +146,19 @@
             transform: scale(0.9);
         }
         
-        /* Menú móvil */
+        /* Menú móvil mejorado */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .mobile-menu-overlay.active {
@@ -168,36 +169,58 @@
         .mobile-menu {
             position: fixed;
             top: 0;
-            left: -100%;
-            width: 80%;
-            max-width: 300px;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
             z-index: 1000;
-            transition: left 0.3s ease;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
         }
         
         .mobile-menu.active {
-            left: 0;
+            right: 0;
         }
         
         .mobile-menu-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 25px 20px;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+        
+        .mobile-menu-title {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
         
         .mobile-menu-close {
-            background: none;
+            background: rgba(212, 175, 55, 0.2);
             border: none;
             color: #D4AF37;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             touch-action: manipulation;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-close:active {
+            transform: scale(0.9);
+            background: rgba(212, 175, 55, 0.3);
         }
         
         .mobile-menu-links {
@@ -209,16 +232,106 @@
         .mobile-menu-links a {
             color: #f5f5dc;
             text-decoration: none;
-            font-size: 1.2rem;
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 18px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
             touch-action: manipulation;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
-        .mobile-menu-links a:active {
-            background: rgba(212, 175, 55, 0.2);
+        .mobile-menu-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-links a:active,
+        .mobile-menu-links a:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
             color: #D4AF37;
+            padding-left: 30px;
+        }
+        
+        .mobile-menu-links a:active::before,
+        .mobile-menu-links a:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .mobile-menu-links a i {
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Animación de entrada para los enlaces del menú */
+        .mobile-menu-links a {
+            animation: slideInRight 0.3s ease forwards;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .mobile-menu-links a:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu-links a:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-menu-links a:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-menu-links a:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-menu-links a:nth-child(5) { animation-delay: 0.3s; }
+        .mobile-menu-links a:nth-child(6) { animation-delay: 0.35s; }
+        .mobile-menu-links a:nth-child(7) { animation-delay: 0.4s; }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Mejoras para el header del menú */
+        .mobile-menu-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+        }
+        
+        /* Mejoras para el botón hamburguesa */
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: #D4AF37;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 12px;
+            touch-action: manipulation;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .mobile-menu-btn:active {
+            transform: scale(0.95);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .mobile-menu-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-btn.active i {
+            transform: rotate(90deg);
         }
         
         /* Sección principal */
@@ -679,22 +792,44 @@
         </div>
     </header>
 
-    <!-- Menú móvil -->
+    <!-- Menú móvil mejorado -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-header">
-            <h3 style="color: #D4AF37; margin: 0;">Menú</h3>
+            <h3 class="mobile-menu-title">Menú</h3>
             <button class="mobile-menu-close" onclick="closeMobileMenu()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="mobile-menu-links">
-            <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
-            <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
-            <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
-            <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
-            <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
-            <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
+            <a href="#inicio" onclick="closeMobileMenu()">
+                <i class="fas fa-home"></i>
+                Inicio
+            </a>
+            <a href="#catalogo" onclick="closeMobileMenu()">
+                <i class="fas fa-heart"></i>
+                Catálogo
+            </a>
+            <a href="#baby-shower" onclick="closeMobileMenu()">
+                <i class="fas fa-baby"></i>
+                Baby Shower
+            </a>
+            <a href="#primera-comunion" onclick="closeMobileMenu()">
+                <i class="fas fa-church"></i>
+                Primera Comunión
+            </a>
+            <a href="#navidad" onclick="closeMobileMenu()">
+                <i class="fas fa-tree"></i>
+                Navidad
+            </a>
+            <a href="#contacto" onclick="closeMobileMenu()">
+                <i class="fas fa-phone"></i>
+                Contacto
+            </a>
+            <a href="#" onclick="openWhatsApp(); closeMobileMenu();">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
         </div>
     </div>
 
@@ -1135,21 +1270,33 @@
             }, 3000);
         }
 
-        // Funciones del menú móvil
+        // Funciones del menú móvil mejoradas
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const overlay = document.getElementById('mobile-menu-overlay');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
             
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
+            const isActive = mobileMenu.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                menuBtn.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+            }
         }
 
         function closeMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const overlay = document.getElementById('mobile-menu-overlay');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
             
             mobileMenu.classList.remove('active');
             overlay.classList.remove('active');
+            menuBtn.classList.remove('active');
+            document.body.style.overflow = ''; // Restaurar scroll del body
         }
 
         // Filtrado de productos
