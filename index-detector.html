@@ -340,6 +340,9 @@
                 <i class="fas fa-magic me-2"></i>
                 Redirección automática en <span class="countdown" id="countdown">5</span> segundos
             </div>
+            <div class="debug-info mt-2" id="debugInfo" style="font-size: 0.8rem; color: #ccc;">
+                <!-- Debug info will be shown here -->
+            </div>
         </div>
 
         <div class="divider">
@@ -348,7 +351,7 @@
 
         <!-- Manual Selection -->
         <div class="options-grid">
-            <a href="index-mobile-moderno.html" class="option-card mobile" id="mobileOption">
+            <a href="mobile.html" class="option-card mobile" id="mobileOption">
                 <i class="fas fa-mobile-alt option-icon"></i>
                 <h3 class="option-title">Móvil</h3>
                 <p class="option-description">
@@ -391,11 +394,25 @@
             }
 
             detectMobile() {
-                const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+                // Detección más específica para móviles
+                const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i;
                 const isMobileUserAgent = mobileRegex.test(this.userAgent);
                 const isMobileScreen = this.screenWidth <= 768;
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
                 
-                return isMobileUserAgent || isMobileScreen;
+                // Detectar si es realmente móvil
+                const isRealMobile = isMobileUserAgent && (isMobileScreen || isTouchDevice);
+                
+                console.log('Detección de dispositivo:', {
+                    userAgent: this.userAgent,
+                    screenWidth: this.screenWidth,
+                    isMobileUserAgent,
+                    isMobileScreen,
+                    isTouchDevice,
+                    isRealMobile
+                });
+                
+                return isRealMobile;
             }
 
             getDeviceInfo() {
@@ -405,8 +422,10 @@
                     return { type: 'iPad', icon: 'fa-tablet-alt' };
                 } else if (/Android/i.test(this.userAgent)) {
                     return { type: 'Android', icon: 'fa-mobile-alt' };
-                } else if (this.isMobile) {
+                } else if (/Mobile/i.test(this.userAgent)) {
                     return { type: 'Móvil', icon: 'fa-mobile-alt' };
+                } else if (this.isMobile) {
+                    return { type: 'Dispositivo Móvil', icon: 'fa-mobile-alt' };
                 } else {
                     return { type: 'Computadora', icon: 'fa-desktop' };
                 }
@@ -423,14 +442,25 @@
                 const deviceInfo = this.getDeviceInfo();
                 const detectedIcon = document.getElementById('detectedIcon');
                 const detectedDevice = document.getElementById('detectedDevice');
+                const debugInfo = document.getElementById('debugInfo');
 
                 detectedIcon.className = `fas ${deviceInfo.icon} device-icon`;
                 detectedDevice.textContent = `${deviceInfo.type} detectado`;
 
+                // Mostrar información de debug
+                debugInfo.innerHTML = `
+                    <div>Pantalla: ${this.screenWidth}px</div>
+                    <div>Touch: ${('ontouchstart' in window) ? 'Sí' : 'No'}</div>
+                    <div>User Agent: ${this.userAgent.substring(0, 50)}...</div>
+                    <div>Es Móvil: ${this.isMobile ? 'Sí' : 'No'}</div>
+                `;
+
                 if (this.isMobile) {
                     document.getElementById('mobileOption').style.borderColor = 'rgba(74, 222, 128, 0.5)';
+                    document.getElementById('mobileOption').style.backgroundColor = 'rgba(74, 222, 128, 0.1)';
                 } else {
                     document.getElementById('desktopOption').style.borderColor = 'rgba(102, 126, 234, 0.5)';
+                    document.getElementById('desktopOption').style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
                 }
             }
 
@@ -445,7 +475,7 @@
                 });
 
                 document.getElementById('mobileOption').addEventListener('click', (e) => {
-                    this.redirect('index-mobile-moderno.html', e);
+                    this.redirect('mobile.html', e);
                 });
 
                 document.getElementById('desktopOption').addEventListener('click', (e) => {
@@ -469,7 +499,7 @@
                     
                     setTimeout(() => {
                         if (savedPreference === 'mobile') {
-                            window.location.href = 'index-mobile-moderno.html';
+                            window.location.href = 'mobile.html';
                         } else {
                             window.location.href = 'index-moderno.html';
                         }
@@ -491,7 +521,7 @@
                         
                         setTimeout(() => {
                             if (this.isMobile) {
-                                window.location.href = 'index-mobile-moderno.html';
+                                window.location.href = 'mobile.html';
                             } else {
                                 window.location.href = 'index-moderno.html';
                             }
