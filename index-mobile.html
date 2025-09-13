@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Velas y Aromas - Catálogo Profesional</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Elena Velas y Aromas - Catálogo profesional de velas aromáticas para ocasiones especiales. Baby shower, primera comunión, navidad y amor y amistad.">
+    <meta name="keywords" content="velas aromáticas, baby shower, primera comunión, navidad, amor y amistad, Elena, catálogo">
+    <meta name="author" content="Elena Velas y Aromas">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Elena Velas y Aromas - Catálogo Profesional">
+    <meta property="og:description" content="Descubre nuestra colección de velas aromáticas para ocasiones especiales">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:url" content="https://elena-velas-y-aromas-ihss.vercel.app">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Elena Velas y Aromas - Catálogo Profesional">
+    <meta name="twitter:description" content="Descubre nuestra colección de velas aromáticas para ocasiones especiales">
+    <meta name="twitter:image" content="assets/logo.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style-mobile.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#667eea">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-img me-2">
+                <span class="brand-text">Elena Velas y Aromas</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+                
+                <!-- Cart Button -->
+                <div class="ms-3">
+                    <button class="btn btn-outline-light position-relative" id="cartBtn" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCounter">
+                            0
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title mb-4">
+                        <span class="highlight">Elena Velas y Aromas</span>
+                    </h1>
+                    <p class="hero-subtitle mb-4">
+                        Descubre la magia de nuestras velas aromáticas artesanales, perfectas para cada ocasión especial
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-primary btn-lg me-3 mb-2">
+                            <i class="fas fa-star me-2"></i>Ver Catálogo
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg mb-2">
+                            <i class="fas fa-phone me-2"></i>Contactar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Promotions Carousel -->
+    <section class="promotions-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="section-title text-center mb-5">Promociones Especiales</h2>
+                    
+                    <div id="promotionsCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#promotionsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-8">
+                                        <div class="promotion-card text-center">
+                                            <div class="promotion-icon mb-3">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                            <h3>Amor y Amistad</h3>
+                                            <p>Velas románticas perfectas para el día del amor</p>
+                                            <div class="promotion-discount">20% OFF</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-8">
+                                        <div class="promotion-card text-center">
+                                            <div class="promotion-icon mb-3">
+                                                <i class="fas fa-baby"></i>
+                                            </div>
+                                            <h3>Baby Shower</h3>
+                                            <p>Velas temáticas para celebrar la llegada del bebé</p>
+                                            <div class="promotion-discount">15% OFF</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-8">
+                                        <div class="promotion-card text-center">
+                                            <div class="promotion-icon mb-3">
+                                                <i class="fas fa-snowflake"></i>
+                                            </div>
+                                            <h3>Navidad</h3>
+                                            <p>Velas navideñas para crear ambiente festivo</p>
+                                            <div class="promotion-discount">25% OFF</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#promotionsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <main id="products" class="products-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title text-center mb-5">Nuestros Productos</h2>
+                    
+                    <!-- Category Filters -->
+                    <div class="category-filters mb-4">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary active" data-category="all">
+                                    <i class="fas fa-th me-2"></i>Todos
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary" data-category="amorYAmistad">
+                                    <i class="fas fa-heart me-2"></i>Amor y Amistad
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary" data-category="babyShower">
+                                    <i class="fas fa-baby me-2"></i>Baby Shower
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary" data-category="primeraComunion">
+                                    <i class="fas fa-cross me-2"></i>Primera Comunión
+                                </button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary" data-category="navidad">
+                                    <i class="fas fa-snowflake me-2"></i>Navidad
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Products Grid -->
+                    <div class="row g-4" id="productsGrid">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">Sobre Elena Velas y Aromas</h2>
+                    <p class="lead mb-4">
+                        Con más de 10 años de experiencia, Elena Velas y Aromas se especializa en crear velas artesanales únicas y aromáticas para ocasiones especiales.
+                    </p>
+                    <p class="mb-4">
+                        Cada vela es cuidadosamente elaborada con ingredientes de la más alta calidad, garantizando una experiencia sensorial inolvidable.
+                    </p>
+                    <div class="features-list">
+                        <div class="feature-item mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <span>Ingredientes naturales</span>
+                        </div>
+                        <div class="feature-item mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <span>Artesanía tradicional</span>
+                        </div>
+                        <div class="feature-item mb-3">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <span>Diseños únicos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="assets/logo.png" alt="Elena Velas y Aromas" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title mb-4">Contáctanos</h2>
+                    <p class="lead mb-5">¿Listo para hacer tu pedido? ¡Estamos aquí para ayudarte!</p>
+                    
+                    <div class="row justify-content-center g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-card">
+                                <div class="contact-icon mb-3">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h4>WhatsApp</h4>
+                                <p>+57 300 822 0389</p>
+                                <a href="https://wa.me/573008220389" class="btn btn-success" target="_blank">
+                                    <i class="fab fa-whatsapp me-2"></i>Escribir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-card">
+                                <div class="contact-icon mb-3">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h4>Teléfono</h4>
+                                <p>+57 300 822 0389</p>
+                                <a href="tel:+573008220389" class="btn btn-primary">
+                                    <i class="fas fa-phone me-2"></i>Llamar
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="contact-card">
+                                <div class="contact-icon mb-3">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4>Email</h4>
+                                <p>elena@velasyaromas.com</p>
+                                <a href="mailto:elena@velasyaromas.com" class="btn btn-info">
+                                    <i class="fas fa-envelope me-2"></i>Enviar Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-5">
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2024 Elena Velas y Aromas. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img id="modalProductImage" src="" alt="" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 id="modalProductName"></h4>
+                            <p id="modalProductDescription" class="text-muted"></p>
+                            
+                            <div class="mb-3">
+                                <label for="modalSizeSelect" class="form-label">Tamaño:</label>
+                                <select class="form-select" id="modalSizeSelect">
+                                    <option value="">Seleccionar tamaño</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="modalFragranceSelect" class="form-label">Fragancia:</label>
+                                <select class="form-select" id="modalFragranceSelect">
+                                    <option value="">Seleccionar fragancia</option>
+                                </select>
+                            </div>
+                            
+                            <div class="price-display mb-3">
+                                <span id="modalPrice" class="fs-4 text-success fw-bold">Selecciona opciones para ver el precio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="addToCartModalBtn" onclick="addToCartFromModal()">
+                        <i class="fas fa-shopping-cart me-2"></i>Agregar al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">
+                        <i class="fas fa-shopping-cart me-2"></i>Carrito de Compras
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-between w-100">
+                        <div>
+                            <strong>Total: <span id="cartTotal" class="text-success">$0</span></strong>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-success" id="checkoutBtn" onclick="checkout()">
+                                <i class="fab fa-whatsapp me-2"></i>Comprar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Product Configuration -->
+    <script src="js/product-config.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/script-mobile.js"></script>
+</body>
+</html>
