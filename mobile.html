@@ -492,41 +492,8 @@
           ]
         };
 
-        // Precios de Primera Comunión para usarlos directamente en móvil
-        const primeraComunionPrices = {
-          'comunion-1': [
-            { value: 'detal', label: 'Detal - $25,000', price: 25000 },
-            { value: 'mayorista', label: 'Mayorista - $20,000', price: 20000 }
-          ],
-          'comunion-2': [
-            { value: 'detal', label: 'Detal - $28,000', price: 28000 },
-            { value: 'mayorista', label: 'Mayorista - $22,000', price: 22000 }
-          ],
-          'comunion-3': [
-            { value: 'detal', label: 'Detal - $30,000', price: 30000 },
-            { value: 'mayorista', label: 'Mayorista - $24,000', price: 24000 }
-          ],
-          'comunion-4': [
-            { value: 'detal', label: 'Detal - $26,000', price: 26000 },
-            { value: 'mayorista', label: 'Mayorista - $21,000', price: 21000 }
-          ],
-          'comunion-5': [
-            { value: 'detal', label: 'Detal - $32,000', price: 32000 },
-            { value: 'mayorista', label: 'Mayorista - $26,000', price: 26000 }
-          ],
-          'comunion-6': [
-            { value: 'detal', label: 'Detal - $27,000', price: 27000 },
-            { value: 'mayorista', label: 'Mayorista - $22,000', price: 22000 }
-          ],
-          'comunion-7': [
-            { value: 'detal', label: 'Detal - $29,000', price: 29000 },
-            { value: 'mayorista', label: 'Mayorista - $23,000', price: 23000 }
-          ],
-          'comunion-8': [
-            { value: 'detal', label: 'Detal - $31,000', price: 31000 },
-            { value: 'mayorista', label: 'Mayorista - $25,000', price: 25000 }
-          ]
-        };
+        // Baby Shower y Primera Comunión solo tienen "Consultar precio"
+        // No necesitan precios específicos
         const grids = {
           amorYAmistad: document.getElementById('grid-amor'),
           babyShower: document.getElementById('grid-baby'),
@@ -554,10 +521,8 @@
             if (navidadPrices[p.id]) {
               p.options = navidadPrices[p.id];
               p.defaultPrice = navidadPrices[p.id][0]?.price || p.defaultPrice;
-            } else if (primeraComunionPrices[p.id]) {
-              p.options = primeraComunionPrices[p.id];
-              p.defaultPrice = primeraComunionPrices[p.id][0]?.price || p.defaultPrice;
             }
+            // Baby Shower y Primera Comunión usan solo "Consultar precio" desde productConfigModerno
             const optionsHtml = (p.options||[]).map(o => `<option value="${o.value}">${o.label}</option>`).join('');
             const priceId = `price-${p.id}`;
             cardsByCat[cat.key].push(`
@@ -612,14 +577,11 @@
         if (!p) return;
         const opt = (document.getElementById('opt-' + id) || {}).value || (p.options?.[0]?.value);
         
-        // Usar precios específicos de Navidad o Primera Comunión si están disponibles
+        // Usar precios específicos de Navidad si están disponibles
         let price = p.defaultPrice;
         if (navidadPrices[id]) {
           const option = navidadPrices[id].find(o => o.value === opt);
           price = option ? option.price : navidadPrices[id][0]?.price;
-        } else if (primeraComunionPrices[id]) {
-          const option = primeraComunionPrices[id].find(o => o.value === opt);
-          price = option ? option.price : primeraComunionPrices[id][0]?.price;
         } else if (typeof getPriceByOption === 'function' && p.options?.length) {
           price = getPriceByOption(p, opt);
         }
@@ -662,18 +624,12 @@
       if (!p) return;
       const opt = (document.getElementById('opt-' + id) || {}).value || '';
       
-      // Obtener el precio y la etiqueta de la opción desde los precios específicos
+      // Obtener el precio y la etiqueta de la opción
       let priceText = 'Consultar precio';
       let optionText = '';
       
       if (navidadPrices[id]) {
         const option = navidadPrices[id].find(o => o.value === opt);
-        if (option) {
-          priceText = '$' + option.price.toLocaleString('es-CO');
-          optionText = option.label;
-        }
-      } else if (primeraComunionPrices[id]) {
-        const option = primeraComunionPrices[id].find(o => o.value === opt);
         if (option) {
           priceText = '$' + option.price.toLocaleString('es-CO');
           optionText = option.label;
@@ -796,6 +752,6 @@
       window.open(`https://api.whatsapp.com/send/?phone=573008220389&text=${message}`, '_blank');
     }
     </script>
-    <!-- Cache-busting: Primera Comunión precios actualizados - 2024-12-19 -->
+    <!-- Cache-busting: Baby Shower y Primera Comunión solo "Consultar precio" - 2024-12-19 -->
   </body>
 </html>

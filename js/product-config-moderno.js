@@ -123,25 +123,43 @@ const productConfigModerno = {
     babyShower: [
         {
             id: 'baby-1',
-            name: 'Vela Bebé Azul',
-            description: 'Vela temática para baby shower, disponible en azul y rosa.',
+            name: 'Set Baby Shower 1',
+            description: 'Velas especiales para baby shower',
             image: 'assets/productos/catalogo de baby shower/1.png',
             options: [
-                { value: 'detal', label: 'Detal - $15,000', price: 15000 },
-                { value: 'mayorista', label: 'Mayorista - $12,000', price: 12000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 15000
+            defaultPrice: null
         },
         {
             id: 'baby-2',
-            name: 'Vela Bebé Rosa',
-            description: 'Vela temática para baby shower en color rosa.',
+            name: 'Set Baby Shower 2',
+            description: 'Velas tiernas para celebrar',
             image: 'assets/productos/catalogo de baby shower/2.png',
             options: [
-                { value: 'detal', label: 'Detal - $15,000', price: 15000 },
-                { value: 'mayorista', label: 'Mayorista - $12,000', price: 12000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 15000
+            defaultPrice: null
+        },
+        {
+            id: 'baby-3',
+            name: 'Set Baby Shower 3',
+            description: 'Diseños únicos para baby shower',
+            image: 'assets/productos/catalogo de baby shower/3.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'baby-4',
+            name: 'Set Baby Shower 4',
+            description: 'Velas especiales para celebrar',
+            image: 'assets/productos/catalogo de baby shower/4.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
         }
     ],
     
@@ -153,10 +171,9 @@ const productConfigModerno = {
             description: 'Velas especiales para primera comunión',
             image: 'assets/productos/catalogo de primera comunion/1.png',
             options: [
-                { value: 'detal', label: 'Detal - $25,000', price: 25000 },
-                { value: 'mayorista', label: 'Mayorista - $20,000', price: 20000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 25000
+            defaultPrice: null
         },
         {
             id: 'comunion-2',
@@ -164,10 +181,9 @@ const productConfigModerno = {
             description: 'Diseños religiosos elegantes',
             image: 'assets/productos/catalogo de primera comunion/2.png',
             options: [
-                { value: 'detal', label: 'Detal - $28,000', price: 28000 },
-                { value: 'mayorista', label: 'Mayorista - $22,000', price: 22000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 28000
+            defaultPrice: null
         },
         {
             id: 'comunion-3',
@@ -175,10 +191,9 @@ const productConfigModerno = {
             description: 'Velas bendecidas con fe',
             image: 'assets/productos/catalogo de primera comunion/3.png',
             options: [
-                { value: 'detal', label: 'Detal - $30,000', price: 30000 },
-                { value: 'mayorista', label: 'Mayorista - $24,000', price: 24000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 30000
+            defaultPrice: null
         },
         {
             id: 'comunion-4',
@@ -186,10 +201,9 @@ const productConfigModerno = {
             description: 'Diseños únicos y especiales',
             image: 'assets/productos/catalogo de primera comunion/4.png',
             options: [
-                { value: 'detal', label: 'Detal - $26,000', price: 26000 },
-                { value: 'mayorista', label: 'Mayorista - $21,000', price: 21000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 26000
+            defaultPrice: null
         },
         {
             id: 'comunion-5',
@@ -197,10 +211,9 @@ const productConfigModerno = {
             description: 'Velas bendecidas con fe',
             image: 'assets/productos/catalogo de primera comunion/5.png',
             options: [
-                { value: 'detal', label: 'Detal - $32,000', price: 32000 },
-                { value: 'mayorista', label: 'Mayorista - $26,000', price: 26000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 32000
+            defaultPrice: null
         },
         {
             id: 'comunion-6',
@@ -208,10 +221,9 @@ const productConfigModerno = {
             description: 'Diseños religiosos elegantes',
             image: 'assets/productos/catalogo de primera comunion/6.png',
             options: [
-                { value: 'detal', label: 'Detal - $27,000', price: 27000 },
-                { value: 'mayorista', label: 'Mayorista - $22,000', price: 22000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 27000
+            defaultPrice: null
         },
         {
             id: 'comunion-7',
@@ -219,10 +231,9 @@ const productConfigModerno = {
             description: 'Velas especiales para primera comunión',
             image: 'assets/productos/catalogo de primera comunion/7.png',
             options: [
-                { value: 'detal', label: 'Detal - $29,000', price: 29000 },
-                { value: 'mayorista', label: 'Mayorista - $23,000', price: 23000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 29000
+            defaultPrice: null
         },
         {
             id: 'comunion-8',
@@ -230,10 +241,9 @@ const productConfigModerno = {
             description: 'Diseños únicos y especiales',
             image: 'assets/productos/catalogo de primera comunion/8.png',
             options: [
-                { value: 'detal', label: 'Detal - $31,000', price: 31000 },
-                { value: 'mayorista', label: 'Mayorista - $25,000', price: 25000 }
+                { value: 'consultar', label: 'Consultar precio', price: null }
             ],
-            defaultPrice: 31000
+            defaultPrice: null
         }
     ],
     
