@@ -1,6 +1,6 @@
 // Configuración de productos basada en index-moderno.html
 const productConfigModerno = {
-    // Catálogo de Amor y Amistad (basado en index-moderno.html)
+    // Catálogo de Amor y Amistad (precios correctos del index.html)
     amorYAmistad: [
         {
             id: 'product-2',
@@ -45,25 +45,23 @@ const productConfigModerno = {
             description: 'Vela con forma de peonía mediana',
             image: 'assets/productos/5.png',
             options: [
-                { value: 'detal-bolsa', label: 'Detal Bolsa - $4,900', price: 4900 },
-                { value: 'detal-caja', label: 'Detal Caja - $6,200', price: 6200 },
-                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,400', price: 4400 },
-                { value: 'mayorista-caja', label: 'Mayorista Caja - $5,600', price: 5600 }
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,300', price: 3300 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,000', price: 4000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,900', price: 2900 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,500', price: 3500 }
             ],
-            defaultPrice: 4900
+            defaultPrice: 3300
         },
         {
             id: 'product-6',
             name: 'FLORES CON AROMA EMPAQUE ESPECIAL',
-            description: 'Flores con aroma en empaque especial',
+            description: 'Velas con aroma y empaque especial',
             image: 'assets/productos/6.png',
             options: [
-                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,900', price: 6900 },
-                { value: 'detal-caja', label: 'Detal Caja - $8,500', price: 8500 },
-                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,200', price: 6200 },
-                { value: 'mayorista-caja', label: 'Mayorista Caja - $7,600', price: 7600 }
+                { value: 'detal', label: 'Detal - $4,700', price: 4700 },
+                { value: 'mayorista', label: 'Mayorista - $4,000', price: 4000 }
             ],
-            defaultPrice: 6900
+            defaultPrice: 4700
         },
         {
             id: 'product-7',
@@ -94,28 +92,15 @@ const productConfigModerno = {
         {
             id: 'product-9',
             name: 'VELA CORAZÓN GRANDE',
-            description: 'Vela en forma de corazón grande',
+            description: 'Vela grande en forma de corazón',
             image: 'assets/productos/9.png',
             options: [
-                { value: 'detal-bolsa', label: 'Detal Bolsa - $5,500', price: 5500 },
-                { value: 'detal-caja', label: 'Detal Caja - $6,800', price: 6800 },
-                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,900', price: 4900 },
-                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,100', price: 6100 }
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $4,700', price: 4700 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,900', price: 5900 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,200', price: 4200 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $5,300', price: 5300 }
             ],
-            defaultPrice: 5500
-        },
-        {
-            id: 'product-10',
-            name: 'MARIPOSA 2 MECHAS',
-            description: 'Vela con forma de mariposa de 2 mechas (variante)',
-            image: 'assets/productos/10.png',
-            options: [
-                { value: 'detal-bolsa', label: 'Detal Bolsa - $5,900', price: 5900 },
-                { value: 'detal-caja', label: 'Detal Caja - $7,000', price: 7000 },
-                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,200', price: 5200 },
-                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,500', price: 6500 }
-            ],
-            defaultPrice: 5900
+            defaultPrice: 4700
         }
     ],
     

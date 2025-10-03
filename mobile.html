@@ -587,7 +587,13 @@
         }
         
         const el = document.getElementById('price-' + id);
-        if (el) el.textContent = price ? ('$' + price.toLocaleString('es-CO')) : 'Consultar precio';
+        if (el) {
+          if (price && price !== null) {
+            el.textContent = '$' + price.toLocaleString('es-CO');
+          } else {
+            el.textContent = 'Consultar precio';
+          }
+        }
       } catch (e) {}
     }
 
@@ -638,7 +644,7 @@
         const priceEl = document.getElementById('price-' + id);
         priceText = priceEl ? priceEl.textContent : 'Consultar precio';
         const optLabel = (p.options||[]).find(o=>o.value===opt)?.label || '';
-        optionText = optLabel;
+        optionText = optLabel || 'Consultar precio';
       }
       
       const existing = cart.find(i => i.name === p.name && i.option === optionText);
@@ -752,6 +758,6 @@
       window.open(`https://api.whatsapp.com/send/?phone=573008220389&text=${message}`, '_blank');
     }
     </script>
-    <!-- Cache-busting: Baby Shower y Primera Comunión solo "Consultar precio" - 2024-12-19 -->
+    <!-- Cache-busting: Precios Amor y Amistad corregidos + Baby/Comunión carrito arreglado - 2024-12-19 -->
   </body>
 </html>
