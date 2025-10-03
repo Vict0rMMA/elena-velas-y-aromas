@@ -101,6 +101,193 @@ const productConfigModerno = {
                 { value: 'mayorista-caja', label: 'Mayorista Caja - $5,300', price: 5300 }
             ],
             defaultPrice: 4700
+        },
+        {
+            id: 'product-10',
+            name: 'MARIPOSA 2 MECHAS',
+            description: 'Vela con forma de mariposa de 2 mechas',
+            image: 'assets/productos/10.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $8,400', price: 8400 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,600', price: 7600 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,000', price: 5000 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,000', price: 6000 }
+            ],
+            defaultPrice: 8400
+        },
+        {
+            id: 'product-11',
+            name: 'POLI MEDIANO MANO CORAZÓN',
+            description: 'Vela con forma de mano haciendo corazón',
+            image: 'assets/productos/11.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $7,000', price: 7000 },
+                { value: 'detal-caja', label: 'Detal Caja - $8,000', price: 8000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,500', price: 6500 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $7,400', price: 7400 }
+            ],
+            defaultPrice: 7000
+        },
+        {
+            id: 'product-12',
+            name: 'CORAZÓN ROSAS',
+            description: 'Vela en forma de corazón con rosas',
+            image: 'assets/productos/12.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,400', price: 3400 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,300', price: 4300 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,000', price: 3000 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,000', price: 3000 }
+            ],
+            defaultPrice: 3400
+        },
+        {
+            id: 'product-13',
+            name: 'OSO MOÑO',
+            description: 'Vela con forma de oso con moño',
+            image: 'assets/productos/13.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $4,000', price: 4000 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,500', price: 5500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,500', price: 4500 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,000', price: 6000 }
+            ],
+            defaultPrice: 4000
+        },
+        {
+            id: 'product-14',
+            name: 'COPA',
+            description: 'Vela en forma de copa elegante',
+            image: 'assets/productos/14.png',
+            options: [
+                { value: 'detal', label: 'Detal - $18,500', price: 18500 },
+                { value: 'mayorista', label: 'Mayorista - $16,000', price: 16000 }
+            ],
+            defaultPrice: 18500
+        },
+        {
+            id: 'product-15',
+            name: 'POLI CORAZÓN MENSAJE',
+            description: 'Vela con forma de corazón y mensaje personalizado',
+            image: 'assets/productos/15.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $7,000', price: 7000 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-16',
+            name: 'PEONIA GRANDE',
+            description: 'Vela con forma de peonía grande',
+            image: 'assets/productos/16.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,900', price: 3900 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,000', price: 5000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,300', price: 3300 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $4,500', price: 4500 }
+            ],
+            defaultPrice: 3900
+        },
+        {
+            id: 'product-17',
+            name: 'BURBUJA VIDRIO',
+            description: 'Vela en contenedor de vidrio con burbujas',
+            image: 'assets/productos/17.png',
+            options: [
+                { value: 'detal', label: 'Detal - $10,800', price: 10800 },
+                { value: 'mayorista', label: 'Mayorista - $9,600', price: 9600 }
+            ],
+            defaultPrice: 10800
+        },
+        {
+            id: 'product-18',
+            name: 'POLI MEDIANO ROSA',
+            description: 'Vela con forma de rosa mediana',
+            image: 'assets/productos/18.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,400', price: 7400 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,600', price: 6600 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-19',
+            name: 'VELA CORAZÓN PERSONALIZADA',
+            description: 'Vela en forma de corazón personalizable',
+            image: 'assets/productos/19.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-20',
+            name: 'CORAZÓN ROSA',
+            description: 'Vela en forma de corazón rosa',
+            image: 'assets/productos/20.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,300', price: 3300 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,100', price: 4100 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,900', price: 2900 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,600', price: 3600 }
+            ],
+            defaultPrice: 3300
+        },
+        {
+            id: 'product-21',
+            name: 'VIDRIO CORCHO ESTRELLAS Y CORAZONES',
+            description: 'Vela en vidrio con corcho y decoración de estrellas y corazones',
+            image: 'assets/productos/21.png',
+            options: [
+                { value: 'detal', label: 'Detal - $8,500', price: 8500 },
+                { value: 'mayorista', label: 'Mayorista - $7,000', price: 7000 }
+            ],
+            defaultPrice: 8500
+        },
+        {
+            id: 'product-22',
+            name: 'ROSA MINI',
+            description: 'Vela pequeña con forma de rosa',
+            image: 'assets/productos/22.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $2,500', price: 2500 },
+                { value: 'detal-caja', label: 'Detal Caja - $3,000', price: 3000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,200', price: 2200 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $2,700', price: 2700 }
+            ],
+            defaultPrice: 2500
+        },
+        {
+            id: 'product-23',
+            name: 'RAMO PERSONALIZADO',
+            description: 'Ramo de velas personalizado',
+            image: 'assets/productos/23.png',
+            options: [
+                { value: 'detal-caja', label: 'Detal Caja - $11,800', price: 11800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $8,900', price: 8900 }
+            ],
+            defaultPrice: 11800
+        },
+        {
+            id: 'product-24',
+            name: 'MARGARITA',
+            description: 'Vela con forma de margarita',
+            image: 'assets/productos/24.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $2,500', price: 2500 },
+                { value: 'detal-caja', label: 'Detal Caja - $3,200', price: 3200 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,300', price: 2300 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $2,800', price: 2800 }
+            ],
+            defaultPrice: 2500
         }
     ],
     

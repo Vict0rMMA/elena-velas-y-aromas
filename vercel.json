@@ -5,6 +5,10 @@
       "destination": "/mobile.html"
     },
     {
+      "source": "/desktop",
+      "destination": "/desktop.html"
+    },
+    {
       "source": "/",
       "destination": "/index.html"
     }
