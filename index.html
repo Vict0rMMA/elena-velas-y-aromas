@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Elena Velas y Aromas - Catálogo Móvil Optimizado</title>
-    <!-- Optimizado para móviles - Funcionalidad táctil mejorada -->
+    <!-- Cache-busting: Index responsive para móvil - 2024-12-19 13:15 -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
@@ -1500,6 +1500,25 @@
       .products-grid {
         grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
+        gap: 20px;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .header-actions {
+        order: -1;
+        align-self: flex-end;
       }
     }
     
@@ -1507,6 +1526,155 @@
       /* Optimizaciones generales para móviles */
       body {
         font-size: 14px;
+      }
+      
+      /* Header móvil */
+      .header {
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(0,0,0,.95);
+        backdrop-filter: blur(10px);
+      }
+      
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+        border: none;
+        color: #000;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      
+      .logo-section {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .brand-text h1 {
+        font-size: 20px;
+      }
+      
+      .brand-text p {
+        font-size: 10px;
+      }
+      
+      .cart-btn {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        min-height: 44px;
+      }
+      
+      /* Contenido principal */
+      .main-content {
+        margin-top: 80px;
+        padding: 20px 15px;
+      }
+      
+      .hero-section {
+        padding: 30px 20px;
+        margin: 20px 0;
+        border-radius: 20px;
+      }
+      
+      .hero-title {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 15px;
+      }
+      
+      .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      
+      /* Productos */
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+      
+      .product-card {
+        padding: 20px;
+        border-radius: 16px;
+      }
+      
+      .product-image {
+        height: 200px;
+        border-radius: 12px;
+      }
+      
+      .product-title {
+        font-size: 16px;
+        margin: 10px 0 8px;
+      }
+      
+      .product-description {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      
+      .product-select {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      
+      .product-price {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+      
+      .add-to-cart {
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+        min-height: 48px;
+      }
+      
+      /* Secciones */
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+      
+      .section-subtitle {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+      
+      /* Botón WhatsApp flotante */
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
       }
       
       .container {
@@ -2032,7 +2200,103 @@
         padding: 0 10px;
       }
       
+      .header-content {
+        padding: 8px 10px;
+      }
+      
+      .logo {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .brand-text h1 {
+        font-size: 18px;
+      }
+      
+      .brand-text p {
+        font-size: 9px;
+      }
+      
+      .cart-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        min-height: 40px;
+      }
+      
+      .mobile-menu-btn {
+        padding: 10px;
+        font-size: 1.1rem;
+      }
+      
+      .main-content {
+        margin-top: 70px;
+        padding: 15px 10px;
+      }
+      
+      .hero-section {
+        padding: 25px 15px;
+        margin: 15px 0;
+      }
+      
       .hero-title {
+        font-size: 20px;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 13px;
+      }
+      
+      .products-grid {
+        gap: 15px;
+      }
+      
+      .product-card {
+        padding: 15px;
+      }
+      
+      .product-image {
+        height: 180px;
+      }
+      
+      .product-title {
+        font-size: 15px;
+      }
+      
+      .product-description {
+        font-size: 12px;
+      }
+      
+      .product-select {
+        padding: 10px;
+        font-size: 13px;
+      }
+      
+      .product-price {
+        font-size: 16px;
+      }
+      
+      .add-to-cart {
+        padding: 12px;
+        font-size: 13px;
+        min-height: 44px;
+      }
+      
+      .section-title {
+        font-size: 20px;
+      }
+      
+      .section-subtitle {
+        font-size: 12px;
+      }
+      
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 22px;
+      }
         font-size: 1.8rem;
         line-height: 1.1;
       }
