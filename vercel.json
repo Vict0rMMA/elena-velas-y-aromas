@@ -10,7 +10,7 @@
     },
     {
       "source": "/",
-      "destination": "/mobile.html"
+      "destination": "/selector.html"
     }
   ],
   "headers": [
