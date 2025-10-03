@@ -344,14 +344,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
     
-    /* Estilos para desktop - mantener layout horizontal */
-    .header-row-1 {
+    .header-actions {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      width: 100%;
+      gap: 15px;
     }
     
     .logo-section {
@@ -417,7 +416,7 @@
     }
     
     .cart-btn {
-      background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
       color: #000;
       border: none;
       padding: 12px 20px;
@@ -430,6 +429,9 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cart-btn:hover {
@@ -1533,17 +1535,18 @@
       }
       
       .header-content {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding: 0 15px;
       }
       
-      /* Fila 1: Logo + Carrito */
-      .header-row-1 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+      .nav-links {
+        display: none;
+      }
+      
+      .header-actions {
+        gap: 10px;
       }
       
       .logo-section {
@@ -1594,12 +1597,14 @@
       /* Menú hamburguesa para móviles */
       .mobile-menu-btn {
         display: block;
-        background: none;
+        background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
         border: none;
-        color: #D4AF37;
-        font-size: 1.5rem;
+        color: #000;
+        font-size: 1.2rem;
         cursor: pointer;
-        padding: 10px;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
       }
       
       .mobile-menu {
@@ -2380,39 +2385,41 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-        <!-- Fila 1: Logo + Carrito -->
-        <div class="header-row-1">
-          <div class="logo-section">
-            <div class="logo">
-              <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-image">
-            </div>
-            <div class="brand-text">
-              <h1>Elena</h1>
-              <p>VELAS Y AROMAS</p>
-            </div>
-          </div>
-          
-          <button class="cart-btn" onclick="showCart()">
-            <i class="fas fa-shopping-cart"></i>
-            Carrito
-            <span class="cart-count" id="cart-count">0</span>
-          </button>
-        </div>
-        
-        <!-- Fila 2: Menú centrado -->
-        <nav class="nav-links">
-          <a href="#inicio">Inicio</a>
-          <a href="#catalogo">Catálogo</a>
-          <a href="#baby-shower">Baby Shower</a>
-          <a href="#primera-comunion">Primera Comunión</a>
-          <a href="#navidad">Navidad</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-        
-        <!-- Botón de menú hamburguesa para móviles (oculto en desktop) -->
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
+              <!-- Logo -->
+              <div class="logo-section">
+                <div class="logo">
+                  <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-image">
+                </div>
+                <div class="brand-text">
+                  <h1>Elena</h1>
+                  <p>VELAS Y AROMAS</p>
+                </div>
+              </div>
+              
+              <!-- Navegación -->
+              <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#baby-shower">Baby Shower</a>
+                <a href="#primera-comunion">Primera Comunión</a>
+                <a href="#navidad">Navidad</a>
+                <a href="#contacto">Contacto</a>
+              </nav>
+              
+              <!-- Botones de la derecha -->
+              <div class="header-actions">
+                <!-- Botón de menú hamburguesa para móviles (oculto en desktop) -->
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                  <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Carrito -->
+                <button class="cart-btn" onclick="showCart()">
+                  <i class="fas fa-shopping-cart"></i>
+                  Carrito
+                  <span class="cart-count" id="cart-count">0</span>
+                </button>
+              </div>
             </div>
         </div>
     </header>

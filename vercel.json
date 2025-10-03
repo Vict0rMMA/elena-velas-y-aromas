@@ -5,12 +5,16 @@
       "destination": "/mobile.html"
     },
     {
+      "source": "/desktop",
+      "destination": "/index.html"
+    },
+    {
       "source": "/detector",
       "destination": "/detector.html"
     },
     {
       "source": "/",
-      "destination": "/index.html"
+      "destination": "/selector.html"
     }
   ],
   "headers": [
