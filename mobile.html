@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0a0a" />
   <title>Elena Velas y Aromas - Catálogo</title>
+  <!-- Cache-busting: Móvil optimizado visualmente - 2024-12-19 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     
@@ -53,25 +54,98 @@
     /* Header */
     .header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(0,0,0,.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(212,175,55,.25);
+      background: linear-gradient(135deg, rgba(0,0,0,.98) 0%, rgba(26,26,26,.95) 100%);
+      backdrop-filter: blur(20px);
+      border-bottom: 2px solid rgba(212,175,55,.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
     }
-    .header-content { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; }
-    .logo-section { display: flex; align-items: center; gap: 12px; min-height: 44px; }
-    .logo { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(212,175,55,.25); flex: 0 0 auto; }
+    .header-content { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 15px; 
+      padding: 15px 20px; 
+      max-width: 100%;
+    }
+    .logo-section { 
+      display: flex; 
+      align-items: center; 
+      gap: 15px; 
+      min-height: 50px; 
+    }
+    .logo { 
+      width: 60px; 
+      height: 60px; 
+      border-radius: 50%; 
+      overflow: hidden; 
+      box-shadow: 0 8px 25px rgba(212,175,55,.4);
+      border: 2px solid rgba(212,175,55,.3);
+      flex: 0 0 auto; 
+      transition: transform 0.3s ease;
+    }
+    .logo:hover { transform: scale(1.05); }
     .logo-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-    .brand-text h1 { margin: 0 0 2px; font-family: 'Playfair Display', serif; font-size: 22px; color: #D4AF37; }
-    .brand-text p { margin: 0; font-size: 11px; letter-spacing: 2px; opacity: .85; }
+    .brand-text h1 { 
+      margin: 0 0 3px; 
+      font-family: 'Playfair Display', serif; 
+      font-size: 24px; 
+      color: #D4AF37;
+      text-shadow: 0 2px 4px rgba(0,0,0,.5);
+    }
+    .brand-text p { 
+      margin: 0; 
+      font-size: 12px; 
+      letter-spacing: 2.5px; 
+      opacity: .9;
+      color: #f5f5dc;
+    }
 
     .nav-links { display: none; gap: 24px; align-items: center; }
     .nav-links a { text-decoration: none; padding: 8px 12px; border-radius: 10px; transition: .2s; }
     .nav-links a:hover { color: #D4AF37; background: rgba(212,175,55,.12); }
 
-    .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 10px 14px; border-radius: 14px; border: 2px solid #E0B83A; background: linear-gradient(135deg,#FFD84D,#C99F2F); color: #111; box-shadow: 0 8px 18px rgba(212,175,55,.35); cursor: pointer; }
-    .mobile-menu-btn i { font-size: 18px; }
+    .mobile-menu-btn { 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      min-width: 48px; 
+      min-height: 48px; 
+      padding: 12px; 
+      border-radius: 16px; 
+      border: none;
+      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%); 
+      color: #000; 
+      box-shadow: 0 6px 20px rgba(212,175,55,.4); 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .mobile-menu-btn:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 25px rgba(212,175,55,.5); 
+    }
+    .mobile-menu-btn i { font-size: 20px; }
 
-    .cart-btn { position: relative; border: 0; border-radius: 14px; background: linear-gradient(135deg,#D4AF37,#B8860B); color: #111; padding: 10px 14px; font-weight: 700; cursor: pointer; min-height: 44px; }
+    .cart-btn { 
+      position: relative; 
+      border: none; 
+      border-radius: 16px; 
+      background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%); 
+      color: #000; 
+      padding: 12px 16px; 
+      font-weight: 700; 
+      cursor: pointer; 
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(212,175,55,.4);
+      transition: all 0.3s ease;
+    }
+    .cart-btn:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 25px rgba(212,175,55,.5); 
+    }
     .cart-count { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; background: #ff4444; color: #fff; font-size: 12px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; }
 
     /* Menú móvil */
@@ -87,9 +161,102 @@
 
     /* Hero */
     .main-content { padding: 80px 0 40px; }
-    .hero-section { position: relative; border-radius: 18px; overflow: hidden; padding: 28px 16px; text-align: center; background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(0,0,0,.3)); }
-    .hero-title { margin: 10px auto 10px; max-width: 18ch; font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1.2; font-weight: 900; background: linear-gradient(135deg,#D4AF37 0%,#FFD700 60%,#B8860B 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
-    .hero-subtitle { margin: 0 auto 16px; max-width: 40ch; font-size: 15px; opacity: .95; }
+    .hero-section { 
+      position: relative; 
+      border-radius: 24px; 
+      overflow: hidden; 
+      padding: 40px 20px; 
+      text-align: center; 
+      background: linear-gradient(135deg, rgba(212,175,55,.15) 0%, rgba(0,0,0,.4) 50%, rgba(212,175,55,.1) 100%);
+      border: 2px solid rgba(212,175,55,.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.1);
+      margin: 20px 0;
+    }
+    .hero-title { 
+      margin: 15px auto 15px; 
+      max-width: 20ch; 
+      font-family: 'Playfair Display', serif; 
+      font-size: 32px; 
+      line-height: 1.2; 
+      font-weight: 900; 
+      background: linear-gradient(135deg,#D4AF37 0%,#FFD700 50%,#FFA500 100%); 
+      background-clip: text; 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      color: transparent;
+      text-shadow: 0 4px 8px rgba(0,0,0,.3);
+    }
+    .hero-subtitle { 
+      margin: 0 auto 20px; 
+      max-width: 45ch; 
+      font-size: 16px; 
+      opacity: .95;
+      line-height: 1.5;
+      color: #f5f5dc;
+    }
+    /* Estadísticas */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+      max-width: 100%;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, rgba(20,20,20,.95) 0%, rgba(10,10,10,.92) 100%);
+      border: 1px solid rgba(212,175,55,.3);
+      border-radius: 16px;
+      padding: 16px 8px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .stat-card:hover::before {
+      left: 100%;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1);
+      border-color: rgba(212,175,55,.5);
+    }
+    
+    .stat-number {
+      font-size: 24px;
+      font-weight: 900;
+      color: #D4AF37;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 4px rgba(0,0,0,.3);
+    }
+    
+    .stat-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    
+    .stat-label {
+      font-size: 11px;
+      color: #f5f5dc;
+      opacity: .9;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    
     .cta-buttons { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 320px; margin: 12px auto 0; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 16px; border-radius: 14px; border: 0; font-weight: 800; cursor: pointer; min-height: 44px; text-decoration: none; }
     .btn-primary { background: linear-gradient(135deg,#D4AF37,#FFD700 60%,#B8860B); color: #111; border: 1px solid rgba(212,175,55,.5); box-shadow: 0 10px 24px rgba(212,175,55,.28); }
@@ -243,6 +410,26 @@
       <section class="hero-section" id="inicio">
         <h1 class="hero-title">Donde el aroma, la luz y el detalle se encuentran</h1>
         <p class="hero-subtitle">🕯️ Empresa dedicada a fabricación de velas con las mejores fragancias, decorativas y de consumo 💕</p>
+        
+        <!-- Estadísticas -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">133</div>
+            <div class="stat-icon">👥</div>
+            <div class="stat-label">Personas viendo ahora</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-icon">🔥</div>
+            <div class="stat-label">Velas vendidas este mes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4.9</div>
+            <div class="stat-icon">⭐</div>
+            <div class="stat-label">Calificación promedio</div>
+          </div>
+        </div>
+        
         <div class="cta-buttons">
           <a href="#catalogo" class="btn btn-primary"><i class="fas fa-heart"></i> Ver Catálogo</a>
           <a href="#baby-shower" class="btn btn-secondary"><i class="fas fa-baby"></i> Baby Shower</a>
@@ -632,9 +819,9 @@
         if (typeof productConfigModerno === 'undefined') {
           console.error('productConfigModerno no está definido');
           toast('Error: Configuración de productos no cargada');
-          return;
-        }
-        
+                return;
+            }
+            
         const all = [
           ...productConfigModerno.amorYAmistad,
           ...productConfigModerno.babyShower,
@@ -679,7 +866,7 @@
         if (existing) {
           existing.quantity += 1;
           console.log('Cantidad actualizada:', existing.quantity);
-        } else {
+            } else {
           const newItem = { id: Date.now(), name: p.name, option: optionText, price: priceText, quantity: 1 };
           cart.push(newItem);
           console.log('Nuevo item agregado:', newItem);
@@ -791,8 +978,8 @@
         const id = a.getAttribute('href');
         const target = document.querySelector(id);
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      });
-    });
+            });
+        });
 
     function openWhatsApp() {
       const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre sus velas aromáticas. ¿Podrían ayudarme?');
@@ -800,5 +987,5 @@
     }
     </script>
     <!-- Cache-busting: Carrito arreglado con logs de depuración - 2024-12-19 -->
-  </body>
+</body>
 </html>
