@@ -149,7 +149,7 @@
         </div>
         
         <div class="manual-links">
-            <a href="desktop.html" class="btn btn-desktop">
+            <a href="index.html" class="btn btn-desktop">
                 🖥️ Versión Escritorio
             </a>
             <a href="mobile.html" class="btn btn-mobile">
@@ -184,7 +184,7 @@
             const isMobile = isMobileDevice();
             
             let deviceType = isMobile ? 'Móvil' : 'Escritorio';
-            let recommendedVersion = isMobile ? 'mobile.html' : 'desktop.html';
+            let recommendedVersion = isMobile ? 'mobile.html' : 'index.html';
             
             return {
                 type: deviceType,
@@ -233,7 +233,7 @@
         // Agregar event listeners a los botones manuales
         document.querySelector('.btn-desktop').addEventListener('click', function(e) {
             e.preventDefault();
-            manualRedirect('desktop.html');
+            manualRedirect('index.html');
         });
         
         document.querySelector('.btn-mobile').addEventListener('click', function(e) {

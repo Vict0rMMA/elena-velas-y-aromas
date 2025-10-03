@@ -5,8 +5,8 @@
       "destination": "/mobile.html"
     },
     {
-      "source": "/desktop",
-      "destination": "/desktop.html"
+      "source": "/detector",
+      "destination": "/detector.html"
     },
     {
       "source": "/",
