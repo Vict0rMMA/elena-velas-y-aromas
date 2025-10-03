@@ -331,7 +331,12 @@
 
       // Render con catálogo real y precios desde js/product-config.js
       function renderFromConfig() {
-        if (typeof productConfigModerno === 'undefined') return;
+        console.log('renderFromConfig iniciado');
+        if (typeof productConfigModerno === 'undefined') {
+          console.error('productConfigModerno no está definido en renderFromConfig');
+          return;
+        }
+        console.log('productConfigModerno cargado correctamente');
         const categories = [
           { key: 'amorYAmistad', title: 'Amor y Amistad' },
           { key: 'babyShower', title: 'Baby Shower' },
@@ -547,6 +552,8 @@
         categories.forEach(cat => {
           (productConfigModerno[cat.key]||[]).forEach(p => recalc(p.id));
         });
+        
+        console.log('renderFromConfig completado. Productos renderizados:', Object.keys(cardsByCat).map(k => `${k}: ${cardsByCat[k].length}`).join(', '));
       }
 
       renderFromConfig();
@@ -619,40 +626,74 @@
     }
 
     function addConfigToCart(id) {
-      if (typeof productConfigModerno === 'undefined') return;
-      const all = [
-        ...productConfigModerno.amorYAmistad,
-        ...productConfigModerno.babyShower,
-        ...productConfigModerno.primeraComunion,
-        ...productConfigModerno.navidad
-      ];
-      const p = all.find(x => x.id === id);
-      if (!p) return;
-      const opt = (document.getElementById('opt-' + id) || {}).value || '';
-      
-      // Obtener el precio y la etiqueta de la opción
-      let priceText = 'Consultar precio';
-      let optionText = '';
-      
-      if (navidadPrices[id]) {
-        const option = navidadPrices[id].find(o => o.value === opt);
-        if (option) {
-          priceText = '$' + option.price.toLocaleString('es-CO');
-          optionText = option.label;
+      try {
+        console.log('Intentando agregar producto:', id);
+        
+        if (typeof productConfigModerno === 'undefined') {
+          console.error('productConfigModerno no está definido');
+          toast('Error: Configuración de productos no cargada');
+          return;
         }
-      } else {
-        const priceEl = document.getElementById('price-' + id);
-        priceText = priceEl ? priceEl.textContent : 'Consultar precio';
-        const optLabel = (p.options||[]).find(o=>o.value===opt)?.label || '';
-        optionText = optLabel || 'Consultar precio';
+        
+        const all = [
+          ...productConfigModerno.amorYAmistad,
+          ...productConfigModerno.babyShower,
+          ...productConfigModerno.primeraComunion,
+          ...productConfigModerno.navidad
+        ];
+        
+        console.log('Productos disponibles:', all.length);
+        
+        const p = all.find(x => x.id === id);
+        if (!p) {
+          console.error('Producto no encontrado:', id);
+          toast('Error: Producto no encontrado');
+          return;
+        }
+        
+        console.log('Producto encontrado:', p.name);
+        
+        const opt = (document.getElementById('opt-' + id) || {}).value || '';
+        console.log('Opción seleccionada:', opt);
+        
+        // Obtener el precio y la etiqueta de la opción
+        let priceText = 'Consultar precio';
+        let optionText = '';
+        
+        if (navidadPrices && navidadPrices[id]) {
+          const option = navidadPrices[id].find(o => o.value === opt);
+          if (option) {
+            priceText = '$' + option.price.toLocaleString('es-CO');
+            optionText = option.label;
+          }
+        } else {
+          const priceEl = document.getElementById('price-' + id);
+          priceText = priceEl ? priceEl.textContent : 'Consultar precio';
+          const optLabel = (p.options||[]).find(o=>o.value===opt)?.label || '';
+          optionText = optLabel || 'Consultar precio';
+        }
+        
+        console.log('Precio:', priceText, 'Opción:', optionText);
+        
+        const existing = cart.find(i => i.name === p.name && i.option === optionText);
+        if (existing) {
+          existing.quantity += 1;
+          console.log('Cantidad actualizada:', existing.quantity);
+        } else {
+          const newItem = { id: Date.now(), name: p.name, option: optionText, price: priceText, quantity: 1 };
+          cart.push(newItem);
+          console.log('Nuevo item agregado:', newItem);
+        }
+        
+        updateCartCounter();
+        updateCartDisplay();
+        toast(p.name + ' agregado al carrito');
+        
+      } catch (error) {
+        console.error('Error en addConfigToCart:', error);
+        toast('Error al agregar al carrito');
       }
-      
-      const existing = cart.find(i => i.name === p.name && i.option === optionText);
-      if (existing) existing.quantity += 1; else cart.push({ id: Date.now(), name: p.name, option: optionText, price: priceText, quantity: 1 });
-            updateCartCounter();
-            updateCartDisplay();
-      toast(p.name + ' agregado al carrito');
-        }
+    }
 
     function removeFromCart(id) { cart = cart.filter(i => i.id !== id); updateCartCounter(); updateCartDisplay(); }
     function clearCart() { cart = []; updateCartCounter(); updateCartDisplay(); }
@@ -758,6 +799,6 @@
       window.open(`https://api.whatsapp.com/send/?phone=573008220389&text=${message}`, '_blank');
     }
     </script>
-    <!-- Cache-busting: Todos los productos de Amor y Amistad agregados (productos 2-24) - 2024-12-19 -->
+    <!-- Cache-busting: Carrito arreglado con logs de depuración - 2024-12-19 -->
   </body>
 </html>
