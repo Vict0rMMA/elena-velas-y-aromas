@@ -1,0 +1,5 @@
+[33mee49a61[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Fix iOS layout: viewport-fit, safe-area for header/content, text-size-adjust, WhatsApp button safe inset
+[33m7e93c34[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Chore: añadir propiedad estándar line-clamp junto a -webkit-line-clamp (lint fix)
+[33ma16a70f[m Móvil: aplicar plan IA  header 60px, héroe legible, grid 1col (480), 2col (481768), cards más ligeras, márgenes 1620px, touch 44px, WhatsApp ajustado
+[33m8be633c[m Fix móvil: títulos sin brillo excesivo (color dorado sólido, sin sombras fuertes) + subtítulos más legibles
+[33m107e3b1[m Revert: restaurar mobile.html a versión previa (antes de clean)

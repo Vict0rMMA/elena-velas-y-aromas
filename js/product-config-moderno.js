@@ -1,0 +1,488 @@
+// Configuración de productos basada en index-moderno.html
+const productConfigModerno = {
+    // Catálogo de Amor y Amistad (precios correctos del index.html)
+    amorYAmistad: [
+        {
+            id: 'product-2',
+            name: 'MARIPOSA 2 MECHAS',
+            description: 'Vela con forma de mariposa de 2 mechas',
+            image: 'assets/productos/2.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $5,900', price: 5900 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,000', price: 7000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,200', price: 5200 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,500', price: 6500 }
+            ],
+            defaultPrice: 5900
+        },
+        {
+            id: 'product-3',
+            name: 'POLI MEDIANO MANO CORAZÓN',
+            description: 'Vela con forma de mano haciendo corazón',
+            image: 'assets/productos/3.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $2,900', price: 2900 },
+                { value: 'detal-caja', label: 'Detal Caja - $3,700', price: 3700 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,600', price: 2600 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,400', price: 3400 }
+            ],
+            defaultPrice: 2900
+        },
+        {
+            id: 'product-4',
+            name: 'MARGARITA COLOMBINA',
+            description: 'Vela con aroma de margarita colombiana',
+            image: 'assets/productos/4.png',
+            options: [
+                { value: 'detal', label: 'Detal - $3,700', price: 3700 },
+                { value: 'mayorista', label: 'Mayorista - $3,000', price: 3000 }
+            ],
+            defaultPrice: 3700
+        },
+        {
+            id: 'product-5',
+            name: 'PEONIA MEDIANA',
+            description: 'Vela con forma de peonía mediana',
+            image: 'assets/productos/5.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,300', price: 3300 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,000', price: 4000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,900', price: 2900 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,500', price: 3500 }
+            ],
+            defaultPrice: 3300
+        },
+        {
+            id: 'product-6',
+            name: 'FLORES CON AROMA EMPAQUE ESPECIAL',
+            description: 'Velas con aroma y empaque especial',
+            image: 'assets/productos/6.png',
+            options: [
+                { value: 'detal', label: 'Detal - $4,700', price: 4700 },
+                { value: 'mayorista', label: 'Mayorista - $4,000', price: 4000 }
+            ],
+            defaultPrice: 4700
+        },
+        {
+            id: 'product-7',
+            name: 'MATERA VELA CORAZÓN ROSAS',
+            description: 'Matera con velas en forma de corazón y rosas',
+            image: 'assets/productos/7.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $8,900', price: 8900 },
+                { value: 'detal-caja', label: 'Detal Caja - $10,500', price: 10500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $8,000', price: 8000 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $9,300', price: 9300 }
+            ],
+            defaultPrice: 8900
+        },
+        {
+            id: 'product-8',
+            name: 'CORAZÓN ROSAS',
+            description: 'Vela en forma de corazón con rosas',
+            image: 'assets/productos/8.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,900', price: 3900 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,900', price: 4900 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,500', price: 3500 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $4,300', price: 4300 }
+            ],
+            defaultPrice: 3900
+        },
+        {
+            id: 'product-9',
+            name: 'VELA CORAZÓN GRANDE',
+            description: 'Vela grande en forma de corazón',
+            image: 'assets/productos/9.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $4,700', price: 4700 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,900', price: 5900 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,200', price: 4200 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $5,300', price: 5300 }
+            ],
+            defaultPrice: 4700
+        },
+        {
+            id: 'product-10',
+            name: 'MARIPOSA 2 MECHAS',
+            description: 'Vela con forma de mariposa de 2 mechas',
+            image: 'assets/productos/10.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $8,400', price: 8400 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,600', price: 7600 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,000', price: 5000 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,000', price: 6000 }
+            ],
+            defaultPrice: 8400
+        },
+        {
+            id: 'product-11',
+            name: 'POLI MEDIANO MANO CORAZÓN',
+            description: 'Vela con forma de mano haciendo corazón',
+            image: 'assets/productos/11.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $7,000', price: 7000 },
+                { value: 'detal-caja', label: 'Detal Caja - $8,000', price: 8000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,500', price: 6500 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $7,400', price: 7400 }
+            ],
+            defaultPrice: 7000
+        },
+        {
+            id: 'product-12',
+            name: 'CORAZÓN ROSAS',
+            description: 'Vela en forma de corazón con rosas',
+            image: 'assets/productos/12.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,400', price: 3400 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,300', price: 4300 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,000', price: 3000 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,000', price: 3000 }
+            ],
+            defaultPrice: 3400
+        },
+        {
+            id: 'product-13',
+            name: 'OSO MOÑO',
+            description: 'Vela con forma de oso con moño',
+            image: 'assets/productos/13.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $4,000', price: 4000 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,500', price: 5500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,500', price: 4500 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,000', price: 6000 }
+            ],
+            defaultPrice: 4000
+        },
+        {
+            id: 'product-14',
+            name: 'COPA',
+            description: 'Vela en forma de copa elegante',
+            image: 'assets/productos/14.png',
+            options: [
+                { value: 'detal', label: 'Detal - $18,500', price: 18500 },
+                { value: 'mayorista', label: 'Mayorista - $16,000', price: 16000 }
+            ],
+            defaultPrice: 18500
+        },
+        {
+            id: 'product-15',
+            name: 'POLI CORAZÓN MENSAJE',
+            description: 'Vela con forma de corazón y mensaje personalizado',
+            image: 'assets/productos/15.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $7,000', price: 7000 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-16',
+            name: 'PEONIA GRANDE',
+            description: 'Vela con forma de peonía grande',
+            image: 'assets/productos/16.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,900', price: 3900 },
+                { value: 'detal-caja', label: 'Detal Caja - $5,000', price: 5000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,300', price: 3300 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $4,500', price: 4500 }
+            ],
+            defaultPrice: 3900
+        },
+        {
+            id: 'product-17',
+            name: 'BURBUJA VIDRIO',
+            description: 'Vela en contenedor de vidrio con burbujas',
+            image: 'assets/productos/17.png',
+            options: [
+                { value: 'detal', label: 'Detal - $10,800', price: 10800 },
+                { value: 'mayorista', label: 'Mayorista - $9,600', price: 9600 }
+            ],
+            defaultPrice: 10800
+        },
+        {
+            id: 'product-18',
+            name: 'POLI MEDIANO ROSA',
+            description: 'Vela con forma de rosa mediana',
+            image: 'assets/productos/18.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,400', price: 7400 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,600', price: 6600 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-19',
+            name: 'VELA CORAZÓN PERSONALIZADA',
+            description: 'Vela en forma de corazón personalizable',
+            image: 'assets/productos/19.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+                { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,800', price: 5800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 }
+            ],
+            defaultPrice: 6500
+        },
+        {
+            id: 'product-20',
+            name: 'CORAZÓN ROSA',
+            description: 'Vela en forma de corazón rosa',
+            image: 'assets/productos/20.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $3,300', price: 3300 },
+                { value: 'detal-caja', label: 'Detal Caja - $4,100', price: 4100 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,900', price: 2900 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $3,600', price: 3600 }
+            ],
+            defaultPrice: 3300
+        },
+        {
+            id: 'product-21',
+            name: 'VIDRIO CORCHO ESTRELLAS Y CORAZONES',
+            description: 'Vela en vidrio con corcho y decoración de estrellas y corazones',
+            image: 'assets/productos/21.png',
+            options: [
+                { value: 'detal', label: 'Detal - $8,500', price: 8500 },
+                { value: 'mayorista', label: 'Mayorista - $7,000', price: 7000 }
+            ],
+            defaultPrice: 8500
+        },
+        {
+            id: 'product-22',
+            name: 'ROSA MINI',
+            description: 'Vela pequeña con forma de rosa',
+            image: 'assets/productos/22.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $2,500', price: 2500 },
+                { value: 'detal-caja', label: 'Detal Caja - $3,000', price: 3000 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,200', price: 2200 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $2,700', price: 2700 }
+            ],
+            defaultPrice: 2500
+        },
+        {
+            id: 'product-23',
+            name: 'RAMO PERSONALIZADO',
+            description: 'Ramo de velas personalizado',
+            image: 'assets/productos/23.png',
+            options: [
+                { value: 'detal-caja', label: 'Detal Caja - $11,800', price: 11800 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $8,900', price: 8900 }
+            ],
+            defaultPrice: 11800
+        },
+        {
+            id: 'product-24',
+            name: 'MARGARITA',
+            description: 'Vela con forma de margarita',
+            image: 'assets/productos/24.png',
+            options: [
+                { value: 'detal-bolsa', label: 'Detal Bolsa - $2,500', price: 2500 },
+                { value: 'detal-caja', label: 'Detal Caja - $3,200', price: 3200 },
+                { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $2,300', price: 2300 },
+                { value: 'mayorista-caja', label: 'Mayorista Caja - $2,800', price: 2800 }
+            ],
+            defaultPrice: 2500
+        }
+    ],
+    
+    // Catálogo de Baby Shower
+    babyShower: [
+        {
+            id: 'baby-1',
+            name: 'Set Baby Shower 1',
+            description: 'Velas especiales para baby shower',
+            image: 'assets/productos/catalogo de baby shower/1.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'baby-2',
+            name: 'Set Baby Shower 2',
+            description: 'Velas tiernas para celebrar',
+            image: 'assets/productos/catalogo de baby shower/2.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'baby-3',
+            name: 'Set Baby Shower 3',
+            description: 'Diseños únicos para baby shower',
+            image: 'assets/productos/catalogo de baby shower/3.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'baby-4',
+            name: 'Set Baby Shower 4',
+            description: 'Velas especiales para celebrar',
+            image: 'assets/productos/catalogo de baby shower/4.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        }
+    ],
+    
+    // Catálogo de Primera Comunión
+    primeraComunion: [
+        {
+            id: 'comunion-1',
+            name: 'Set Primera Comunión 1',
+            description: 'Velas especiales para primera comunión',
+            image: 'assets/productos/catalogo de primera comunion/1.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-2',
+            name: 'Set Primera Comunión 2',
+            description: 'Diseños religiosos elegantes',
+            image: 'assets/productos/catalogo de primera comunion/2.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-3',
+            name: 'Set Primera Comunión 3',
+            description: 'Velas bendecidas con fe',
+            image: 'assets/productos/catalogo de primera comunion/3.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-4',
+            name: 'Set Primera Comunión 4',
+            description: 'Diseños únicos y especiales',
+            image: 'assets/productos/catalogo de primera comunion/4.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-5',
+            name: 'Set Primera Comunión 5',
+            description: 'Velas bendecidas con fe',
+            image: 'assets/productos/catalogo de primera comunion/5.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-6',
+            name: 'Set Primera Comunión 6',
+            description: 'Diseños religiosos elegantes',
+            image: 'assets/productos/catalogo de primera comunion/6.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-7',
+            name: 'Set Primera Comunión 7',
+            description: 'Velas especiales para primera comunión',
+            image: 'assets/productos/catalogo de primera comunion/7.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        },
+        {
+            id: 'comunion-8',
+            name: 'Set Primera Comunión 8',
+            description: 'Diseños únicos y especiales',
+            image: 'assets/productos/catalogo de primera comunion/8.png',
+            options: [
+                { value: 'consultar', label: 'Consultar precio', price: null }
+            ],
+            defaultPrice: null
+        }
+    ],
+    
+    // Catálogo de Navidad
+    navidad: [
+        { id: 'navidad-2',  name: 'VELA DEGRADE LARGA MARCADA', image: 'assets/productos/catalogo de navidad/2.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $17,500', price: 17500 }, { value: 'detal-caja', label: 'Detal Caja - $18,500', price: 18500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $16,900', price: 16900 } ], defaultPrice: 17500 },
+        { id: 'navidad-3',  name: 'VELA MARCADA', image: 'assets/productos/catalogo de navidad/3.jpg',  options: [ { value: 'detal-bolsa-grande', label: 'Detal Bolsa Grande - $10,800', price: 10800 }, { value: 'detal-caja-grande', label: 'Detal Caja Grande - $12,500', price: 12500 }, { value: 'detal-bolsa-pequena', label: 'Detal Bolsa Pequeña - $10,500', price: 10500 }, { value: 'detal-caja-pequena', label: 'Detal Caja Pequeña - $11,500', price: 11500 }, { value: 'mayorista-bolsa-grande', label: 'Mayorista Bolsa Grande - $9,800', price: 9800 }, { value: 'mayorista-caja-grande', label: 'Mayorista Caja Grande - $11,500', price: 11500 }, { value: 'mayorista-bolsa-pequena', label: 'Mayorista Bolsa Pequeña - $9,000', price: 9000 }, { value: 'mayorista-caja-pequena', label: 'Mayorista Caja Pequeña - $10,500', price: 10500 } ], defaultPrice: 10800 },
+        { id: 'navidad-4',  name: 'VELA DEGRADE PEQUEÑA', image: 'assets/productos/catalogo de navidad/4.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $15,500', price: 15500 }, { value: 'detal-caja', label: 'Detal Caja - $17,000', price: 17000 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $14,000', price: 14000 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $15,900', price: 15900 } ], defaultPrice: 15500 },
+        { id: 'navidad-5',  name: 'VELA MIRELLA', image: 'assets/productos/catalogo de navidad/5.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $16,900', price: 16900 }, { value: 'detal-caja', label: 'Detal Caja - $17,500', price: 17500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $16,800', price: 16800 } ], defaultPrice: 16900 },
+        { id: 'navidad-6',  name: 'VELA BLANCA LARGA MARCADA', image: 'assets/productos/catalogo de navidad/6.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $10,800', price: 10800 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $9,800', price: 9800 } ], defaultPrice: 10800 },
+        { id: 'navidad-7',  name: 'VELA DORADA', image: 'assets/productos/catalogo de navidad/7.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $16,900', price: 16900 }, { value: 'detal-caja', label: 'Detal Caja - $17,500', price: 17500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $16,800', price: 16800 } ], defaultPrice: 16900 },
+        { id: 'navidad-8',  name: 'VELA NAVIDAD', image: 'assets/productos/catalogo de navidad/8.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa Tul 6x - $18,500', price: 18500 }, { value: 'detal-caja', label: 'Detal Caja 6x - $19,000', price: 19000 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul 6x - $16,800', price: 16800 }, { value: 'mayorista-caja', label: 'Mayorista Caja 6x - $17,500', price: 17500 } ], defaultPrice: 18500 },
+        { id: 'navidad-9',  name: 'CAJA VELA PROPOSITO X6 UNIDADES', image: 'assets/productos/catalogo de navidad/9.jpg',  options: [ { value: 'detal-bolsa', label: 'Detal Bolsa Tul 6x - $18,500', price: 18500 }, { value: 'detal-caja', label: 'Detal Caja 6x - $19,000', price: 19000 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul 6x - $16,800', price: 16800 }, { value: 'mayorista-caja', label: 'Mayorista Caja 6x - $17,500', price: 17500 } ], defaultPrice: 18500 },
+        { id: 'navidad-10', name: 'VELA PROPOSITO INDIVIDUAL', image: 'assets/productos/catalogo de navidad/10.jpg', options: [ { value: 'detal', label: 'Detal - $3,400', price: 3400 }, { value: 'mayorista', label: 'Mayorista - $2,900', price: 2900 } ], defaultPrice: 3400 },
+        { id: 'navidad-12', name: 'ARBOL NAVIDAD', image: 'assets/productos/catalogo de navidad/12.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $9,700', price: 9700 }, { value: 'detal-caja', label: 'Detal Caja - $11,500', price: 11500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $7,900', price: 7900 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $9,500', price: 9500 } ], defaultPrice: 9700 },
+        { id: 'navidad-13', name: 'ARBOL NAVIDAD PINO PEQUEÑO', image: 'assets/productos/catalogo de navidad/13.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $5,600', price: 5600 }, { value: 'detal-caja', label: 'Detal Caja - $6,500', price: 6500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,100', price: 4100 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $5,500', price: 5500 } ], defaultPrice: 5600 },
+        { id: 'navidad-14', name: 'ARBOL NAVIDAD PINO GRANDE', image: 'assets/productos/catalogo de navidad/14.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 }, { value: 'detal-caja', label: 'Detal Caja - $8,500', price: 8500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,900', price: 5900 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $7,500', price: 7500 } ], defaultPrice: 6500 },
+        { id: 'navidad-15', name: 'PESEBRE ESTRELLA ARCO', image: 'assets/productos/catalogo de navidad/15.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $7,500', price: 7500 }, { value: 'detal-caja', label: 'Detal Caja - $8,900', price: 8900 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,100', price: 6100 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $7,900', price: 7900 } ], defaultPrice: 7500 },
+        { id: 'navidad-16', name: 'PESEBRE ESTRELLA NAVIDAD', image: 'assets/productos/catalogo de navidad/16.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 }, { value: 'detal-caja', label: 'Detal Caja - $7,900', price: 7900 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,100', price: 5100 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 } ], defaultPrice: 6500 },
+        { id: 'navidad-17', name: 'PESEBRE ARBOL NAVIDAD', image: 'assets/productos/catalogo de navidad/17.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,900', price: 6900 }, { value: 'detal-caja', label: 'Detal Caja - $8,400', price: 8400 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,500', price: 6500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $7,900', price: 7900 } ], defaultPrice: 6900 },
+        { id: 'navidad-18', name: 'PESEBRE CASA NAVIDAD', image: 'assets/productos/catalogo de navidad/18.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $7,500', price: 7500 }, { value: 'detal-caja', label: 'Detal Caja - $9,500', price: 9500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,800', price: 6800 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $8,800', price: 8800 } ], defaultPrice: 7500 },
+        { id: 'navidad-19', name: 'PESEBRE CHOZA', image: 'assets/productos/catalogo de navidad/19.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 }, { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,600', price: 5600 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $6,900', price: 6900 } ], defaultPrice: 6500 },
+        { id: 'navidad-20', name: 'BOLA NAVIDAD PESEBRE', image: 'assets/productos/catalogo de navidad/20.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $9,000', price: 9000 }, { value: 'detal-caja', label: 'Detal Caja - $10,500', price: 10500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $8,500', price: 8500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $9,900', price: 9900 } ], defaultPrice: 9000 },
+        { id: 'navidad-21', name: 'BOLA NAVIDAD', image: 'assets/productos/catalogo de navidad/21.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $8,000', price: 8000 }, { value: 'detal-caja', label: 'Detal Caja - $9,700', price: 9700 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $7,500', price: 7500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $8,500', price: 8500 } ], defaultPrice: 8000 },
+        { id: 'navidad-22', name: 'MUÑECO DE NIEVE', image: 'assets/productos/catalogo de navidad/22.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 }, { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,000', price: 5000 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $6,500', price: 6500 } ], defaultPrice: 6500 },
+        { id: 'navidad-23', name: 'ANGEL GRANDE Y PEQUEÑO', image: 'assets/productos/catalogo de navidad/23.jpg', options: [ { value: 'detal-grande-bolsa', label: 'Detal Grande Bolsa - $5,500', price: 5500 }, { value: 'detal-pequeno-bolsa', label: 'Detal Pequeño Bolsa - $4,500', price: 4500 }, { value: 'mayorista-grande-bolsa', label: 'Mayorista Grande Bolsa - $4,500', price: 4500 }, { value: 'mayorista-pequeno-bolsa', label: 'Mayorista Pequeño Bolsa - $4,000', price: 4000 } ], defaultPrice: 5500 },
+        { id: 'navidad-24', name: 'PESEBRE MINI POLI', image: 'assets/productos/catalogo de navidad/24.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $5,500', price: 5500 }, { value: 'detal-caja', label: 'Detal Caja - $6,700', price: 6700 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,500', price: 4500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $5,500', price: 5500 } ], defaultPrice: 5500 },
+        { id: 'navidad-25', name: 'PEONIA GRANDE', image: 'assets/productos/catalogo de navidad/25.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $4,200', price: 4200 }, { value: 'detal-caja', label: 'Detal Caja - $5,000', price: 5000 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,800', price: 3800 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $4,500', price: 4500 } ], defaultPrice: 4200 },
+        { id: 'navidad-26', name: 'POLI MEDIANO NAVIDAD', image: 'assets/productos/catalogo de navidad/26.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 }, { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,500', price: 5500 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 } ], defaultPrice: 6500 },
+        { id: 'navidad-27', name: 'MUÑECO AÑO VIEJO', image: 'assets/productos/catalogo de navidad/27.jpg', options: [ { value: 'detal-bolsa', label: 'Detal Bolsa Tul - $16,000', price: 16000 }, { value: 'detal-caja', label: 'Detal Caja - $18,500', price: 18500 }, { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul - $15,000', price: 15000 }, { value: 'mayorista-caja', label: 'Mayorista Caja - $17,500', price: 17500 } ], defaultPrice: 16000 }
+    ]
+};
+
+// Función para obtener productos por categoría
+function getProductsByCategory(category) {
+    return productConfigModerno[category] || [];
+}
+
+// Función para obtener todos los productos
+function getAllProducts() {
+    return [
+        ...productConfigModerno.amorYAmistad,
+        ...productConfigModerno.babyShower,
+        ...productConfigModerno.primeraComunion,
+        ...productConfigModerno.navidad
+    ];
+}
+
+// Función para encontrar producto por ID
+function findProductById(productId) {
+    const allProducts = getAllProducts();
+    return allProducts.find(p => p.id === productId);
+}
+
+// Función para obtener precio por opción
+function getPriceByOption(product, optionValue) {
+    const option = product.options.find(opt => opt.value === optionValue);
+    return option ? option.price : product.defaultPrice;
+}
+
+// Exportar configuración
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        productConfigModerno,
+        getProductsByCategory,
+        getAllProducts,
+        findProductById,
+        getPriceByOption
+    };
+}

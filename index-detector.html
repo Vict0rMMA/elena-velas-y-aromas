@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Velas y Aromas</title>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #2d2d2d 75%, #000000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            color: #f5f5dc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.08), transparent);
+            background-repeat: repeat;
+            background-size: 300px 150px;
+            animation: sparkle 25s linear infinite;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #e0e0e0;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .device-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .device-detected {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .device-icon {
+            font-size: 2rem;
+            color: #4ade80;
+        }
+
+        .device-text {
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        .auto-redirect {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #4ade80;
+            font-size: 0.9rem;
+        }
+
+        .countdown {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #ffd700;
+        }
+
+        .divider {
+            margin: 2rem 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .divider-text {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 0 1rem;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-card.mobile {
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .option-card.mobile:hover {
+            border-color: #4ade80;
+            box-shadow: 0 15px 30px rgba(74, 222, 128, 0.3);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .option-card.mobile .option-icon {
+            color: #4ade80;
+        }
+
+        .option-card.desktop .option-icon {
+            color: #667eea;
+        }
+
+        .option-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+
+        .option-description {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .preference-toggle {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: #4ade80;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(26px);
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .option-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .option-icon {
+                font-size: 2.5rem;
+            }
+
+            .option-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo">
+        
+        <h1 class="title">Elena Velas y Aromas</h1>
+        <p class="subtitle">
+            Selecciona la experiencia que mejor se adapte a tu dispositivo
+        </p>
+
+        <!-- Device Detection Info -->
+        <div class="device-info">
+            <div class="device-detected">
+                <i class="fas fa-mobile-alt device-icon" id="detectedIcon"></i>
+                <span class="device-text" id="detectedDevice">Detectando dispositivo...</span>
+            </div>
+            <div class="auto-redirect">
+                <i class="fas fa-magic me-2"></i>
+                Redirección automática en <span class="countdown" id="countdown">5</span> segundos
+            </div>
+            <div class="debug-info mt-2" id="debugInfo" style="font-size: 0.8rem; color: #ccc;">
+                <!-- Debug info will be shown here -->
+            </div>
+        </div>
+
+        <div class="divider">
+            <span class="divider-text">O elige manualmente</span>
+        </div>
+
+        <!-- Manual Selection -->
+        <div class="options-grid">
+            <a href="mobile.html" class="option-card mobile" id="mobileOption">
+                <i class="fas fa-mobile-alt option-icon"></i>
+                <h3 class="option-title">Móvil</h3>
+                <p class="option-description">
+                    Optimizado para smartphones y tablets. Navegación táctil y diseño responsivo.
+                </p>
+            </a>
+
+            <a href="index-moderno.html" class="option-card desktop" id="desktopOption">
+                <i class="fas fa-desktop option-icon"></i>
+                <h3 class="option-title">Computadora</h3>
+                <p class="option-description">
+                    Experiencia completa para escritorio. Navegación con mouse y teclado.
+                </p>
+            </a>
+        </div>
+
+        <!-- Preference Toggle -->
+        <div class="preference-toggle">
+            <label class="toggle-label" for="rememberPreference">
+                <input type="checkbox" id="rememberPreference" class="d-none">
+                <div class="toggle-switch" id="toggleSwitch"></div>
+                <span>Recordar mi preferencia</span>
+            </label>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Redirigiendo...</p>
+        </div>
+    </div>
+
+    <script>
+        class DeviceDetector {
+            constructor() {
+                this.isMobile = this.detectMobile();
+                this.userAgent = navigator.userAgent;
+                this.screenWidth = window.innerWidth;
+                this.init();
+            }
+
+            detectMobile() {
+                // Detección más específica para móviles
+                const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i;
+                const isMobileUserAgent = mobileRegex.test(this.userAgent);
+                const isMobileScreen = this.screenWidth <= 768;
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                
+                // Detectar si es realmente móvil
+                const isRealMobile = isMobileUserAgent && (isMobileScreen || isTouchDevice);
+                
+                console.log('Detección de dispositivo:', {
+                    userAgent: this.userAgent,
+                    screenWidth: this.screenWidth,
+                    isMobileUserAgent,
+                    isMobileScreen,
+                    isTouchDevice,
+                    isRealMobile
+                });
+                
+                return isRealMobile;
+            }
+
+            getDeviceInfo() {
+                if (/iPhone/i.test(this.userAgent)) {
+                    return { type: 'iPhone', icon: 'fa-mobile-alt' };
+                } else if (/iPad/i.test(this.userAgent)) {
+                    return { type: 'iPad', icon: 'fa-tablet-alt' };
+                } else if (/Android/i.test(this.userAgent)) {
+                    return { type: 'Android', icon: 'fa-mobile-alt' };
+                } else if (/Mobile/i.test(this.userAgent)) {
+                    return { type: 'Móvil', icon: 'fa-mobile-alt' };
+                } else if (this.isMobile) {
+                    return { type: 'Dispositivo Móvil', icon: 'fa-mobile-alt' };
+                } else {
+                    return { type: 'Computadora', icon: 'fa-desktop' };
+                }
+            }
+
+            init() {
+                this.updateDeviceDisplay();
+                this.setupEventListeners();
+                this.checkSavedPreference();
+                this.startAutoRedirect();
+            }
+
+            updateDeviceDisplay() {
+                const deviceInfo = this.getDeviceInfo();
+                const detectedIcon = document.getElementById('detectedIcon');
+                const detectedDevice = document.getElementById('detectedDevice');
+                const debugInfo = document.getElementById('debugInfo');
+
+                detectedIcon.className = `fas ${deviceInfo.icon} device-icon`;
+                detectedDevice.textContent = `${deviceInfo.type} detectado`;
+
+                // Mostrar información de debug
+                debugInfo.innerHTML = `
+                    <div>Pantalla: ${this.screenWidth}px</div>
+                    <div>Touch: ${('ontouchstart' in window) ? 'Sí' : 'No'}</div>
+                    <div>User Agent: ${this.userAgent.substring(0, 50)}...</div>
+                    <div>Es Móvil: ${this.isMobile ? 'Sí' : 'No'}</div>
+                `;
+
+                if (this.isMobile) {
+                    document.getElementById('mobileOption').style.borderColor = 'rgba(74, 222, 128, 0.5)';
+                    document.getElementById('mobileOption').style.backgroundColor = 'rgba(74, 222, 128, 0.1)';
+                } else {
+                    document.getElementById('desktopOption').style.borderColor = 'rgba(102, 126, 234, 0.5)';
+                    document.getElementById('desktopOption').style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+                }
+            }
+
+            setupEventListeners() {
+                const toggleSwitch = document.getElementById('toggleSwitch');
+                const rememberPreference = document.getElementById('rememberPreference');
+
+                toggleSwitch.addEventListener('click', () => {
+                    const isActive = toggleSwitch.classList.contains('active');
+                    toggleSwitch.classList.toggle('active');
+                    rememberPreference.checked = !isActive;
+                });
+
+                document.getElementById('mobileOption').addEventListener('click', (e) => {
+                    this.redirect('mobile.html', e);
+                });
+
+                document.getElementById('desktopOption').addEventListener('click', (e) => {
+                    this.redirect('index-moderno.html', e);
+                });
+
+                document.querySelectorAll('.option-card').forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        this.cancelAutoRedirect();
+                    });
+                });
+            }
+
+            checkSavedPreference() {
+                const savedPreference = localStorage.getItem('elena-device-preference');
+                const rememberPreference = localStorage.getItem('elena-remember-preference');
+
+                if (rememberPreference === 'true' && savedPreference) {
+                    this.cancelAutoRedirect();
+                    this.showLoading();
+                    
+                    setTimeout(() => {
+                        if (savedPreference === 'mobile') {
+                            window.location.href = 'mobile.html';
+                        } else {
+                            window.location.href = 'index-moderno.html';
+                        }
+                    }, 1000);
+                }
+            }
+
+            startAutoRedirect() {
+                let countdown = 5;
+                const countdownElement = document.getElementById('countdown');
+
+                const timer = setInterval(() => {
+                    countdown--;
+                    countdownElement.textContent = countdown;
+
+                    if (countdown <= 0) {
+                        clearInterval(timer);
+                        this.showLoading();
+                        
+                        setTimeout(() => {
+                            if (this.isMobile) {
+                                window.location.href = 'mobile.html';
+                            } else {
+                                window.location.href = 'index-moderno.html';
+                            }
+                        }, 1000);
+                    }
+                }, 1000);
+
+                this.autoRedirectTimer = timer;
+            }
+
+            cancelAutoRedirect() {
+                if (this.autoRedirectTimer) {
+                    clearInterval(this.autoRedirectTimer);
+                    this.autoRedirectTimer = null;
+                }
+                document.querySelector('.auto-redirect').style.display = 'none';
+            }
+
+            showLoading() {
+                document.querySelector('.device-info').style.display = 'none';
+                document.querySelector('.options-grid').style.display = 'none';
+                document.querySelector('.preference-toggle').style.display = 'none';
+                document.getElementById('loadingSpinner').style.display = 'block';
+            }
+
+            redirect(url, event) {
+                event.preventDefault();
+                
+                const rememberPreference = document.getElementById('rememberPreference').checked;
+                const deviceType = url.includes('mobile') ? 'mobile' : 'desktop';
+
+                if (rememberPreference) {
+                    localStorage.setItem('elena-device-preference', deviceType);
+                    localStorage.setItem('elena-remember-preference', 'true');
+                } else {
+                    localStorage.removeItem('elena-device-preference');
+                    localStorage.removeItem('elena-remember-preference');
+                }
+
+                this.showLoading();
+                
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new DeviceDetector();
+        });
+
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile !== window.isMobile) {
+                window.location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

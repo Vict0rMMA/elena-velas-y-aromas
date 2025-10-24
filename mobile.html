@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Elena Velas y Aromas - Catálogo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <style>
+    /* Reset y base móvil primero */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+        body {
+      margin: 0;
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            line-height: 1.6;
+            color: #f5f5dc;
+      background: linear-gradient(135deg,#000 0%,#0a0a0a 25%,#1a1a1a 50%,#2d2d2d 75%,#000 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      overscroll-behavior-y: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Efectos de fondo livianos (se desactivan con reduced motion) */
+    body::before {
+            content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.08), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,.06), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,.1), transparent);
+      background-repeat: repeat;
+      background-size: 300px 150px;
+      animation: sparkle 25s linear infinite;
+      z-index: -1; opacity: .7;
+    }
+    @keyframes sparkle { 0%{transform:translateY(0)}100%{transform:translateY(-100px)} }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0,0,0,.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212,175,55,.25);
+    }
+    .header-content { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; }
+    .logo-section { display: flex; align-items: center; gap: 12px; min-height: 44px; }
+    .logo { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 15px rgba(212,175,55,.25); flex: 0 0 auto; }
+    .logo-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .brand-text h1 { margin: 0 0 2px; font-family: 'Playfair Display', serif; font-size: 22px; color: #D4AF37; }
+    .brand-text p { margin: 0; font-size: 11px; letter-spacing: 2px; opacity: .85; }
+
+    .nav-links { display: none; gap: 24px; align-items: center; }
+    .nav-links a { text-decoration: none; padding: 8px 12px; border-radius: 10px; transition: .2s; }
+    .nav-links a:hover { color: #D4AF37; background: rgba(212,175,55,.12); }
+
+    .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 10px 14px; border-radius: 14px; border: 2px solid #E0B83A; background: linear-gradient(135deg,#FFD84D,#C99F2F); color: #111; box-shadow: 0 8px 18px rgba(212,175,55,.35); cursor: pointer; }
+    .mobile-menu-btn i { font-size: 18px; }
+
+    .cart-btn { position: relative; border: 0; border-radius: 14px; background: linear-gradient(135deg,#D4AF37,#B8860B); color: #111; padding: 10px 14px; font-weight: 700; cursor: pointer; min-height: 44px; }
+    .cart-count { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; background: #ff4444; color: #fff; font-size: 12px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; }
+
+    /* Menú móvil */
+    .mobile-menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 999; opacity: 0; visibility: hidden; transition: .2s; pointer-events: none; }
+    .mobile-menu-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+    .mobile-menu { position: fixed; top: 0; right: 0; bottom: 0; left: auto; width: 85%; max-width: 360px; background: rgba(0,0,0,.96); backdrop-filter: blur(18px); z-index: 1000; transform: translateX(100%); transition: transform .25s ease; padding: 18px; border-left: 1px solid rgba(212,175,55,.2); }
+    .mobile-menu.active { transform: translateX(0); }
+    .mobile-menu-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid rgba(212,175,55,.25); }
+    .mobile-menu-close { background: none; border: 0; color: #D4AF37; font-size: 22px; cursor: pointer; min-width: 44px; min-height: 44px; }
+    .mobile-menu-links { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+    .mobile-menu-links a { text-decoration: none; padding: 14px 6px; border-bottom: 1px solid rgba(255,255,255,.08); border-radius: 8px; }
+    .mobile-menu-links a:active { background: rgba(212,175,55,.12); }
+
+    /* Hero */
+    .main-content { padding: 80px 0 40px; }
+    .hero-section { position: relative; border-radius: 18px; overflow: hidden; padding: 28px 16px; text-align: center; background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(0,0,0,.3)); }
+    .hero-title { margin: 10px auto 10px; max-width: 18ch; font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1.2; font-weight: 900; background: linear-gradient(135deg,#D4AF37 0%,#FFD700 60%,#B8860B 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    .hero-subtitle { margin: 0 auto 16px; max-width: 40ch; font-size: 15px; opacity: .95; }
+    .cta-buttons { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 320px; margin: 12px auto 0; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 16px; border-radius: 14px; border: 0; font-weight: 800; cursor: pointer; min-height: 44px; text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg,#D4AF37,#FFD700 60%,#B8860B); color: #111; border: 1px solid rgba(212,175,55,.5); box-shadow: 0 10px 24px rgba(212,175,55,.28); }
+    .btn-secondary { background: linear-gradient(135deg,#ff6b6b,#ee5a24); color: #fff; }
+    .btn-tertiary { background: linear-gradient(135deg,#4834d4,#686de0); color: #fff; }
+        
+        /* Productos */
+    .products-section { margin: 28px 0; }
+    .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 1px; margin: 0 0 8px; background: linear-gradient(135deg,#D4AF37,#FFD700 60%,#FFA500); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    .section-subtitle { text-align: center; margin: 0 auto 18px; max-width: 60ch; font-size: 14px; opacity: .9; }
+    .products-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+    .product-card { background: linear-gradient(180deg, rgba(20,20,20,.95) 0%, rgba(10,10,10,.92) 100%); border: 1px solid rgba(212,175,55,.22); border-radius: 14px; padding: 14px; box-shadow: 0 12px 28px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.05); touch-action: manipulation; }
+    .product-image { height: 220px; object-fit: contain; background: #0e0e0e; border-radius: 12px; margin-bottom: 12px; padding: 12px; border: 2px solid rgba(212,175,55,.2); }
+    .product-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 18px; color: #D4AF37; margin: 6px 0 6px; }
+    .product-description { text-align: center; font-size: 14px; opacity: .95; margin: 0 0 10px; }
+    .product-select { width: 100%; padding: 12px; border-radius: 10px; background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.25); margin: 0 0 10px; -webkit-appearance: none; appearance: none; }
+    .product-select option { color: #111; background: #fff; }
+    .product-price { text-align: center; font-size: 22px; font-weight: 800; color: #FFD700; margin: 8px 0 12px; text-shadow: 0 2px 8px rgba(255,215,0,.3); min-height: 28px; }
+    .add-to-cart { width: 100%; border-radius: 14px; border: 1px solid rgba(212,175,55,.5); background: linear-gradient(135deg,#D4AF37,#FFD700 60%,#B8860B); color: #111; font-weight: 800; padding: 14px; cursor: pointer; min-height: 44px; }
+        
+        /* Carrito */
+    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.8); display: none; align-items: center; justify-content: center; z-index: 10000; }
+    .cart-modal { width: min(92%, 560px); max-height: 80vh; overflow: auto; background: linear-gradient(135deg,#1a1a1a,#2a2a2a); border-radius: 16px; border: 2px solid rgba(212,175,55,.3); padding: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .cart-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(212,175,55,.28); padding-bottom: 10px; margin-bottom: 12px; }
+    .cart-title { margin: 0; color: #D4AF37; font-family: 'Playfair Display', serif; font-size: 22px; }
+    .close-cart { background: none; border: 0; color: #D4AF37; font-size: 22px; cursor: pointer; min-width: 44px; min-height: 44px; border-radius: 8px; }
+    .cart-item { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px; padding: 10px; margin: 10px 0; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+    .item-name { font-weight: 700; }
+    .item-option { color: #D4AF37; font-size: 13px; }
+    .item-price { color: #D4AF37; font-weight: 800; }
+    .remove-item { border: 1px solid rgba(255,0,0,.35); color: #ff6b6b; background: rgba(255,0,0,.15); border-radius: 8px; padding: 6px 10px; cursor: pointer; font-weight: 700; }
+    .cart-total { text-align: center; border-radius: 14px; border: 2px solid rgba(212,175,55,.3); background: rgba(212,175,55,.12); padding: 14px; margin: 10px 0 16px; }
+    .total-text { margin: 0 0 6px; }
+    .total-amount { font-size: 26px; font-weight: 900; color: #D4AF37; font-family: 'Playfair Display', serif; }
+    .cart-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-clear { background: rgba(255,0,0,.2); border: 1px solid rgba(255,0,0,.3); color: #ff6b6b; padding: 12px; border-radius: 12px; font-weight: 800; cursor: pointer; }
+    .btn-whatsapp { background: linear-gradient(135deg,#25D366,#128C7E); border: 0; color: #fff; padding: 12px; border-radius: 12px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+    /* Botón flotante WhatsApp */
+    .whatsapp-float { position: fixed; right: 18px; bottom: 18px; width: 56px; height: 56px; display: grid; place-items: center; background: linear-gradient(135deg,#25D366,#128C7E); color: #fff; border-radius: 50%; z-index: 1000; box-shadow: 0 10px 26px rgba(37,211,102,.35); cursor: pointer; }
+
+    /* Prefiere reducir movimiento: apaga animaciones pesadas en móviles */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      body::before { display: none; }
+    }
+
+    /* Tablet y desktop */
+    @media (min-width: 769px) {
+      .nav-links { display: flex; }
+      .cta-buttons { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+      .hero-title { font-size: 42px; }
+      .section-title { font-size: 32px; }
+    }
+
+    @media (min-width: 1200px) {
+      .products-grid { gap: 28px; }
+      .hero-title { font-size: 54px; }
+      .section-title { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+            <img src="assets/logo.png" alt="Elena Velas y Aromas" class="logo-image" />
+                    </div>
+          <div class="brand-text">
+            <h1>Elena</h1>
+            <p>VELAS Y AROMAS</p>
+                    </div>
+                </div>
+                
+        <nav class="nav-links" aria-label="Principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#baby-shower">Baby Shower</a>
+          <a href="#primera-comunion">Primera Comunión</a>
+          <a href="#navidad">Navidad</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+
+                    <button class="cart-btn" onclick="showCart()">
+                        <i class="fas fa-shopping-cart"></i>
+          <span style="margin-left:6px;font-weight:800">Carrito</span>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+            </div>
+        </div>
+    </header>
+
+  <!-- Menú móvil -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+        <div class="mobile-menu-header">
+      <h3 style="color:#D4AF37;margin:0">Menú</h3>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mobile-menu-links">
+      <a href="#inicio" onclick="closeMobileMenu()">🏠 Inicio</a>
+      <a href="#catalogo" onclick="closeMobileMenu()">💝 Catálogo</a>
+      <a href="#baby-shower" onclick="closeMobileMenu()">👶 Baby Shower</a>
+      <a href="#primera-comunion" onclick="closeMobileMenu()">⛪ Primera Comunión</a>
+      <a href="#navidad" onclick="closeMobileMenu()">🎄 Navidad</a>
+      <a href="#contacto" onclick="closeMobileMenu()">📞 Contacto</a>
+        </div>
+  </nav>
+
+    <!-- Carrito -->
+  <div class="cart-overlay" id="cart-overlay" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-modal">
+            <div class="cart-header">
+        <h2 class="cart-title" id="cart-title">🛒 Tu Carrito</h2>
+        <button class="close-cart" onclick="closeCart()" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+            </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-total" id="cart-total" style="display:none">
+        <div class="total-text">Total a pagar:</div>
+        <div class="total-amount" id="total-amount">$0</div>
+            </div>
+      <div class="cart-actions" id="cart-actions" style="display:none">
+        <button class="btn-clear" onclick="clearCart()"><i class="fas fa-trash"></i>&nbsp;Limpiar</button>
+        <button class="btn-whatsapp" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i>&nbsp;Comprar</button>
+            </div>
+      <div class="empty-cart" id="empty-cart" style="text-align:center; padding: 28px 8px">
+        <i class="fas fa-shopping-cart" style="font-size:36px;color:#D4AF37"></i>
+        <h3 style="margin:10px 0 4px">Tu carrito está vacío</h3>
+        <p style="margin:0;opacity:.9">Agrega algunos productos para comenzar tu compra</p>
+            </div>
+        </div>
+    </div>
+
+  <!-- Botón flotante WhatsApp -->
+  <button class="whatsapp-float" onclick="openWhatsApp()" aria-label="Abrir WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+  </button>
+
+  <main class="main-content">
+        <div class="container">
+      <!-- Hero -->
+      <section class="hero-section" id="inicio">
+        <h1 class="hero-title">Donde el aroma, la luz y el detalle se encuentran</h1>
+        <p class="hero-subtitle">🕯️ Empresa dedicada a fabricación de velas con las mejores fragancias, decorativas y de consumo 💕</p>
+        <div class="cta-buttons">
+          <a href="#catalogo" class="btn btn-primary"><i class="fas fa-heart"></i> Ver Catálogo</a>
+          <a href="#baby-shower" class="btn btn-secondary"><i class="fas fa-baby"></i> Baby Shower</a>
+          <a href="#primera-comunion" class="btn btn-tertiary"><i class="fas fa-cross"></i> Primera Comunión</a>
+          <a href="#navidad" class="btn btn-primary"><i class="fas fa-snowflake"></i> Navidad</a>
+                </div>
+      </section>
+
+      <!-- Catálogo -->
+      <section class="products-section" id="catalogo">
+        <h2 class="section-title">💝 Catálogo de Amor y Amistad</h2>
+        <p class="section-subtitle">Colección de velas artesanales. Selecciona opción para ver precio y agrégalas al carrito.</p>
+        <div class="products-grid" id="grid-amor"></div>
+      </section>
+
+      <!-- Baby Shower -->
+      <section class="products-section" id="baby-shower">
+        <h2 class="section-title">👶 Baby Shower</h2>
+        <p class="section-subtitle">Detalles temáticos para celebrar la llegada del bebé.</p>
+        <div class="products-grid" id="grid-baby"></div>
+      </section>
+
+      <!-- Primera Comunión -->
+      <section class="products-section" id="primera-comunion">
+        <h2 class="section-title">⛪ Primera Comunión</h2>
+        <p class="section-subtitle">Velas y detalles religiosos elegantes.</p>
+        <div class="products-grid" id="grid-comunion"></div>
+      </section>
+
+      <!-- Navidad -->
+      <section class="products-section" id="navidad">
+        <h2 class="section-title">🎄 Navidad</h2>
+        <p class="section-subtitle">Colección navideña completa.</p>
+        <div class="products-grid" id="grid-navidad"></div>
+      </section>
+
+      <!-- Envíos y Pagos -->
+      <section class="products-section" id="envios-pagos">
+        <h2 class="section-title">🚚 Envíos y Pagos</h2>
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+            <div style="background: linear-gradient(135deg, rgba(0,128,0,.15), rgba(0,0,0,.25)); border: 1px solid rgba(0,128,0,.35); border-radius: 16px; padding: 18px; text-align:center;">
+              <h3 style="margin:0 0 8px; color:#39d353; font-weight:800;">🌍 Envío a Domicilio</h3>
+              <p style="margin:0; opacity:.9">Hacemos envío a <b>todo Colombia</b></p>
+                    </div>
+            <div style="background: linear-gradient(135deg, rgba(255,0,0,.15), rgba(0,0,0,.25)); border: 1px solid rgba(255,0,0,.35); border-radius: 16px; padding: 18px; text-align:center;">
+              <h3 style="margin:0 0 8px; color:#ff6b6b; font-weight:800;">💰 Método de Pago</h3>
+              <p style="margin:0; opacity:.9">Solo <b>contraentrega en Medellín</b></p>
+                </div>
+                    </div>
+                </div>
+      </section>
+
+      <!-- Contacto (resumen) -->
+      <section class="products-section" id="contacto">
+        <h2 class="section-title">✨ Conecta con Nosotros ✨</h2>
+        <p class="section-subtitle">Envíos a todo Colombia. Contraentrega en Medellín. Escríbenos y te asesoramos.</p>
+        <div class="cta-buttons" style="max-width: 520px">
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=573008220389&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">WhatsApp 1</a>
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=573246445897&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">WhatsApp 2</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/velasyaromaselena" target="_blank" rel="noopener">Instagram</a>
+            </div>
+      </section>
+        </div>
+  </main>
+
+  <script src="js/product-config-moderno.js"></script>
+    <script>
+    // Lazy para todas las imágenes si el atributo no está presente
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('img').forEach(img => {
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+      });
+
+      // Cerrar carrito clic fuera
+      const overlay = document.getElementById('cart-overlay');
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeCart(); });
+
+      // Accesibilidad: abrir/cerrar menú con teclado
+      const btn = document.querySelector('.mobile-menu-btn');
+      if (btn) {
+        btn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMobileMenu(); }
+        });
+      }
+
+      // Render con catálogo real y precios desde js/product-config.js
+      function renderFromConfig() {
+        console.log('renderFromConfig iniciado');
+        if (typeof productConfigModerno === 'undefined') {
+          console.error('productConfigModerno no está definido en renderFromConfig');
+          return;
+        }
+        console.log('productConfigModerno cargado correctamente');
+        const categories = [
+          { key: 'amorYAmistad', title: 'Amor y Amistad' },
+          { key: 'babyShower', title: 'Baby Shower' },
+          { key: 'primeraComunion', title: 'Primera Comunión' },
+          { key: 'navidad', title: 'Navidad' }
+        ];
+        // Precios de Navidad (copiados de index.html) para usarlos directamente en móvil
+        const navidadPrices = {
+          'navidad-2':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $17,500', price: 17500 },
+            { value: 'detal-caja', label: 'Detal Caja - $18,500', price: 18500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $16,900', price: 16900 }
+          ],
+          'navidad-3':  [
+            { value: 'detal-bolsa-grande', label: 'Detal Bolsa Grande - $10,800', price: 10800 },
+            { value: 'detal-caja-grande', label: 'Detal Caja Grande - $12,500', price: 12500 },
+            { value: 'detal-bolsa-pequena', label: 'Detal Bolsa Pequeña - $10,500', price: 10500 },
+            { value: 'detal-caja-pequena', label: 'Detal Caja Pequeña - $11,500', price: 11500 },
+            { value: 'mayorista-bolsa-grande', label: 'Mayorista Bolsa Grande - $9,800', price: 9800 },
+            { value: 'mayorista-caja-grande', label: 'Mayorista Caja Grande - $11,500', price: 11500 },
+            { value: 'mayorista-bolsa-pequena', label: 'Mayorista Bolsa Pequeña - $9,000', price: 9000 },
+            { value: 'mayorista-caja-pequena', label: 'Mayorista Caja Pequeña - $10,500', price: 10500 }
+          ],
+          'navidad-4':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $15,500', price: 15500 },
+            { value: 'detal-caja', label: 'Detal Caja - $17,000', price: 17000 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $14,000', price: 14000 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $15,900', price: 15900 }
+          ],
+          'navidad-5':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $16,900', price: 16900 },
+            { value: 'detal-caja', label: 'Detal Caja - $17,500', price: 17500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $16,800', price: 16800 }
+          ],
+          'navidad-6':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $10,800', price: 10800 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $9,800', price: 9800 }
+          ],
+          'navidad-7':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $16,900', price: 16900 },
+            { value: 'detal-caja', label: 'Detal Caja - $17,500', price: 17500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $15,500', price: 15500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $16,800', price: 16800 }
+          ],
+          'navidad-8':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa Tul 6x - $18,500', price: 18500 },
+            { value: 'detal-caja', label: 'Detal Caja 6x - $19,000', price: 19000 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul 6x - $16,800', price: 16800 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja 6x - $17,500', price: 17500 }
+          ],
+          'navidad-9':  [
+            { value: 'detal-bolsa', label: 'Detal Bolsa Tul 6x - $18,500', price: 18500 },
+            { value: 'detal-caja', label: 'Detal Caja 6x - $19,000', price: 19000 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul 6x - $16,800', price: 16800 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja 6x - $17,500', price: 17500 }
+          ],
+          'navidad-10': [
+            { value: 'detal', label: 'Detal - $3,400', price: 3400 },
+            { value: 'mayorista', label: 'Mayorista - $2,900', price: 2900 }
+          ],
+          'navidad-12': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $9,700', price: 9700 },
+            { value: 'detal-caja', label: 'Detal Caja - $11,500', price: 11500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $7,900', price: 7900 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $9,500', price: 9500 }
+          ],
+          'navidad-13': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $5,600', price: 5600 },
+            { value: 'detal-caja', label: 'Detal Caja - $6,500', price: 6500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,100', price: 4100 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $5,500', price: 5500 }
+          ],
+          'navidad-14': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+            { value: 'detal-caja', label: 'Detal Caja - $8,500', price: 8500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,900', price: 5900 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $7,500', price: 7500 }
+          ],
+          'navidad-15': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $7,500', price: 7500 },
+            { value: 'detal-caja', label: 'Detal Caja - $8,900', price: 8900 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,100', price: 6100 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $7,900', price: 7900 }
+          ],
+          'navidad-16': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+            { value: 'detal-caja', label: 'Detal Caja - $7,900', price: 7900 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,100', price: 5100 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 }
+          ],
+          'navidad-17': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,900', price: 6900 },
+            { value: 'detal-caja', label: 'Detal Caja - $8,400', price: 8400 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,500', price: 6500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $7,900', price: 7900 }
+          ],
+          'navidad-18': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $7,500', price: 7500 },
+            { value: 'detal-caja', label: 'Detal Caja - $9,500', price: 9500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $6,800', price: 6800 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $8,800', price: 8800 }
+          ],
+          'navidad-19': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+            { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,600', price: 5600 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $6,900', price: 6900 }
+          ],
+          'navidad-20': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $9,000', price: 9000 },
+            { value: 'detal-caja', label: 'Detal Caja - $10,500', price: 10500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $8,500', price: 8500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $9,900', price: 9900 }
+          ],
+          'navidad-21': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $8,000', price: 8000 },
+            { value: 'detal-caja', label: 'Detal Caja - $9,700', price: 9700 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $7,500', price: 7500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $8,500', price: 8500 }
+          ],
+          'navidad-22': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+            { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,000', price: 5000 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $6,500', price: 6500 }
+          ],
+          'navidad-23': [
+            { value: 'detal-grande-bolsa', label: 'Detal Grande Bolsa - $5,500', price: 5500 },
+            { value: 'detal-pequeno-bolsa', label: 'Detal Pequeño Bolsa - $4,500', price: 4500 },
+            { value: 'mayorista-grande-bolsa', label: 'Mayorista Grande Bolsa - $4,500', price: 4500 },
+            { value: 'mayorista-pequeno-bolsa', label: 'Mayorista Pequeño Bolsa - $4,000', price: 4000 }
+          ],
+          'navidad-24': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $5,500', price: 5500 },
+            { value: 'detal-caja', label: 'Detal Caja - $6,700', price: 6700 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $4,500', price: 4500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $5,500', price: 5500 }
+          ],
+          'navidad-25': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $4,200', price: 4200 },
+            { value: 'detal-caja', label: 'Detal Caja - $5,000', price: 5000 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $3,800', price: 3800 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $4,500', price: 4500 }
+          ],
+          'navidad-26': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa - $6,500', price: 6500 },
+            { value: 'detal-caja', label: 'Detal Caja - $7,500', price: 7500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa - $5,500', price: 5500 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $6,800', price: 6800 }
+          ],
+          'navidad-27': [
+            { value: 'detal-bolsa', label: 'Detal Bolsa Tul - $16,000', price: 16000 },
+            { value: 'detal-caja', label: 'Detal Caja - $18,500', price: 18500 },
+            { value: 'mayorista-bolsa', label: 'Mayorista Bolsa Tul - $15,000', price: 15000 },
+            { value: 'mayorista-caja', label: 'Mayorista Caja - $17,500', price: 17500 }
+          ]
+        };
+
+        // Baby Shower y Primera Comunión solo tienen "Consultar precio"
+        // No necesitan precios específicos
+        const grids = {
+          amorYAmistad: document.getElementById('grid-amor'),
+          babyShower: document.getElementById('grid-baby'),
+          primeraComunion: document.getElementById('grid-comunion'),
+          navidad: document.getElementById('grid-navidad')
+        };
+        const cardsByCat = { amorYAmistad: [], babyShower: [], primeraComunion: [], navidad: [] };
+
+        // Extender con todas las imágenes del repositorio para que estén todos los catálogos
+        const extended = { amorYAmistad: [], babyShower: [], primeraComunion: [], navidad: [] };
+        const amorIds = ['2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'];
+        extended.amorYAmistad = amorIds.map(id => ({ id: `product-${id}`, name: `Producto ${id}`, image: `assets/productos/${id}.png`, options: [{ value:'consultar', label:'Consultar precio', price:null }], defaultPrice: null }));
+        const babyIds = ['1','2','3','4'];
+        extended.babyShower = babyIds.map(id => ({ id: `baby-${id}`, name: `Baby Shower ${id}`, image: `assets/productos/catalogo de baby shower/${id}.png`, options: [{ value:'consultar', label:'Consultar precio', price:null }], defaultPrice: null }));
+        const comunionIds = ['1','2','3','4','5','6','7','8'];
+        extended.primeraComunion = comunionIds.map(id => ({ id: `comunion-${id}`, name: `Primera Comunión ${id}`, image: `assets/productos/catalogo de primera comunion/${id}.png`, options: [{ value:'consultar', label:'Consultar precio', price:null }], defaultPrice: null }));
+        const navidadIds = ['2','3','4','5','6','7','8','9','10','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27'];
+        extended.navidad = navidadIds.map(id => ({ id: `navidad-${id}`, name: `Navidad ${id}`, image: `assets/productos/catalogo de navidad/${id}.jpg`, options: [{ value:'consultar', label:'Consultar precio', price:null }], defaultPrice: null }));
+
+        categories.forEach(cat => {
+          const fromConfig = (productConfigModerno[cat.key] || []);
+          const fallback = (extended[cat.key] || []).filter(e => !fromConfig.some(p => p.image === e.image));
+          const items = [...fromConfig, ...fallback];
+          items.forEach(p => {
+            if (navidadPrices[p.id]) {
+              p.options = navidadPrices[p.id];
+              p.defaultPrice = navidadPrices[p.id][0]?.price || p.defaultPrice;
+            }
+            // Baby Shower y Primera Comunión usan solo "Consultar precio" desde productConfigModerno
+            const optionsHtml = (p.options||[]).map(o => `<option value="${o.value}">${o.label}</option>`).join('');
+            const priceId = `price-${p.id}`;
+            cardsByCat[cat.key].push(`
+              <article class="product-card">
+                <img class="product-image" src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='assets/logo.png'" />
+                <h3 class="product-title">${p.name}</h3>
+                <p class="product-description">${p.description || ''}</p>
+                <select class="product-select" id="opt-${p.id}" onchange="recalc('${p.id}')">${optionsHtml}</select>
+                 <div style="display:flex;justify-content:center;gap:8px;margin:6px 0 0">
+                   <span style="font-size:12px;opacity:.85">Precio:</span>
+                   <span class="product-price" id="${priceId}">${p.defaultPrice? ('$'+(p.defaultPrice).toLocaleString('es-CO')) : 'Consultar precio'}</span>
+                 </div>
+                <button class="add-to-cart" onclick="addConfigToCart('${p.id}')"><i class="fas fa-shopping-cart"></i>&nbsp;Añadir</button>
+              </article>
+            `);
+          });
+        });
+        Object.keys(cardsByCat).forEach(key => {
+          if (grids[key]) grids[key].innerHTML = cardsByCat[key].join('');
+        });
+        // Calcular precios iniciales
+        categories.forEach(cat => {
+          (productConfigModerno[cat.key]||[]).forEach(p => recalc(p.id));
+        });
+        
+        console.log('renderFromConfig completado. Productos renderizados:', Object.keys(cardsByCat).map(k => `${k}: ${cardsByCat[k].length}`).join(', '));
+      }
+
+      renderFromConfig();
+
+      // no tabs; secciones separadas con anclaje del menú
+    });
+
+    // Carrito
+    let cart = [];
+
+    function parsePrice(text) {
+      const m = (text || '').toString().match(/\$(\d+[.,]?\d*)/);
+      if (!m) return 0;
+      return parseFloat(m[1].replace(/\./g,'').replace(',', '.')) || 0;
+    }
+
+    // Recalcular precio con configuración
+    function recalc(id) {
+      try {
+        if (typeof productConfigModerno === 'undefined') return;
+        const all = [
+          ...productConfigModerno.amorYAmistad,
+          ...productConfigModerno.babyShower,
+          ...productConfigModerno.primeraComunion,
+          ...productConfigModerno.navidad
+        ];
+        const p = all.find(x => x.id === id);
+        if (!p) return;
+        const opt = (document.getElementById('opt-' + id) || {}).value || (p.options?.[0]?.value);
+        
+        // Usar precios específicos de Navidad si están disponibles
+        let price = p.defaultPrice;
+        if (navidadPrices[id]) {
+          const option = navidadPrices[id].find(o => o.value === opt);
+          price = option ? option.price : navidadPrices[id][0]?.price;
+        } else if (typeof getPriceByOption === 'function' && p.options?.length) {
+          price = getPriceByOption(p, opt);
+        }
+        
+        const el = document.getElementById('price-' + id);
+        if (el) {
+          if (price && price !== null) {
+            el.textContent = '$' + price.toLocaleString('es-CO');
+          } else {
+            el.textContent = 'Consultar precio';
+          }
+        }
+      } catch (e) {}
+    }
+
+    function addToCartWithOption(name, productId) {
+      const select = document.querySelector('select[onchange*="' + productId + '"]');
+      const priceEl = document.getElementById(productId + '-price');
+      const optionText = select ? select.options[select.selectedIndex].textContent : '';
+      const priceText = 'Consultar precio';
+
+      const existing = cart.find(i => i.name === name && i.option === optionText);
+      if (existing) existing.quantity += 1; else cart.push({ id: Date.now(), name, option: optionText, price: priceText, quantity: 1 });
+            updateCartCounter();
+            updateCartDisplay();
+      toast(name + ' agregado al carrito');
+        }
+
+    function addToCart(name) {
+      const existing = cart.find(i => i.name === name && !i.option);
+      if (existing) existing.quantity += 1; else cart.push({ id: Date.now(), name, option: '', price: 'Consultar precio', quantity: 1 });
+            updateCartCounter();
+            updateCartDisplay();
+      toast(name + ' agregado al carrito');
+    }
+
+    function addConfigToCart(id) {
+      try {
+        console.log('Intentando agregar producto:', id);
+        
+        if (typeof productConfigModerno === 'undefined') {
+          console.error('productConfigModerno no está definido');
+          toast('Error: Configuración de productos no cargada');
+          return;
+        }
+        
+        const all = [
+          ...productConfigModerno.amorYAmistad,
+          ...productConfigModerno.babyShower,
+          ...productConfigModerno.primeraComunion,
+          ...productConfigModerno.navidad
+        ];
+        
+        console.log('Productos disponibles:', all.length);
+        
+        const p = all.find(x => x.id === id);
+        if (!p) {
+          console.error('Producto no encontrado:', id);
+          toast('Error: Producto no encontrado');
+          return;
+        }
+        
+        console.log('Producto encontrado:', p.name);
+        
+        const opt = (document.getElementById('opt-' + id) || {}).value || '';
+        console.log('Opción seleccionada:', opt);
+        
+        // Obtener el precio y la etiqueta de la opción
+        let priceText = 'Consultar precio';
+        let optionText = '';
+        
+        if (navidadPrices && navidadPrices[id]) {
+          const option = navidadPrices[id].find(o => o.value === opt);
+          if (option) {
+            priceText = '$' + option.price.toLocaleString('es-CO');
+            optionText = option.label;
+          }
+        } else {
+          const priceEl = document.getElementById('price-' + id);
+          priceText = priceEl ? priceEl.textContent : 'Consultar precio';
+          const optLabel = (p.options||[]).find(o=>o.value===opt)?.label || '';
+          optionText = optLabel || 'Consultar precio';
+        }
+        
+        console.log('Precio:', priceText, 'Opción:', optionText);
+        
+        const existing = cart.find(i => i.name === p.name && i.option === optionText);
+        if (existing) {
+          existing.quantity += 1;
+          console.log('Cantidad actualizada:', existing.quantity);
+        } else {
+          const newItem = { id: Date.now(), name: p.name, option: optionText, price: priceText, quantity: 1 };
+          cart.push(newItem);
+          console.log('Nuevo item agregado:', newItem);
+        }
+        
+        updateCartCounter();
+        updateCartDisplay();
+        toast(p.name + ' agregado al carrito');
+        
+      } catch (error) {
+        console.error('Error en addConfigToCart:', error);
+        toast('Error al agregar al carrito');
+      }
+    }
+
+    function removeFromCart(id) { cart = cart.filter(i => i.id !== id); updateCartCounter(); updateCartDisplay(); }
+    function clearCart() { cart = []; updateCartCounter(); updateCartDisplay(); }
+
+        function updateCartCounter() {
+      const total = cart.reduce((s, i) => s + (i.quantity || 0), 0);
+      const el = document.getElementById('cart-count');
+      if (el) el.textContent = total;
+        }
+
+        function updateCartDisplay() {
+      const itemsEl = document.getElementById('cart-items');
+      const totalBox = document.getElementById('cart-total');
+      const actions = document.getElementById('cart-actions');
+      const empty = document.getElementById('empty-cart');
+      if (!itemsEl) return;
+            
+            if (cart.length === 0) {
+        itemsEl.innerHTML = '';
+        totalBox.style.display = 'none';
+        actions.style.display = 'none';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      totalBox.style.display = 'block';
+      actions.style.display = 'grid';
+
+      itemsEl.innerHTML = cart.map(i => `
+                    <div class="cart-item">
+          <div>
+            <div class="item-name">${i.name}</div>
+            ${i.option ? `<div class="item-option">${i.option}</div>` : ''}
+                        </div>
+          <div class="item-price">${i.price}</div>
+          <button class="remove-item" onclick="removeFromCart(${i.id})"><i class="fas fa-trash"></i></button>
+                    </div>
+                `).join('');
+                
+      let total = 0;
+      document.getElementById('total-amount').textContent = 'Consultar precio';
+    }
+
+    function showCart() { updateCartDisplay(); document.getElementById('cart-overlay').style.display = 'flex'; }
+    function closeCart() { document.getElementById('cart-overlay').style.display = 'none'; }
+
+        function sendToWhatsApp() {
+      if (!cart.length) { alert('Tu carrito está vacío'); return; }
+            let total = 0;
+      let message = '🛒 *PEDIDO DE ELENA VELAS Y AROMAS*\n\n';
+      cart.forEach((i, idx) => {
+        message += `${idx + 1}. *${i.name}*\n`;
+        if (i.option) message += `   ${i.option}\n`;
+        if (i.price && i.price !== 'Consultar precio') { message += `   ${i.price}\n`; total += parsePrice(i.price) * (i.quantity || 1); }
+        message += '\n';
+      });
+      if (total) message += `💰 *TOTAL: $${total.toLocaleString('es-CO')}*\n\n`;
+      message += '📞 Por favor confirma mi pedido y coordina la entrega.\n¡Gracias! 🙏';
+      const url = `https://wa.me/573008220389?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    function toast(text) {
+      const n = document.createElement('div');
+      n.style.cssText = 'position:fixed;top:80px;right:16px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px 14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:10001;font-weight:700;';
+      n.textContent = text;
+      document.body.appendChild(n);
+      setTimeout(() => { n.style.opacity = '0'; n.style.transition = 'opacity .25s'; setTimeout(() => n.remove(), 250); }, 1600);
+    }
+
+    // Menú móvil
+        function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+      const btn = document.querySelector('.mobile-menu-btn');
+      menu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!expanded).toString());
+      btn.setAttribute('aria-label', expanded ? 'Abrir menú' : 'Cerrar menú');
+    }
+        function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+      const btn = document.querySelector('.mobile-menu-btn');
+      menu.classList.remove('active');
+            overlay.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+    }
+
+    // Smooth scroll accesible
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    function openWhatsApp() {
+      const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre sus velas aromáticas. ¿Podrían ayudarme?');
+      window.open(`https://api.whatsapp.com/send/?phone=573008220389&text=${message}`, '_blank');
+    }
+    </script>
+    <!-- Cache-busting: Carrito arreglado con logs de depuración - 2024-12-19 -->
+  </body>
+</html>

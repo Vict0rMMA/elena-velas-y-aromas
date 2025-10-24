@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena Velas y Aromas - Detector de Dispositivo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .detector-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        h1 {
+            color: #D4AF37;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333;
+            border-top: 2px solid #D4AF37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .device-info {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .manual-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-desktop {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #1a1a1a;
+        }
+        
+        .btn-mobile {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        
+        .status.detecting {
+            background: rgba(255, 193, 7, 0.2);
+            color: #FFC107;
+        }
+        
+        .status.redirecting {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="detector-container">
+        <div class="logo">🕯️</div>
+        <h1>Elena Velas y Aromas</h1>
+        
+        <div class="loading">
+            <div class="spinner"></div>
+            <span>Detectando tu dispositivo...</span>
+        </div>
+        
+        <div class="device-info" id="deviceInfo">
+            <strong>Información del dispositivo:</strong><br>
+            <span id="deviceDetails">Analizando...</span>
+        </div>
+        
+        <div class="status detecting" id="status">
+            Detectando el mejor formato para tu dispositivo...
+        </div>
+        
+        <div class="manual-links">
+            <a href="index.html" class="btn btn-desktop">
+                🖥️ Versión Escritorio
+            </a>
+            <a href="mobile.html" class="btn btn-mobile">
+                📱 Versión Móvil
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Función para detectar si es dispositivo móvil
+        function isMobileDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Detectar dispositivos móviles
+            const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+            const isMobile = mobileRegex.test(userAgent);
+            
+            // Detectar por tamaño de pantalla
+            const isSmallScreen = window.innerWidth <= 768;
+            
+            // Detectar por touch
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            return isMobile || (isSmallScreen && isTouchDevice);
+        }
+        
+        // Función para obtener información del dispositivo
+        function getDeviceInfo() {
+            const userAgent = navigator.userAgent;
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const isMobile = isMobileDevice();
+            
+            let deviceType = isMobile ? 'Móvil' : 'Escritorio';
+            let recommendedVersion = isMobile ? 'mobile.html' : 'index.html';
+            
+            return {
+                type: deviceType,
+                recommended: recommendedVersion,
+                screen: `${screenWidth}x${screenHeight}`,
+                userAgent: userAgent.substring(0, 50) + '...'
+            };
+        }
+        
+        // Función para redirigir automáticamente
+        function redirectToAppropriateVersion() {
+            const deviceInfo = getDeviceInfo();
+            
+            // Actualizar información en pantalla
+            document.getElementById('deviceDetails').innerHTML = `
+                Tipo: <strong>${deviceInfo.type}</strong><br>
+                Pantalla: <strong>${deviceInfo.screen}</strong><br>
+                Recomendado: <strong>${deviceInfo.recommended}</strong>
+            `;
+            
+            document.getElementById('status').innerHTML = `Redirigiendo a la versión ${deviceInfo.type.toLowerCase()}...`;
+            document.getElementById('status').className = 'status redirecting';
+            
+            // Redirigir después de 2 segundos
+            setTimeout(() => {
+                window.location.href = deviceInfo.recommended;
+            }, 2000);
+        }
+        
+        // Ejecutar detección cuando la página cargue
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pequeño delay para mostrar la animación
+            setTimeout(redirectToAppropriateVersion, 1500);
+        });
+        
+        // Función para redirección manual (si el usuario hace clic en los botones)
+        function manualRedirect(version) {
+            document.getElementById('status').innerHTML = `Redirigiendo a ${version}...`;
+            document.getElementById('status').className = 'status redirecting';
+            
+            setTimeout(() => {
+                window.location.href = version;
+            }, 1000);
+        }
+        
+        // Agregar event listeners a los botones manuales
+        document.querySelector('.btn-desktop').addEventListener('click', function(e) {
+            e.preventDefault();
+            manualRedirect('index.html');
+        });
+        
+        document.querySelector('.btn-mobile').addEventListener('click', function(e) {
+            e.preventDefault();
+            manualRedirect('mobile.html');
+        });
+    </script>
+</body>
+</html>
